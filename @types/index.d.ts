@@ -2,6 +2,29 @@ type SRCC_Base_Model = Readonly<{
 	_id: string;
 }>;
 
+type SRCC_BlogPost = SRCC_Base_Model &
+	Readonly<{
+		title: string;
+		description: string;
+		canonicalLink?: string;
+		categories: Array<SRCC_BlogCategory>;
+		author: SRCC_TeamMember;
+		publishedAt: Date;
+		image: { url: string; alt: string };
+		body?: TypedObject | TypedObject[];
+		featured: boolean;
+		slug: string;
+	}>;
+
+type SRCC_BlogCategory = SRCC_Base_Model &
+	Readonly<{
+		title: string;
+		description: string;
+		slug: string;
+	}>;
+
+type SRCC_TeamMember = SRCC_Base_Model & Readonly<{}>;
+
 type SRCC_Testimonial = SRCC_Base_Model &
 	Readonly<{
 		name: string;
