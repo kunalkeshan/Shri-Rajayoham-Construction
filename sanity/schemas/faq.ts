@@ -19,7 +19,7 @@ export default defineType({
 			title: 'Answer',
 			type: 'text',
 			description:
-				'The detailed answer to the frequently asked question.',
+				'The detailed answer to the frequently asked question. (Note: Text entered in a new line will be considered as a space)',
 			placeholder:
 				'Our construction company specializes in a wide range of projects, including residential, commercial, and industrial construction. From new builds to renovations, we have the expertise to handle diverse construction needs.',
 			validation: (Rule) => Rule.required().min(8).max(1000),

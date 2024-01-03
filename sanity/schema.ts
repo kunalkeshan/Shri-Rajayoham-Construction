@@ -8,5 +8,5 @@ import testimonial from './schemas/testimonial';
 import faq from './schemas/faq';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-	types: [post, teamMember, category, blockContent, testimonial, faq],
+	types: [post, category, teamMember, testimonial, faq, blockContent],
 };
