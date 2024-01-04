@@ -22,6 +22,8 @@ export default defineType({
 			options: {
 				hotspot: true,
 			},
+			description:
+				'Upload an image of the team member. (Recommended 1:1 ratio for image)',
 			validation: (Rule) => Rule.required(),
 			fields: [
 				{

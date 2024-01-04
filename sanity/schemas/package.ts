@@ -22,7 +22,8 @@ export default defineType({
 			options: {
 				hotspot: true,
 			},
-			description: 'Upload or select the cover image for the package.',
+			description:
+				'Upload or select the cover image for the package. (Recommended 1:1 ratio for image)',
 			validation: (Rule) => Rule.required(),
 			fields: [
 				{

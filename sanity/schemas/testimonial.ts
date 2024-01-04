@@ -41,7 +41,7 @@ export default defineType({
 			title: 'Image',
 			type: 'image',
 			description:
-				'Upload an image of the person associated with the testimonial.',
+				'Upload an image of the person associated with the testimonial. (Recommended 1:1 ratio for image)',
 			validation: (Rule) => Rule.required(),
 			options: {
 				hotspot: true,
