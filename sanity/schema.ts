@@ -10,6 +10,7 @@ import workRole from './schemas/workRole';
 import workPosition from './schemas/workPosition';
 import service from './schemas/service';
 import workPackage from './schemas/package';
+import project from './schemas/project';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
 	types: [
@@ -18,6 +19,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		teamMember,
 		workPosition,
 		workRole,
+		project,
 		workPackage,
 		service,
 		testimonial,

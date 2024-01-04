@@ -80,6 +80,26 @@ type SRCC_Package = SRCC_Base_Model &
 		services?: Array<SRCC_Service>;
 	}>;
 
+type SRCC_Project = SRCC_Base_Model &
+	Readonly<{
+		title: string;
+		description: string;
+		body: TypedObject | TypedObject[];
+		coverImage: { url: string; alt: string };
+		slug: string;
+		duration?: number;
+		budget?: number;
+		status: 'planned' | 'in-progress' | 'completed' | '3d-design';
+		services?: Array<SRCC_Service>;
+		packages?: Array<SRCC_Package>;
+		testimonials?: Array<SRCC_Testimonial>;
+		teamMembers?: Array<SRCC_TeamMember>;
+		imageGallery?: Array<{
+			caption: string;
+			image: { url: string; alt: string };
+		}>;
+	}>;
+
 type SRCC_Testimonial = SRCC_Base_Model &
 	Readonly<{
 		name: string;
