@@ -69,6 +69,17 @@ type SRCC_Service = SRCC_Base_Model &
 		};
 	}>;
 
+type SRCC_Package = SRCC_Base_Model &
+	Readonly<{
+		name: string;
+		description: string;
+		features: TypedObject | TypedObject[];
+		image: { url: string; alt: string };
+		slug: string;
+		price: number;
+		services?: Array<SRCC_Service>;
+	}>;
+
 type SRCC_Testimonial = SRCC_Base_Model &
 	Readonly<{
 		name: string;

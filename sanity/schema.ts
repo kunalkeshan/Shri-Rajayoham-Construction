@@ -9,6 +9,7 @@ import faq from './schemas/faq';
 import workRole from './schemas/workRole';
 import workPosition from './schemas/workPosition';
 import service from './schemas/service';
+import workPackage from './schemas/package';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
 	types: [
@@ -17,6 +18,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		teamMember,
 		workPosition,
 		workRole,
+		workPackage,
 		service,
 		testimonial,
 		faq,
