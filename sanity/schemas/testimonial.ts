@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity';
+import { QuoteIcon } from 'lucide-react';
 
 export default defineType({
 	name: 'testimonial',
 	title: 'Testimonials',
 	type: 'document',
+	icon: QuoteIcon,
 	fields: [
 		defineField({
 			name: 'name',

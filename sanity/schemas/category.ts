@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity';
+import { ListIcon } from 'lucide-react';
 
 export default defineType({
 	name: 'category',
 	title: 'Blog Categories',
 	type: 'document',
+	icon: ListIcon,
 	fields: [
 		defineField({
 			name: 'title',

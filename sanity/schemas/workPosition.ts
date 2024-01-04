@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity';
+import { NetworkIcon } from 'lucide-react';
 
 export default defineType({
 	name: 'workPosition',
 	title: 'Work Positions',
 	type: 'document',
+	icon: NetworkIcon,
 	fields: [
 		defineField({
 			name: 'name',

@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity';
+import { HelpCircleIcon } from 'lucide-react';
 
 export default defineType({
 	name: 'faq',
 	title: 'Frequently Asked Questions',
 	type: 'document',
+	icon: HelpCircleIcon,
 	fields: [
 		defineField({
 			name: 'question',

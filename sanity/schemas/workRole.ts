@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity';
+import { BriefcaseIcon } from 'lucide-react';
 
 export default defineType({
 	name: 'workRole',
 	title: 'Work Roles',
 	type: 'document',
+	icon: BriefcaseIcon,
 	fields: [
 		defineField({
 			name: 'name',

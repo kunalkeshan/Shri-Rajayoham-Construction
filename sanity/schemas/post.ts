@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity';
+import { NewspaperIcon } from 'lucide-react';
 
 export default defineType({
 	name: 'post',
 	title: 'Blog Posts',
 	type: 'document',
+	icon: NewspaperIcon,
 	fields: [
 		defineField({
 			name: 'title',
@@ -97,6 +99,9 @@ export default defineType({
 				'Featured posts will be shown at the top and in the landing page.',
 			type: 'boolean',
 			initialValue: false,
+			options: {
+				layout: 'checkbox',
+			},
 		}),
 		defineField({
 			name: 'body',

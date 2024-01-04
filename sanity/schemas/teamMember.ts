@@ -1,9 +1,11 @@
 import { defineField, defineType } from 'sanity';
+import { CircleUserRoundIcon } from 'lucide-react';
 
 export default defineType({
 	name: 'teamMember',
 	title: 'Team Members',
 	type: 'document',
+	icon: CircleUserRoundIcon,
 	fields: [
 		defineField({
 			name: 'name',
