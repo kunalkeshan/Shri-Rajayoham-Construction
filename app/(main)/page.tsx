@@ -6,6 +6,9 @@ const HomePage = async () => {
 	const faqs = await sanityFetch<Array<SRCC_FAQ>>({
 		query: queries.faq.getAllByAscOrder,
 	});
+	const testimonials = await sanityFetch<Array<SRCC_Testimonial>>({
+		query: queries.testimonial.getAll,
+	});
 	return <div>HomePage</div>;
 };
 
