@@ -1,10 +1,8 @@
 // Dependencies
-import TESTIMONAIL from './queries/testimonial';
+import TESTIMONIAL from './queries/testimonial';
+import FAQ from './queries/faq';
 
-const queriesContainer = {
-	TESTIMONAIL,
-};
-
-export const getQuery = (queryFor: keyof typeof queriesContainer) => {
-	return queriesContainer[queryFor];
+export const queries = {
+	testimonial: TESTIMONIAL,
+	faq: FAQ,
 };

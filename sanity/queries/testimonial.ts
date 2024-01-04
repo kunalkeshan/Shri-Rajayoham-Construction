@@ -1,8 +1,8 @@
 // Dependencies
 import { groq } from 'next-sanity';
 
-const TESTIMONAIL = {
+const TESTIMONIAL = {
 	getAll: groq``,
 };
 
-export default TESTIMONAIL;
+export default TESTIMONIAL;
