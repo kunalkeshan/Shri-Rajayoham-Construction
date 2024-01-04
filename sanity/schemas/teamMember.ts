@@ -79,8 +79,8 @@ export default defineType({
 			name: 'email',
 			title: 'Email',
 			type: 'string',
-			validation: (Rule) => Rule.required().email(),
-			description: "Enter the team member's email address (optional).",
+			validation: (Rule) => Rule.email(),
+			description: "Enter the team member's email address. (Optional)",
 			placeholder: 'john.doe@example.com',
 		}),
 		defineField({
