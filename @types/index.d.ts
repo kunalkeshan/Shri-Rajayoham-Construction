@@ -57,6 +57,18 @@ type SRCC_WorkRole = SRCC_Base_Model &
 		descripion?: string;
 	}>;
 
+type SRCC_Service = SRCC_Base_Model &
+	Readonly<{
+		name: string;
+		description: string;
+		icon: {
+			_type: string;
+			name: string;
+			provider: string;
+			svg: string;
+		};
+	}>;
+
 type SRCC_Testimonial = SRCC_Base_Model &
 	Readonly<{
 		name: string;

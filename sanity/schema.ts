@@ -8,6 +8,7 @@ import testimonial from './schemas/testimonial';
 import faq from './schemas/faq';
 import workRole from './schemas/workRole';
 import workPosition from './schemas/workPosition';
+import service from './schemas/service';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
 	types: [
@@ -16,6 +17,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		teamMember,
 		workPosition,
 		workRole,
+		service,
 		testimonial,
 		faq,
 		blockContent,
