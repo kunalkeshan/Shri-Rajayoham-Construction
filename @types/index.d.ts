@@ -25,6 +25,19 @@ type SRCC_BlogCategory = SRCC_Base_Model &
 
 type SRCC_TeamMember = SRCC_Base_Model & Readonly<{}>;
 
+type SRCC_WorkPosition = SRCC_Base_Model &
+	Readonly<{
+		name: string;
+		description?: string;
+		order: number;
+	}>;
+
+type SRCC_WorkRole = SRCC_Base_Model &
+	Readonly<{
+		name: string;
+		descripion?: string;
+	}>;
+
 type SRCC_Testimonial = SRCC_Base_Model &
 	Readonly<{
 		name: string;

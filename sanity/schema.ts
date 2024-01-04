@@ -6,7 +6,18 @@ import post from './schemas/post';
 import teamMember from './schemas/teamMember';
 import testimonial from './schemas/testimonial';
 import faq from './schemas/faq';
+import workRole from './schemas/workRole';
+import workPosition from './schemas/workPosition';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-	types: [post, category, teamMember, testimonial, faq, blockContent],
+	types: [
+		post,
+		category,
+		teamMember,
+		workPosition,
+		workRole,
+		testimonial,
+		faq,
+		blockContent,
+	],
 };
