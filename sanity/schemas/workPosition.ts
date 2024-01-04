@@ -20,7 +20,8 @@ export default defineType({
 			name: 'description',
 			title: 'Description',
 			type: 'text',
-			description: 'Provide a brief description of the position.',
+			description:
+				'Provide a brief description of the position. (Note: Text entered in a new line will be considered as a space)',
 			validation: (Rule) => Rule.max(500),
 			placeholder: 'Responsible for leadership and strategic planning.',
 		}),

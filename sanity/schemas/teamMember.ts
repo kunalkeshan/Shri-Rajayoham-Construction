@@ -1,16 +1,38 @@
 import { defineField, defineType } from 'sanity';
-import { CircleUserRoundIcon } from 'lucide-react';
+import { UserCircleIcon } from 'lucide-react';
 
 export default defineType({
 	name: 'teamMember',
 	title: 'Team Members',
 	type: 'document',
-	icon: CircleUserRoundIcon,
+	icon: UserCircleIcon,
 	fields: [
 		defineField({
 			name: 'name',
 			title: 'Name',
 			type: 'string',
+			description: 'Enter the name of the team member.',
+			validation: (Rule) => Rule.required().min(2).max(100),
+			placeholder: 'John Doe',
+		}),
+		defineField({
+			name: 'image',
+			title: 'Profile Image',
+			type: 'image',
+			options: {
+				hotspot: true,
+			},
+			validation: (Rule) => Rule.required(),
+			fields: [
+				{
+					name: 'alt',
+					type: 'string',
+					title: 'Image Alt',
+					description:
+						'A descriptive alt text for the profile image.',
+					validation: (Rule) => Rule.required(),
+				},
+			],
 		}),
 		defineField({
 			name: 'slug',
@@ -20,34 +42,80 @@ export default defineType({
 				source: 'name',
 				maxLength: 96,
 			},
+			validation: (Rule) => Rule.required(),
+			description: 'Auto-generated from the name, must be unique.',
 		}),
 		defineField({
-			name: 'image',
-			title: 'Image',
-			type: 'image',
-			options: {
-				hotspot: true,
-			},
-			fields: [
-				{
-					name: 'alt',
-					type: 'string',
-					title: 'Alternative Text',
-				},
-			],
+			name: 'position',
+			title: 'Position',
+			type: 'reference',
+			to: { type: 'workPosition' },
+			description: 'Select the position of the team member.',
+			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			name: 'role',
+			title: 'Role',
+			type: 'reference',
+			to: { type: 'workRole' },
+			description: 'Select the role of the team member.',
+		}),
+		defineField({
+			name: 'about',
+			title: 'About',
+			type: 'text',
+			validation: (Rule) => Rule.max(500),
+			description:
+				'Provide a brief description (max 500 characters) about the team member. (Note: Text entered in a new line will be considered as a space)',
 		}),
 		defineField({
 			name: 'bio',
 			title: 'Bio',
+			type: 'blockContent',
+			description:
+				"Enter a detailed body of text as the team member's bio.",
+		}),
+		defineField({
+			name: 'email',
+			title: 'Email',
+			type: 'string',
+			validation: (Rule) => Rule.required().email(),
+			description: "Enter the team member's email address (optional).",
+			placeholder: 'john.doe@example.com',
+		}),
+		defineField({
+			name: 'socialLinks',
+			title: 'Social Links',
 			type: 'array',
 			of: [
 				{
-					title: 'Block',
-					type: 'block',
-					styles: [{ title: 'Normal', value: 'normal' }],
-					lists: [],
+					type: 'object',
+					fields: [
+						{
+							name: 'platform',
+							title: 'Platform',
+							type: 'string',
+							validation: (Rule) => Rule.required(),
+							options: {
+								list: [
+									'linkedin',
+									'twitter',
+									'instagram',
+									'github',
+									'website',
+								],
+							},
+						},
+						{
+							name: 'url',
+							title: 'URL',
+							type: 'url',
+							validation: (Rule) => Rule.required(),
+						},
+					],
 				},
 			],
+			description: 'Add social links for the team member.',
 		}),
 	],
 	preview: {

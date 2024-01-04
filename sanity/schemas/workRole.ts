@@ -19,7 +19,8 @@ export default defineType({
 			name: 'description',
 			title: 'Description',
 			type: 'text',
-			description: 'Provide a brief description of the role.',
+			description:
+				'Provide a brief description of the role. (Note: Text entered in a new line will be considered as a space)',
 			validation: (Rule) => Rule.max(500),
 			placeholder:
 				'Responsible for designing and planning construction projects.',

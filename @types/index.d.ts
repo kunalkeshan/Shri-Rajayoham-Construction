@@ -23,7 +23,26 @@ type SRCC_BlogCategory = SRCC_Base_Model &
 		slug: string;
 	}>;
 
-type SRCC_TeamMember = SRCC_Base_Model & Readonly<{}>;
+type SRCC_TeamMember = SRCC_Base_Model &
+	Readonly<{
+		name: string;
+		image: { url: string; alt: string };
+		slug: string;
+		position: SRCC_WorkPosition;
+		role?: SRCC_WorkRole;
+		about?: string;
+		bio?: TypedObject | TypedObject[];
+		email: string;
+		socialLinks?: Array<{
+			platform:
+				| 'linkedin'
+				| 'twitter'
+				| 'instagram'
+				| 'github'
+				| 'website';
+			url: string;
+		}>;
+	}>;
 
 type SRCC_WorkPosition = SRCC_Base_Model &
 	Readonly<{
