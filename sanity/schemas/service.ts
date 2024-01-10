@@ -23,7 +23,6 @@ export default defineType({
 			options: {
 				storeSvg: true,
 			},
-			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: 'description',
