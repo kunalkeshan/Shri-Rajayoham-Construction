@@ -1,6 +1,6 @@
 'use client';
-import HeroCarousel from '@/components/landing/HeroCarousel';
-import WhatWeDo from '@/components/landing/WhatWeDo';
+import HeroCarousel from '@/components/home/HeroCarousel';
+import WhatWeDo from '@/components/home/WhatWeDo';
 import EnquiryStrip from '@/components/reusable/EnquiryStrip';
 import React from 'react';
 
