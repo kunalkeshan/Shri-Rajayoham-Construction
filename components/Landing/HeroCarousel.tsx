@@ -61,6 +61,11 @@ const HeroCarousel = () => {
 		},
 	];
 
+	const handleSlideChange = (index: number) => {
+		if (!api) return;
+		api.scrollTo(index);
+	};
+
 	return (
 		<div className='w-full h-full'>
 			<Carousel
@@ -71,6 +76,9 @@ const HeroCarousel = () => {
 				]}
 				setApi={setApi}
 				className='relative'
+				opts={{
+					loop: true,
+				}}
 			>
 				<CarouselContent className=''>
 					{data.map((item, index) => (
@@ -99,17 +107,17 @@ const HeroCarousel = () => {
 				</CarouselContent>
 				<div className='py-2 text-center text-sm text-white absolute bottom-5 w-full flex items-center gap-4 justify-center'>
 					{data.map((_, index) => (
-						<span
+						<button
 							key={index}
 							className={`text-base ${
 								current === index + 1
 									? 'font-bold text-white'
 									: 'text-slate-300'
 							}`}
-							// onClick={() => handleSlideChange(index)}
+							onClick={() => handleSlideChange(index)}
 						>
 							{index + 1}
-						</span>
+						</button>
 					))}
 				</div>
 			</Carousel>
