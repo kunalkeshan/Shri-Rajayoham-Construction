@@ -54,7 +54,7 @@ const WhatWeDo = () => {
 	];
 	return (
 		<main className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
-			<h1 className='text-3xl text-center'>We got you covered</h1>
+			<h1 className='text-2xl md:text-3xl lg:text-4xl text-center'>We got you covered</h1>
 			<div className='flex flex-wrap items-center justify-center gap-8 md:gap-16 mt-12'>
 				{data.map(({ title, subtitle, Icon }, idx) => (
 					<div
