@@ -2,7 +2,7 @@ import React from 'react';
 import HeroCarousel from '@/components/home/HeroCarousel';
 import Locations from '@/components/home/Locations';
 import WhatWeDo from '@/components/home/WhatWeDo';
-import WhyUs from '@/components/home/WhyUs';
+import WhyUs from '@/components/home/WhySRCC';
 import EnquiryStrip from '@/components/reusable/EnquiryStrip';
 import InstaCard from '@/components/reusable/InstaCard';
 import Testimonials from '@/components/home/Testimonials';
