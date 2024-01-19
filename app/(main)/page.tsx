@@ -2,7 +2,9 @@
 import HeroCarousel from '@/components/home/HeroCarousel';
 import Locations from '@/components/home/Locations';
 import WhatWeDo from '@/components/home/WhatWeDo';
+import Whyus from '@/components/home/Whyus';
 import EnquiryStrip from '@/components/reusable/EnquiryStrip';
+import InstaCard from '@/components/reusable/InstaCard';
 import React from 'react';
 
 const HomePage = () => {
@@ -12,6 +14,8 @@ const HomePage = () => {
 			<Locations/>
 			<WhatWeDo />
 			<EnquiryStrip />
+			<Whyus />
+			<InstaCard/>
 		</main>
 	);
 };

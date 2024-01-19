@@ -16,7 +16,7 @@ const Navbar = () => {
 						src='/assets/logo.jpg'
 						width={100}
 						height={100}
-						className='w-20 rounded-full'
+						className='w-16 rounded-full'
 						alt='logo'
 					/>
 				</div>
@@ -28,7 +28,7 @@ const Navbar = () => {
 							key={`main-nav-${item.url}`}
 						>
 							<Link
-								className='bg-left-bottom bg-gradient-to-r p-2 from-[#ff6969] to-[#ff6969] bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out'
+								className='bg-left-bottom font-medium bg-gradient-to-r p-2 from-app to-app bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out'
 								href={item.url}
 								target={item.target}
 							>

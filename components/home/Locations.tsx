@@ -18,9 +18,9 @@ const Locations = () => {
         },
     ]
   return (
-    <main className='bg-[#f7f8fb] w-full'>
-        <div className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
-            <h1 className='text-2xl md:text-3xl lg:text-4xl text-center'>Locations</h1>
+    <main className='bg-[#f7f8fb w-full'>
+        <div className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto pt-8 md:pt-16 lg:pt-32'>
+            <h1 className='text-2xl md:text-3xl lg:text-4xl text-center font-light'>Our <span className='font-medium'>locations</span></h1>
             <div className='grid grid-cols-1 md:grid-cols-3 place-items-center gap-8 md:gap-16 mt-12'>
                 {
                     data.map((item, idx) => (
