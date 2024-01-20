@@ -1,5 +1,4 @@
 'use client';
-
 import * as React from 'react';
 import {
 	Carousel,
@@ -69,62 +68,62 @@ const HeroCarousel = () => {
 	};
 
 	return (
-		<div className='w-full h-full'>
-			<Carousel
-				plugins={[
-					Autoplay({
-						delay: 6000,
-					}),
-				]}
-				setApi={setApi}
-				className='relative'
-				opts={{
-					loop: true,
-				}}
-			>
-				<CarouselContent className=''>
-					{data.map((item, index) => (
-						<CarouselItem key={index} className=''>
-							<div className=''>
-								<div
-									style={{
-										backgroundImage: `url(${item.image})`,
-									}}
-									className={`flex w-full h-[calc(100vh-8.5rem)] bg-cover aspect-video bg-center bg-no-repeat items-center justify-center`}
-								>
-									<div className='bg-gradient-to-b text-white text-center from-black/60 to-black/60 w-full h-full p-8  flex flex-col gap-4 justify-center items-center rounded-md'>
-										<div className='max-w-2xl'>
-											<h4 className='text-lg md:text-2xl'>
-												{item.title}
-											</h4>
-											<h3 className='text-4xl md:text-6xl font-semibold'>
-												{item.subtitle}
-											</h3>
-										</div>
-									</div>
-								</div>
-							</div>
-						</CarouselItem>
-					))}
-				</CarouselContent>
-				<div className='py-2 text-center text-sm text-white absolute bottom-5 w-full flex items-center gap-4 justify-center'>
-					{data.map((_, index) => (
-						<button
-							key={index}
-							className={`text-base ${
-								current === index + 1
-									? 'font-bold text-white'
-									: 'text-slate-300'
-							}`}
-							onClick={() => handleSlideChange(index)}
-						>
-							{index + 1}
-						</button>
-					))}
-				</div>
-			</Carousel>
-		</div>
-	);
+        <div className="w-full h-full overflow-x-hidden">
+            <Carousel
+                plugins={[
+                    Autoplay({
+                        delay: 6000,
+                    }),
+                ]}
+                setApi={setApi}
+                className="relative"
+                opts={{
+                    loop: true,
+                }}
+            >
+                <CarouselContent className="">
+                    {data.map((item, index) => (
+                        <CarouselItem key={index} className="">
+                            <div className="">
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${item.image})`,
+                                    }}
+                                    className={`flex w-full h-[calc(100vh-8.5rem)] bg-cover aspect-video bg-center bg-no-repeat items-center justify-center`}
+                                >
+                                    <div className="bg-gradient-to-b text-white text-center from-black/60 to-black/60 w-full h-full p-8  flex flex-col gap-4 justify-center items-center rounded-md">
+                                        <div className="max-w-2xl">
+                                            <h4 className="text-lg md:text-2xl">
+                                                {item.title}
+                                            </h4>
+                                            <h3 className="text-4xl md:text-6xl font-semibold">
+                                                {item.subtitle}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <div className="py-2 text-center text-sm text-white absolute bottom-5 w-full flex items-center gap-4 justify-center">
+                    {data.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`text-base ${
+                                current === index + 1
+                                    ? "font-bold text-white"
+                                    : "text-slate-300"
+                            }`}
+                            onClick={() => handleSlideChange(index)}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
+            </Carousel>
+        </div>
+    );
 };
 
 export default HeroCarousel;

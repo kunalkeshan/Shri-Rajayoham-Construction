@@ -8,6 +8,7 @@ import InstaCard from '@/components/reusable/InstaCard';
 import Testimonials from '@/components/home/Testimonials';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
+import Projects from '@/components/home/Projects';
 
 const HomePage = async () => {
 	const testimonials = await sanityFetch<Array<SRCC_Testimonial>>({
@@ -20,6 +21,7 @@ const HomePage = async () => {
 			<WhatWeDo />
 			<EnquiryStrip />
 			<WhyUs />
+			<Projects/>
 			<InstaCard />
 			<Testimonials testimonials={testimonials} />
 		</main>

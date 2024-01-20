@@ -1,3 +1,4 @@
+import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/layouts/Navbar";
 import type { Metadata } from "next";
 
@@ -13,9 +14,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <>
+        <TooltipProvider>
             <Navbar />
             {children}
-        </>
+        </TooltipProvider>
     );
 }

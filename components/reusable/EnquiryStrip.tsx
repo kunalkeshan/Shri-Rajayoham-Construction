@@ -16,7 +16,7 @@ const EnquiryStrip = () => {
                     />
                 </div>
                 <div className="w-full flex flex-col gap-4 lg:gap-8 lg:w-1/2">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl leading-tight font-light">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl leading-tight font-normal">
                         How much does it cost to make{" "}
                         <span className="font-medium">your project</span> a
                         reality ?
