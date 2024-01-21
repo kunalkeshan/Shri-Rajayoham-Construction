@@ -29,7 +29,6 @@ const SheetNav = () => {
 							alt='logo'
 						/>
 					</SheetTitle>
-					<SheetDescription>
 						<div className='flex flex-col'>
 							{NAVBAR_NAVIGATION.map((item) => (
 								<Button
@@ -43,7 +42,6 @@ const SheetNav = () => {
 								</Button>
 							))}
 						</div>
-					</SheetDescription>
 				</SheetHeader>
 			</SheetContent>
 		</Sheet>
