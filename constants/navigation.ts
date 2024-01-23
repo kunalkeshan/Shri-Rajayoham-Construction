@@ -54,15 +54,5 @@ export const FOOTER_NAVIGATION: NavdataCollection = [
 		name: 'Careers',
 		url: '/contact#careers',
 		target: '_self',
-	},
-	{
-		name: 'Terms & Conditions',
-		url: '/terms',
-		target: '_self',
-	},
-	{
-		name: 'Privacy Policy',
-		url: '/privacy',
-		target: '_self',
-	},
+	}
 ];

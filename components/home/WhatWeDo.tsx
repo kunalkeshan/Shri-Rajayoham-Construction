@@ -54,7 +54,7 @@ const WhatWeDo = () => {
 	];
 	return (
 		<main className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
-			<h2 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal'>
+			<h2 className='text-2xl md:text-3xl lg:text-4xl text-center text-app font-normal'>
 				We got you <span className='font-medium'>covered</span>
 			</h2>
 			<div className='flex flex-wrap items-center justify-center gap-8 md:gap-16 mt-12'>
@@ -65,7 +65,7 @@ const WhatWeDo = () => {
 					>
 						<Icon strokeWidth={1} className='w-16 h-16' />
 						<div className='text-center mt-4'>
-							<h3 className='text-app-secondary text-2xl'>
+							<h3 className='text-app text-2xl'>
 								{title}
 							</h3>
 							<p className='text-slate-500 text-base font-normal'>

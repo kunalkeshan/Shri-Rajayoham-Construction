@@ -14,7 +14,7 @@ const FAQs: React.FC<FAQsProps> = ({ faqs }) => {
 	return (
 		<section className='w-full max-w-7xl mx-auto p-4 md:px-16' id='faqs'>
 			<h2 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal'>
-				You have question,{' '}
+				You have questions,{' '}
 				<span className='font-medium'>we have answers</span>
 			</h2>
 			<Accordion
