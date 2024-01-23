@@ -16,7 +16,7 @@ const HomePage = async () => {
 		query: queries.testimonial.getAll,
 	});
 	return (
-		<main className='w-full h-[calc(100vh-8.5rem)] mt-[8.5rem]'>
+		<main className='w-full min-h-screen mt-[8.5rem]'>
 			<HeroCarousel />
 			<Locations />
 			<WhatWeDo />
