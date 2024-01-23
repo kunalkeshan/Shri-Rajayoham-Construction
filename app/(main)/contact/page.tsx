@@ -10,7 +10,7 @@ const ContactPage = async () => {
 		query: queries.faq.getAllByAscOrder,
 	});
 	return (
-		<main className='w-full min-h-screen pt-40'>
+		<main className="w-full min-h-screen mt-[8.5rem]">
 			<AllForms />
 			<Socials />
 			<FAQs faqs={faqs} />

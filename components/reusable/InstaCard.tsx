@@ -6,7 +6,7 @@ import Link from "next/link";
 const InstaCard = () => {
     return (
         <main className="w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32">
-            <section className="w-full border max-w-4xl mx-auto bg-app-bg rounded p-6 md:p-16  grid grid-cols-1 place-items-center md:grid-cols-3 gap-4">
+            <section className="w-full border max-w-4xl mx-auto rounded-lg p-6 md:p-16  grid grid-cols-1 place-items-center md:grid-cols-3 gap-4">
                 <div className="flex items-center gap-4">
                     <Image
                         src="/assets/logo.jpg"

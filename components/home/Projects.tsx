@@ -8,7 +8,7 @@ const Projects = () => {
                 <h1 className="text-2xl md:text-3xl lg:text-4xl text-center font-normal">
                     Our
                     <span className="font-medium"> Completed </span>
-                    Site pictures
+                    Projects (Actual pictures)
                 </h1>
                 <div>
                     <ul className="columns-2 lg:columns-3 md:gap-4 gap-2 [&>li:not(:first-child)]:mt-4 mt-16">

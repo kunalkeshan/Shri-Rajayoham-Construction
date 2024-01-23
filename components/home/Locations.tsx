@@ -35,7 +35,7 @@ const Locations = () => {
                                 height={100}
                                 className="w-40"
                             />
-                            <h1 className="text-xl font-medium">
+                            <h1 className="text-xl font-semibold">
                                 {item.title}
                             </h1>
                         </div>

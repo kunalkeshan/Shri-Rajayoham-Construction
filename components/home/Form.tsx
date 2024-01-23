@@ -8,7 +8,7 @@ const Form = () => {
 				<h2 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal'>
 					Still got <span className='font-medium'>questions?</span>
 				</h2>
-				<EnquiryForm className='mt-8 max-w-xl mx-auto shadow p-4 rounded-md bg-white' />
+				<EnquiryForm className='mt-8 max-w-xl mx-auto shadow p-4 md:p-6 lg:p-8 rounded-md bg-white' />
 			</div>
 		</section>
 	);

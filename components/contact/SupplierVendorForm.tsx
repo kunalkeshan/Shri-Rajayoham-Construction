@@ -46,20 +46,20 @@ const SupplierVendorForm: React.FC<SupplierVendorFormProps> = ({
 		console.log(values);
 	}
 	return (
-		<section className={cn('', className)} {...props}>
+		<section className={cn("", className)} {...props}>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className='grid grid-cols-2 gap-6'
+					className="grid grid-cols-1 lg:grid-cols-3 gap-4"
 				>
 					<FormField
 						control={form.control}
-						name='name'
+						name="name"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Business Name</FormLabel>
 								<FormControl>
-									<Input placeholder='John Doe' {...field} />
+									<Input placeholder="John Doe" {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -67,13 +67,13 @@ const SupplierVendorForm: React.FC<SupplierVendorFormProps> = ({
 					/>
 					<FormField
 						control={form.control}
-						name='email'
+						name="email"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Business Email</FormLabel>
 								<FormControl>
 									<Input
-										placeholder='doe@gmail.com'
+										placeholder="doe@gmail.com"
 										{...field}
 									/>
 								</FormControl>
@@ -83,13 +83,13 @@ const SupplierVendorForm: React.FC<SupplierVendorFormProps> = ({
 					/>
 					<FormField
 						control={form.control}
-						name='phoneNumber'
+						name="phoneNumber"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Business Phone Number</FormLabel>
 								<FormControl>
 									<Input
-										placeholder='9876543210'
+										placeholder="9876543210"
 										{...field}
 									/>
 								</FormControl>
@@ -99,13 +99,13 @@ const SupplierVendorForm: React.FC<SupplierVendorFormProps> = ({
 					/>
 					<FormField
 						control={form.control}
-						name='message'
+						name="message"
 						render={({ field }) => (
-							<FormItem>
+							<FormItem className="col-span-2">
 								<FormLabel>Supply Details</FormLabel>
 								<FormControl>
 									<Textarea
-										placeholder='Your Supply details with pricing...'
+										placeholder="Your Supply details with pricing..."
 										{...field}
 									/>
 								</FormControl>
@@ -113,7 +113,12 @@ const SupplierVendorForm: React.FC<SupplierVendorFormProps> = ({
 							</FormItem>
 						)}
 					/>
-					<Button type='submit'>Submit</Button>
+					<Button
+						className="col-span-3 lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300"
+						type="submit"
+					>
+						Submit
+					</Button>
 				</form>
 			</Form>
 		</section>
