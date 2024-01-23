@@ -13,12 +13,12 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import * as z from 'zod';
+import z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { VALIDATION_REGEX } from '@/config';
 
-type EnquiryFormProps = React.ComponentProps<'section'>;
+type SupplierVendorFormProps = React.ComponentProps<'section'>;
 
 const formSchema = z.object({
 	name: z.string().min(2),
@@ -26,18 +26,19 @@ const formSchema = z.object({
 	phoneNumber: z
 		.string()
 		.regex(VALIDATION_REGEX.phone, 'Invalid phone number.'),
-	pinCode: z.string().regex(VALIDATION_REGEX.pinCode, 'Invalid Pin Code.'),
 	message: z.string().min(3),
 });
 
-const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
+const SupplierVendorForm: React.FC<SupplierVendorFormProps> = ({
+	className,
+	...props
+}) => {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			name: '',
 			email: '',
 			phoneNumber: '',
-			pinCode: '',
 			message: '',
 		},
 	});
@@ -56,7 +57,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 						name='name'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Name</FormLabel>
+								<FormLabel>Business Name</FormLabel>
 								<FormControl>
 									<Input placeholder='John Doe' {...field} />
 								</FormControl>
@@ -69,7 +70,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 						name='email'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Email</FormLabel>
+								<FormLabel>Business Email</FormLabel>
 								<FormControl>
 									<Input
 										placeholder='doe@gmail.com'
@@ -85,7 +86,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 						name='phoneNumber'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Phone Number</FormLabel>
+								<FormLabel>Business Phone Number</FormLabel>
 								<FormControl>
 									<Input
 										placeholder='9876543210'
@@ -98,26 +99,13 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name='pinCode'
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>PIN Code</FormLabel>
-								<FormControl>
-									<Input placeholder='123456' {...field} />
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-					<FormField
-						control={form.control}
 						name='message'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Query</FormLabel>
+								<FormLabel>Supply Details</FormLabel>
 								<FormControl>
 									<Textarea
-										placeholder='Your Query...'
+										placeholder='Your Supply details with pricing...'
 										{...field}
 									/>
 								</FormControl>
@@ -132,4 +120,4 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 	);
 };
 
-export default EnquiryForm;
+export default SupplierVendorForm;

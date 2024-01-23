@@ -18,26 +18,29 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { VALIDATION_REGEX } from '@/config';
 
-type EnquiryFormProps = React.ComponentProps<'section'>;
+type ServicesRequiredFormProps = React.ComponentProps<'section'>;
 
 const formSchema = z.object({
 	name: z.string().min(2),
 	email: z.string().email(),
+	address: z.string().min(3),
 	phoneNumber: z
 		.string()
 		.regex(VALIDATION_REGEX.phone, 'Invalid phone number.'),
-	pinCode: z.string().regex(VALIDATION_REGEX.pinCode, 'Invalid Pin Code.'),
 	message: z.string().min(3),
 });
 
-const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
+const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
+	className,
+	...props
+}) => {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			name: '',
 			email: '',
 			phoneNumber: '',
-			pinCode: '',
+			address: '',
 			message: '',
 		},
 	});
@@ -82,6 +85,22 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
+						name='address'
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Address</FormLabel>
+								<FormControl>
+									<Textarea
+										placeholder='Your address...'
+										{...field}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
 						name='phoneNumber'
 						render={({ field }) => (
 							<FormItem>
@@ -98,26 +117,13 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name='pinCode'
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>PIN Code</FormLabel>
-								<FormControl>
-									<Input placeholder='123456' {...field} />
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-					<FormField
-						control={form.control}
 						name='message'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Query</FormLabel>
+								<FormLabel>Service Required</FormLabel>
 								<FormControl>
 									<Textarea
-										placeholder='Your Query...'
+										placeholder='Your service request in detail...'
 										{...field}
 									/>
 								</FormControl>
@@ -132,4 +138,4 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 	);
 };
 
-export default EnquiryForm;
+export default ServicesRequiredForm;

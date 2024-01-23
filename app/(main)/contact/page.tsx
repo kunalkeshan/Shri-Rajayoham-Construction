@@ -1,14 +1,18 @@
 import React from 'react';
+import AllForms from '@/components/contact/AllForms';
+import Socials from '@/components/contact/Socials';
+import FAQs from '@/components/contact/FAQs';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
-import FAQs from '@/components/contact/FAQs';
 
 const ContactPage = async () => {
 	const faqs = await sanityFetch<Array<SRCC_FAQ>>({
 		query: queries.faq.getAllByAscOrder,
 	});
 	return (
-		<main>
+		<main className='w-full min-h-screen pt-40'>
+			<AllForms />
+			<Socials />
 			<FAQs faqs={faqs} />
 		</main>
 	);

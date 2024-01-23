@@ -7,7 +7,7 @@ import EnquiryStrip from '@/components/reusable/EnquiryStrip';
 import InstaCard from '@/components/reusable/InstaCard';
 import Testimonials from '@/components/home/Testimonials';
 import Projects from '@/components/home/Projects';
-import EnquiryForm from '@/components/contact/EnquiryForm';
+import Form from '@/components/home/Form';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
 
@@ -22,9 +22,9 @@ const HomePage = async () => {
 			<WhatWeDo />
 			<EnquiryStrip />
 			<WhyUs />
-			<Projects/>
+			<Projects />
 			<InstaCard />
-			<EnquiryForm className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32' />
+			<Form />
 			<Testimonials testimonials={testimonials} />
 		</main>
 	);
