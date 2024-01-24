@@ -1,4 +1,5 @@
 import { FOOTER_NAVIGATION } from '@/constants/navigation';
+import { SRCC_SOCIALS } from '@/constants/srcc';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -10,7 +11,7 @@ const Footer = () => {
 				<div className='flex flex-col lg:flex-row gap-8 justify-between'>
 					<div className='mb-8 md:mb-0'>
 						<Link
-							href='https://flowbite.com/'
+							href=''
 							className='flex lg:flex-col lg:items-start items-center gap-2'
 						>
 							<Image
@@ -27,9 +28,9 @@ const Footer = () => {
 					</div>
 					<div className='grid gap-6 grid-cols-2 md:grid-cols-4'>
 						<div className='md:col-span-2'>
-							<h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
+							<h4 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
 								Quick links
-							</h2>
+							</h4>
 							<ul className='text-gray-500 grid grid-cols-1 md:grid-cols-2 gap-4 dark:text-gray-400 font-medium'>
 								{FOOTER_NAVIGATION.map((item, idx) => (
 									<li key={idx}>
@@ -44,52 +45,43 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div className='md:col-span-1'>
-							<h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
+							<h4 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
 								Socials
-							</h2>
+							</h4>
 							<ul className='text-gray-500 grid grid-cols-1 gap-4 dark:text-gray-400 font-medium'>
-								<li>
-									<a href='#' className='hover:underline'>
-										Instagram
-									</a>
-								</li>
-								<li>
-									<a href='#' className='hover:underline'>
-										Facebook
-									</a>
-								</li>
-								<li>
-									<a href='#' className='hover:underline'>
-										Twitter
-									</a>
-								</li>
-								<li>
-									<a href='#' className='hover:underline'>
-										LinkedIn
-									</a>
-								</li>
+								{SRCC_SOCIALS.map((social) => (
+									<li key={`footer-social-${social.name}`}>
+										<Link
+											href={social.url}
+											target='_blank'
+											className='hover:underline'
+										>
+											{social.name}
+										</Link>
+									</li>
+								))}
 							</ul>
 						</div>
 						<div className='md:col-span-1'>
-							<h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
+							<h4 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
 								Legal
-							</h2>
+							</h4>
 							<ul className='text-gray-500 grid grid-cols-1 gap-4 dark:text-gray-400 font-medium'>
 								<li className=''>
-									<a
+									<Link
 										href='/privacy'
 										className='hover:underline'
 									>
 										Privacy Policy
-									</a>
+									</Link>
 								</li>
 								<li>
-									<a
+									<Link
 										href='/terms'
 										className='hover:underline'
 									>
 										Terms &amp; Conditions
-									</a>
+									</Link>
 								</li>
 							</ul>
 						</div>
