@@ -114,3 +114,15 @@ type SRCC_FAQ = SRCC_Base_Model &
 		answer: string;
 		order: number;
 	}>;
+
+type SRCC_Career = SRCC_Base_Model &
+	Readonly<{
+		position: SRCC_WorkPosition;
+		role: SRCC_WorkRole;
+		slug: string;
+		location: string;
+		experience: number;
+		benefits?: TypedObject | TypedObject[];
+		description: TypedObject | TypedObject[];
+		applicationFormLink: string;
+	}>;

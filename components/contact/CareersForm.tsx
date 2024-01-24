@@ -17,8 +17,11 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { VALIDATION_REGEX } from '@/config';
+import Link from 'next/link';
 
-type CareersFormProps = React.ComponentProps<'section'>;
+type CareersFormProps = React.ComponentProps<'section'> & {
+	careers: Array<SRCC_Career>;
+};
 
 const formSchema = z.object({
 	name: z.string().min(2),
@@ -29,7 +32,11 @@ const formSchema = z.object({
 	message: z.string().min(3),
 });
 
-const CareersForm: React.FC<CareersFormProps> = ({ className, ...props }) => {
+const CareersForm: React.FC<CareersFormProps> = ({
+	className,
+	careers,
+	...props
+}) => {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -43,20 +50,46 @@ const CareersForm: React.FC<CareersFormProps> = ({ className, ...props }) => {
 		console.log(values);
 	}
 	return (
-		<section className={cn("", className)} {...props}>
+		<section className={cn('', className)} {...props}>
+			{careers && careers.length > 0 ? (
+				<div>
+					<h3 className='text-2xl font-bold'>Open Positions</h3>
+					<ul className='w-full mt-4'>
+						{careers.map((career) => (
+							<li key={career._id} className='w-full border-b'>
+								<Link
+									href={`/careers/${career.slug}`}
+									className='w-full flex items-center justify-between font-medium pb-1 group'
+								>
+									<p className='group-hover:underline'>
+										{career.role.name} -{' '}
+										{career.position.name}
+									</p>
+									<p className='text-blue-500 group-hover:underline decoration-blue-500'>
+										{career.location}
+									</p>
+								</Link>
+							</li>
+						))}
+					</ul>
+				</div>
+			) : null}
 			<Form {...form}>
+				<h3 className='mt-8 text-2xl font-bold'>
+					Interested in something unique? Let us know.
+				</h3>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className="grid grid-cols-1 lg:grid-cols-3 gap-4"
+					className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4'
 				>
 					<FormField
 						control={form.control}
-						name="name"
+						name='name'
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Name</FormLabel>
 								<FormControl>
-									<Input placeholder="John Doe" {...field} />
+									<Input placeholder='John Doe' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -64,13 +97,13 @@ const CareersForm: React.FC<CareersFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name="email"
+						name='email'
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Email</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="doe@gmail.com"
+										placeholder='doe@gmail.com'
 										{...field}
 									/>
 								</FormControl>
@@ -80,13 +113,13 @@ const CareersForm: React.FC<CareersFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name="phoneNumber"
+						name='phoneNumber'
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Phone Number</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="9876543210"
+										placeholder='9876543210'
 										{...field}
 									/>
 								</FormControl>
@@ -96,13 +129,13 @@ const CareersForm: React.FC<CareersFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name="message"
+						name='message'
 						render={({ field }) => (
 							<FormItem className='col-span-2'>
 								<FormLabel>About</FormLabel>
 								<FormControl>
 									<Textarea
-										placeholder="A few words about yourself, attached with your resume link (drive link / other) and relevant information attached here..."
+										placeholder='A few words about yourself, attached with your resume link (drive link / other) and relevant information attached here...'
 										{...field}
 									/>
 								</FormControl>
@@ -111,8 +144,8 @@ const CareersForm: React.FC<CareersFormProps> = ({ className, ...props }) => {
 						)}
 					/>
 					<Button
-						className="col-span-3 lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300"
-						type="submit"
+						className='col-span-3 lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300'
+						type='submit'
 					>
 						Submit
 					</Button>

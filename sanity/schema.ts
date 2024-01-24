@@ -11,6 +11,7 @@ import workPosition from './schemas/workPosition';
 import service from './schemas/service';
 import workPackage from './schemas/package';
 import project from './schemas/project';
+import careers from './schemas/careers';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
 	types: [
@@ -23,6 +24,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		workPackage,
 		service,
 		testimonial,
+		careers,
 		faq,
 		blockContent,
 	],

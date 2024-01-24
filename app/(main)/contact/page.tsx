@@ -9,9 +9,12 @@ const ContactPage = async () => {
 	const faqs = await sanityFetch<Array<SRCC_FAQ>>({
 		query: queries.faq.getAllByAscOrder,
 	});
+	const careers = await sanityFetch<Array<SRCC_Career>>({
+		query: queries.career.getAll,
+	});
 	return (
-		<main className="w-full min-h-screen mt-[8.5rem]">
-			<AllForms />
+		<main className='w-full min-h-screen mt-[8.5rem]'>
+			<AllForms careers={careers} />
 			<Socials />
 			<FAQs faqs={faqs} />
 		</main>

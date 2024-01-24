@@ -25,7 +25,7 @@ const COMMON_NAVIGATION: NavdataCollection = [
 		target: '_self',
 	},
 	{
-		name: 'Packages & Processes',
+		name: 'Packages',
 		url: '/packages',
 		target: '_self',
 	},
@@ -35,7 +35,7 @@ const COMMON_NAVIGATION: NavdataCollection = [
 		target: '_self',
 	},
 	{
-		name: 'Contact Us',
+		name: 'Contact',
 		url: '/contact',
 		target: '_self',
 	},
@@ -54,5 +54,5 @@ export const FOOTER_NAVIGATION: NavdataCollection = [
 		name: 'Careers',
 		url: '/contact#careers',
 		target: '_self',
-	}
+	},
 ];
