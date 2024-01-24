@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
@@ -13,6 +12,12 @@ const CareersPage = async () => {
 				<h1 className='text-2xl md:text-3xl lg:text-4xl text-center md:text-left font-normal'>
 					Open <span className='font-medium'>Positions</span>
 				</h1>
+				<p className='text-sm text-blue-500 decoration-blue-500 font-medium'>
+					/
+					<Link href={'/careers'} className='hover:underline'>
+						careers
+					</Link>
+				</p>
 				{careers && careers.length > 0 ? (
 					<ul className='w-full mt-8'>
 						{careers.map((career) => (
