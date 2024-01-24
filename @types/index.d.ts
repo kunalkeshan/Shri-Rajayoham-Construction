@@ -126,3 +126,12 @@ type SRCC_Career = SRCC_Base_Model &
 		description: TypedObject | TypedObject[];
 		applicationFormLink: string;
 	}>;
+
+type LegalDataBase = Readonly<{
+	title: string;
+	descriptions: Array<string>;
+}>;
+
+type TermsAndConditionsData = ReadonlyArray<LegalDataBase>;
+
+type PrivacyPolicyData = ReadonlyArray<LegalDataBase>;
