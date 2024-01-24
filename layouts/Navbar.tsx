@@ -9,7 +9,7 @@ const Navbar = () => {
 	return (
 		<nav className='fixed z-50 top-0 w-full'>
 			<QuickLinks />
-			<section className='w-full flex items-center justify-between md:justify-center p-4 md:px-16 h-24 border-b bg-white'>
+			<section className='w-full flex items-center justify-between lg:justify-center p-4 md:px-16 h-24 border-b bg-white'>
 				<div className='hidden lg:flex'>
 					{NAVBAR_NAVIGATION.slice(0, 3).map((item) => (
 						<Button
@@ -18,7 +18,7 @@ const Navbar = () => {
 							key={`main-nav-${item.url}`}
 						>
 							<Link
-								className='bg-left-bottom font-medium bg-gradient-to-r p-2 from-app to-app bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out'
+								className='bg-left-bottom font-semibold bg-gradient-to-r p-2 from-app to-app bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out'
 								href={item.url}
 								target={item.target}
 							>
@@ -44,7 +44,7 @@ const Navbar = () => {
 							key={`main-nav-${item.url}`}
 						>
 							<Link
-								className='bg-left-bottom font-medium bg-gradient-to-r p-2 from-app to-app bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out'
+								className='bg-left-bottom font-semibold bg-gradient-to-r p-2 from-app to-app bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out'
 								href={item.url}
 								target={item.target}
 							>
