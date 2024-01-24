@@ -17,11 +17,11 @@ const portableTextComponents = {
 
 const JobDescription: React.FC<JobDescriptionProps> = ({ description }) => {
 	return (
-		<section className='mt-8'>
-			<h2 className='text-4xl font-medium flex items-center'>
-				<Info className='mr-2' strokeWidth={1.5} /> Job Description
+		<section className="mt-8">
+			<h2 className="text-3xl md:text-4xl lg:text-5xl font-medium flex items-center">
+				<Info className="mr-2" strokeWidth={1.5} /> Job Description
 			</h2>
-			<div className='prose mt-4'>
+			<div className="prose mt-4">
 				<PortableText
 					value={description}
 					components={portableTextComponents}
