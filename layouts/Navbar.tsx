@@ -10,7 +10,7 @@ const Navbar = () => {
 	return (
 		<nav className='fixed z-50 top-0 w-full'>
 			<QuickLinks />
-			<section className='w-full flex items-center justify-center p-4 md:px-16 h-24 border-b bg-white'>
+			<section className='w-full flex items-center justify-between md:justify-center p-4 md:px-16 h-24 border-b bg-white'>
 				<div className='hidden lg:flex'>
 					{NAVBAR_NAVIGATION.slice(0, 3).map((item) => (
 						<Button

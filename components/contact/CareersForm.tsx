@@ -52,7 +52,7 @@ const CareersForm: React.FC<CareersFormProps> = ({
 	return (
 		<section className={cn('', className)} {...props}>
 			{careers && careers.length > 0 ? (
-				<div>
+				<div className=''>
 					<h3 className='text-2xl font-bold'>Open Positions</h3>
 					<ul className='w-full mt-4'>
 						{careers.map((career) => (
@@ -72,15 +72,15 @@ const CareersForm: React.FC<CareersFormProps> = ({
 							</li>
 						))}
 					</ul>
+					<h3 className='mt-8 mb-8 text-2xl font-bold'>
+						Interested in something unique? Let us know.
+					</h3>
 				</div>
 			) : null}
 			<Form {...form}>
-				<h3 className='mt-8 text-2xl font-bold'>
-					Interested in something unique? Let us know.
-				</h3>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4'
+					className='grid grid-cols-1 lg:grid-cols-3 gap-4'
 				>
 					<FormField
 						control={form.control}

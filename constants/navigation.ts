@@ -52,7 +52,7 @@ export const FOOTER_NAVIGATION: NavdataCollection = [
 	},
 	{
 		name: 'Careers',
-		url: '/contact#careers',
+		url: '/careers',
 		target: '_self',
 	},
 ];
