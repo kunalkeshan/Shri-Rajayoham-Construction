@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-	FacebookIcon,
-	InstagramIcon,
-	LinkedinIcon,
-	MailIcon,
-	PhoneIcon,
-} from 'lucide-react';
+import { MailIcon, PhoneIcon } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import Link from 'next/link';
 import { SRCC_EMAIL, SRCC_MOBILE, SRCC_SOCIALS } from '@/constants/srcc';

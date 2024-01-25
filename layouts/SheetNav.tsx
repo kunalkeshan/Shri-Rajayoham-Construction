@@ -1,8 +1,9 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import {
 	Sheet,
 	SheetContent,
-	SheetDescription,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
@@ -14,35 +15,48 @@ import Image from 'next/image';
 import { NAVBAR_NAVIGATION } from '@/constants/navigation';
 
 const SheetNav = () => {
+	const [open, setOpen] = useState(false);
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
+	const handleToggle = (isOpen: boolean) => {
+		setOpen(isOpen);
+	};
+
 	return (
-		<Sheet>
+		<Sheet open={open} onOpenChange={handleToggle}>
 			<SheetTrigger>
 				<MenuIcon />
 			</SheetTrigger>
 			<SheetContent side={'top'}>
 				<SheetHeader className='flex flex-col items-center'>
 					<SheetTitle>
-						<Image
-							src='/assets/logo.png'
-							width={100}
-							height={100}
-							alt='logo'
-						/>
+						<Link href={'/'}>
+							<Image
+								src='/assets/logo.png'
+								width={100}
+								height={100}
+								alt='logo'
+							/>
+						</Link>
 					</SheetTitle>
-						<div className='flex flex-col'>
-							{NAVBAR_NAVIGATION.map((item) => (
-								<Button
-									className=''
-									variant={'ghost'}
-									key={`sheet-nav-${item.url}`}
-								>
-									<Link href={item.url} target={item.target}>
-										{item.name}
-									</Link>
-								</Button>
-							))}
-						</div>
 				</SheetHeader>
+				<div className='flex flex-col'>
+					{NAVBAR_NAVIGATION.map((item) => (
+						<Button
+							className=''
+							variant={'ghost'}
+							key={`sheet-nav-${item.url}`}
+							onClick={handleClose}
+						>
+							<Link href={item.url} target={item.target}>
+								{item.name}
+							</Link>
+						</Button>
+					))}
+				</div>
 			</SheetContent>
 		</Sheet>
 	);
