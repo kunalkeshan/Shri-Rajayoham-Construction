@@ -22,7 +22,6 @@ export default defineType({
 			options: {
 				hotspot: true,
 			},
-			validation: (Rule) => Rule.required(),
 			description:
 				'Upload or select the cover image for the project. (Recommended 1:1 ratio for image)',
 			fields: [
@@ -72,7 +71,7 @@ export default defineType({
 			title: 'Status',
 			type: 'string',
 			options: {
-				list: ['planned', 'in-progress', 'completed', '3d-design'],
+				list: ['upcoming', 'ongoing', 'completed'],
 			},
 			validation: (Rule) => Rule.required(),
 		}),
