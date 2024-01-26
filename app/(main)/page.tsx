@@ -10,6 +10,7 @@ import Services from '@/components/home/Services';
 import Projects from '@/components/home/Projects';
 import Form from '@/components/home/Form';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
+import Blogs from '@/components/blogs/Blogs';
 import { queries } from '@/sanity/queries';
 
 const HomePage = async () => {
@@ -18,6 +19,9 @@ const HomePage = async () => {
 	});
 	const services = await sanityFetch<Array<SRCC_Service>>({
 		query: queries.service.getAll,
+	});
+	const posts = await sanityFetch<Array<SRCC_BlogPost>>({
+		query: queries.post.getAllFeatured,
 	});
 	return (
 		<main className='w-full min-h-screen mt-[8.5rem]'>
@@ -31,6 +35,7 @@ const HomePage = async () => {
 			<InstaCard />
 			<Form />
 			<Testimonials testimonials={testimonials} />
+			<Blogs posts={posts} />
 		</main>
 	);
 };
