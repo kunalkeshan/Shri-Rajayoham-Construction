@@ -50,7 +50,8 @@ export default defineType({
 			name: 'description',
 			title: 'Description',
 			type: 'text',
-			description: 'Provide a brief description of the project.',
+			description:
+				'Provide a brief description of the project. (Note: Text entered in a new line will be considered as a space)',
 			placeholder: 'Project description goes here...',
 			validation: (Rule) => Rule.required().min(8).max(500),
 		}),

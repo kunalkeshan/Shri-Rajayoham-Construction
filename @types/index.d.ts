@@ -85,7 +85,7 @@ type SRCC_Project = SRCC_Base_Model &
 		title: string;
 		description: string;
 		body: TypedObject | TypedObject[];
-		coverImage: { url: string; alt: string };
+		image?: { url: string; alt: string };
 		slug: string;
 		duration?: number;
 		budget?: number;

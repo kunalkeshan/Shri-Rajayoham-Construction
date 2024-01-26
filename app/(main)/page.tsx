@@ -23,6 +23,10 @@ const HomePage = async () => {
 	const posts = await sanityFetch<Array<SRCC_BlogPost>>({
 		query: queries.post.getAllFeatured,
 	});
+	const projects = await sanityFetch<Array<SRCC_Project>>({
+		query: queries.project.getAllCompleted,
+	});
+	console.log(projects);
 	return (
 		<main className='w-full min-h-screen mt-[8.5rem]'>
 			<HeroCarousel />
@@ -30,7 +34,7 @@ const HomePage = async () => {
 			<WhatWeDo />
 			<EnquiryStrip />
 			<WhyUs />
-			<Projects />
+			<Projects projects={projects} />
 			<Services services={services} />
 			<InstaCard />
 			<Form />

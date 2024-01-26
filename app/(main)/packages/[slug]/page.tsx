@@ -46,7 +46,7 @@ const IndividualPackagePage = async ({ params }: Props) => {
 		params
 	);
 	if (!pckg) {
-		redirect('/blogs');
+		redirect('/packages');
 	}
 	console.log(pckg);
 	return <main>IndividualPackagePage</main>;

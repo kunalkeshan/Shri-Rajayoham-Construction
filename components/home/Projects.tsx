@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 
-const Projects = () => {
+type ProjectsProps = React.ComponentProps<'section'> & {
+	projects: Array<SRCC_Project>;
+};
+
+const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 	return (
 		<section className='bg-app-b w-full'>
 			<div className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32'>
