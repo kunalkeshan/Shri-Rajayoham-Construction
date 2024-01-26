@@ -10,7 +10,7 @@ type SRCC_BlogPost = SRCC_Base_Model &
 		categories: Array<SRCC_BlogCategory>;
 		author: SRCC_TeamMember;
 		publishedAt: Date;
-		image: { url: string; alt: string };
+		image?: { url: string; alt: string };
 		body?: TypedObject | TypedObject[];
 		featured: boolean;
 		slug: string;

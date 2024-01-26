@@ -73,6 +73,7 @@ export default defineType({
 					description:
 						'A descriptive alternative text for the image.',
 					placeholder: 'Construction Project Tips Cover Photo',
+					validation: (Rule) => Rule.required(),
 				},
 			],
 		}),
