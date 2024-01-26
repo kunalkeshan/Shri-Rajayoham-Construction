@@ -5,6 +5,7 @@ import CAREER from './queries/careers';
 import TEAM_MEMBER from './queries/teamMember';
 import SERVICE from './queries/service';
 import POST from './queries/post';
+import PACKAGE from './queries/package';
 
 export const queries = {
 	testimonial: TESTIMONIAL,
@@ -13,4 +14,5 @@ export const queries = {
 	teamMember: TEAM_MEMBER,
 	service: SERVICE,
 	post: POST,
+	package: PACKAGE,
 };
