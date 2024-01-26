@@ -26,7 +26,7 @@ type SRCC_BlogCategory = SRCC_Base_Model &
 type SRCC_TeamMember = SRCC_Base_Model &
 	Readonly<{
 		name: string;
-		image: { url: string; alt: string };
+		image?: { url: string; alt: string };
 		slug: string;
 		position: SRCC_WorkPosition;
 		role?: SRCC_WorkRole;

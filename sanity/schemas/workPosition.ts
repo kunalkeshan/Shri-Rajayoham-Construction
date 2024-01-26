@@ -34,4 +34,19 @@ export default defineType({
 			placeholder: '1',
 		}),
 	],
+	preview: {
+		select: {
+			order: 'order',
+			title: 'name',
+			subtitle: 'description',
+		},
+		prepare(value) {
+			const { order, title, subtitle } = value;
+			return {
+				title,
+				...(order &&
+					subtitle && { subtitle: `${order} - ${subtitle}` }),
+			};
+		},
+	},
 });
