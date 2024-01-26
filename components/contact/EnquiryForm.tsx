@@ -45,20 +45,20 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 		console.log(values);
 	}
 	return (
-		<section className={cn("", className)} {...props}>
+		<section className={cn('w-full', className)} {...props}>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className="grid grid-cols-2 gap-4"
+					className='w-full grid grid-cols-1 lg:grid-cols-2 gap-4'
 				>
 					<FormField
 						control={form.control}
-						name="name"
+						name='name'
 						render={({ field }) => (
-							<FormItem>
+							<FormItem className='w-full'>
 								<FormLabel>Name</FormLabel>
 								<FormControl>
-									<Input placeholder="John Doe" {...field} />
+									<Input placeholder='John Doe' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -66,13 +66,13 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name="email"
+						name='email'
 						render={({ field }) => (
-							<FormItem>
+							<FormItem className='w-full'>
 								<FormLabel>Email</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="doe@gmail.com"
+										placeholder='doe@gmail.com'
 										{...field}
 									/>
 								</FormControl>
@@ -82,13 +82,13 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name="phoneNumber"
+						name='phoneNumber'
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Phone Number</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="9876543210"
+										placeholder='9876543210'
 										{...field}
 									/>
 								</FormControl>
@@ -98,12 +98,12 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name="pinCode"
+						name='pinCode'
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>PIN Code</FormLabel>
 								<FormControl>
-									<Input placeholder="123456" {...field} />
+									<Input placeholder='123456' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -111,13 +111,13 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 					/>
 					<FormField
 						control={form.control}
-						name="message"
+						name='message'
 						render={({ field }) => (
-							<FormItem className="col-span-1">
+							<FormItem className='lg:col-span-1'>
 								<FormLabel>Query</FormLabel>
 								<FormControl>
 									<Textarea
-										placeholder="Your Query..."
+										placeholder='Your Query...'
 										{...field}
 									/>
 								</FormControl>
@@ -125,7 +125,10 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 							</FormItem>
 						)}
 					/>
-					<Button className="col-span-2 lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300" type="submit">
+					<Button
+						className='lg:col-span-2 lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300'
+						type='submit'
+					>
 						Submit
 					</Button>
 				</form>

@@ -50,7 +50,7 @@ const CareersForm: React.FC<CareersFormProps> = ({
 		console.log(values);
 	}
 	return (
-		<section className={cn('', className)} {...props}>
+		<section className={cn('w-full', className)} {...props}>
 			{careers && careers.length > 0 ? (
 				<div className=''>
 					<h3 className='text-2xl font-bold'>Open Positions</h3>
@@ -131,7 +131,7 @@ const CareersForm: React.FC<CareersFormProps> = ({
 						control={form.control}
 						name='message'
 						render={({ field }) => (
-							<FormItem className='col-span-2'>
+							<FormItem className='lg:col-span-2'>
 								<FormLabel>About</FormLabel>
 								<FormControl>
 									<Textarea
@@ -144,7 +144,7 @@ const CareersForm: React.FC<CareersFormProps> = ({
 						)}
 					/>
 					<Button
-						className='col-span-3 lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300'
+						className='lg:col-span-3 lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300'
 						type='submit'
 					>
 						Submit

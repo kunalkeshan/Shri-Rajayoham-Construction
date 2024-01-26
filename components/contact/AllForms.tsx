@@ -22,26 +22,32 @@ const AllForms: React.FC<AllFormsProps> = ({ careers }) => {
 		{
 			value: 'enquiry',
 			title: 'Enquiry',
+			subtitle: 'Enquiry about construction.',
 			Icon: MessageCircleQuestion,
 		},
 		{
 			value: 'investor-relations',
 			title: 'Investor Relations',
+			subtitle:
+				'Any investment related queries -shareholder , joint ventures, etc.',
 			Icon: BarChart,
 		},
 		{
 			value: 'supplier-vendor',
 			title: 'Supplier / Vendor',
+			subtitle: 'We want to be your registered supplier',
 			Icon: Container,
 		},
 		{
 			value: 'services-required',
 			title: 'Services Required',
+			subtitle: 'Any service you need.',
 			Icon: TrafficCone,
 		},
 		{
 			value: 'careers',
 			title: 'Careers @SRCC',
+			subtitle: 'Join the team.',
 			Icon: Briefcase,
 		},
 	];
@@ -77,13 +83,16 @@ const AllForms: React.FC<AllFormsProps> = ({ careers }) => {
 						<TabsTrigger
 							key={`trigger-${trigger.value}`}
 							value={trigger.value}
-							className='flex items-center md:text-lg w-full justify-start'
+							className='flex items-center md:text-lg w-full justify-start text-left whitespace-normal h-full'
 						>
 							<trigger.Icon
 								className='mr-2 shrink-0'
 								strokeWidth={1.5}
 							/>
-							<span>{trigger.title}</span>
+							<div className='max-w-[18ch] w-full break-words'>
+								<p>{trigger.title}</p>
+								<p className='text-xs'>{trigger.subtitle}</p>
+							</div>
 						</TabsTrigger>
 					))}
 				</TabsList>
@@ -96,7 +105,7 @@ const AllForms: React.FC<AllFormsProps> = ({ careers }) => {
 						<content.Form />
 					</TabsContent>
 				))}
-				<TabsContent value='careers'>
+				<TabsContent value='careers' className='w-full'>
 					<CareersForm careers={careers} />
 				</TabsContent>
 			</Tabs>
