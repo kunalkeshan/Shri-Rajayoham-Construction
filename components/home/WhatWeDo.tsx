@@ -53,7 +53,7 @@ const WhatWeDo = () => {
 		},
 	];
 	return (
-		<main className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
+		<section className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
 			<h2 className='text-2xl md:text-3xl lg:text-4xl text-center text-app font-normal'>
 				We got you <span className='font-medium'>covered</span>? YES !
 			</h2>
@@ -79,7 +79,7 @@ const WhatWeDo = () => {
 				We definitely got <span className='font-medium'>YOU</span>{' '}
 				covered !
 			</p>
-		</main>
+		</section>
 	);
 };
 

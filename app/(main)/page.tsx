@@ -10,7 +10,7 @@ import Services from '@/components/home/Services';
 import Projects from '@/components/home/Projects';
 import Form from '@/components/home/Form';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
-import Blogs from '@/components/blogs/Blogs';
+import FeaturedBlogs from '@/components/home/FeaturedBlogs';
 import { queries } from '@/sanity/queries';
 
 const HomePage = async () => {
@@ -39,7 +39,7 @@ const HomePage = async () => {
 			<InstaCard />
 			<Form />
 			<Testimonials testimonials={testimonials} />
-			<Blogs posts={posts} />
+			<FeaturedBlogs posts={posts} />
 		</main>
 	);
 };

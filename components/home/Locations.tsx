@@ -17,7 +17,7 @@ const Locations = () => {
 		},
 	];
 	return (
-		<main className='bg-[#f7f8fb w-full'>
+		<section className='bg-[#f7f8fb w-full'>
 			<div className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto pt-8 md:pt-16 lg:pt-32'>
 				<h2 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal'>
 					Our <span className='font-medium'>locations</span>
@@ -42,7 +42,7 @@ const Locations = () => {
 					))}
 				</div>
 			</div>
-		</main>
+		</section>
 	);
 };
 
