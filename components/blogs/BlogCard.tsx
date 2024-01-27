@@ -16,7 +16,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 				{post.author.name}
 			</p>
 			<div className='flex items-center flex-col lg:flex-row gap-8 mt-4'>
-				<div className='w-full lg:max-w-[33%]'>
+				<div className='w-full lg:max-w-[33%] overflow-hidden rounded-md'>
 					<Image
 						src={
 							post?.image?.url ?? '/assets/fallback/icon-grid.svg'
