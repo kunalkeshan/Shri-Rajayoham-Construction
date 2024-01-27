@@ -28,7 +28,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 					/>
 				</div>
 				<div>
-					<p className='text-justify'>{post.description}</p>
+					<p className='text-justify'>
+						{post.description.slice(0, 120) + '...'}
+					</p>
 					<Link
 						href={`/blogs/${post.slug}`}
 						className='text-blue-500 hover:underline'
