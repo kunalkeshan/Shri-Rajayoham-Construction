@@ -69,13 +69,13 @@ export default defineType({
 			description:
 				'Provide a brief description (max 500 characters) about the team member. (Note: Text entered in a new line will be considered as a space)',
 		}),
-		defineField({
-			name: 'bio',
-			title: 'Bio',
-			type: 'blockContent',
-			description:
-				"Enter a detailed body of text as the team member's bio.",
-		}),
+		// defineField({
+		// 	name: 'bio',
+		// 	title: 'Bio',
+		// 	type: 'blockContent',
+		// 	description:
+		// 		"Enter a detailed body of text as the team member's bio.",
+		// }),
 		defineField({
 			name: 'email',
 			title: 'Email',

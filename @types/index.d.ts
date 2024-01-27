@@ -31,7 +31,7 @@ type SRCC_TeamMember = SRCC_Base_Model &
 		position: SRCC_WorkPosition;
 		role?: SRCC_WorkRole;
 		about?: string;
-		bio?: TypedObject | TypedObject[];
+		// bio?: TypedObject | TypedObject[];
 		email: string;
 		socialLinks?: Array<{
 			platform:
