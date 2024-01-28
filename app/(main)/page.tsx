@@ -30,10 +30,10 @@ const HomePage = async () => {
 	return (
 		<main className='w-full min-h-screen mt-[8.5rem]'>
 			<HeroCarousel />
-			<Locations />
+			<WhyUs />
 			<WhatWeDo />
 			<EnquiryStrip />
-			<WhyUs />
+			<Locations />
 			<Projects projects={projects} />
 			<Services services={services} />
 			<InstaCard />

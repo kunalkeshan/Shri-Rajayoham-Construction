@@ -1,8 +1,8 @@
 import {
 	ArrowLeftRightIcon,
-	BanknoteIcon,
 	HeartHandshakeIcon,
 	HourglassIcon,
+	IndianRupeeIcon,
 	LucideIcon,
 	SearchIcon,
 	ShieldCheckIcon,
@@ -15,7 +15,7 @@ const WhatWeDo = () => {
 		{
 			title: 'Budget friendly',
 			subtitle: 'Reasonable price with high quality',
-			Icon: BanknoteIcon,
+			Icon: IndianRupeeIcon,
 		},
 		{
 			title: 'Quality',

@@ -17,7 +17,7 @@ type TestimonialsProps = React.ComponentProps<'section'> & {
 	testimonials: Array<SRCC_Testimonial>;
 };
 
-const Testimonials: React.FC<TestimonialsProps> = () => {
+const Testimonials: React.FC<TestimonialsProps> = ({testimonials}) => {
 	const [api, setApi] = React.useState<CarouselApi>();
 	const [current, setCurrent] = React.useState(3);
 	const [count, setCount] = React.useState(0);
@@ -40,6 +40,7 @@ const Testimonials: React.FC<TestimonialsProps> = () => {
 		api.scrollTo(index);
 	};
 
+	// console.log(testimonials)
 	return (
 		<section className='bg-app-bg w-full'>
 			<div className='bg-[url("/assets/testbg.svg")] overflow-hidden bg-no-repeat bg-cover bg-center'>

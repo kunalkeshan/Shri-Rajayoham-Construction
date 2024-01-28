@@ -18,7 +18,7 @@ const Locations = () => {
 	];
 	return (
 		<section className='bg-[#f7f8fb w-full'>
-			<div className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto pt-8 md:pt-16 lg:pt-32'>
+			<div className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
 				<h2 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal'>
 					Our <span className='font-medium'>locations</span>
 				</h2>

@@ -11,7 +11,7 @@ const WhyUs = () => {
 			title: 'Decades-Long Construction Mastery',
 		},
 		{
-			num: '47+',
+			num: '27+',
 			title: 'Ongoing Projects',
 		},
 		{
