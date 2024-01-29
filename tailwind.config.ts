@@ -21,9 +21,9 @@ const config = {
 		extend: {
 			colors: {
 				app: {
-					DEFAULT: "#550a0a",
-					bg: "#f7f8fb",
-					secondary: "#b4843e",
+					DEFAULT: '#550a0a',
+					bg: '#f7f8fb',
+					secondary: '#b4843e',
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -77,6 +77,12 @@ const config = {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+			},
+			screens: {
+				'3xl': '1920px',
+				// => @media (min-width: 1920px) { ... }
+				'4xl': '2560px',
+				// => @media (min-width: 2560px) { ... }
 			},
 		},
 	},

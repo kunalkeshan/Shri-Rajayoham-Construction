@@ -3,6 +3,8 @@ import Footer from '@/layouts/Footer';
 import Navbar from '@/layouts/Navbar';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
+import QueryModalProvider from '@/context/QueryModalContext';
+import QueryDialog from '@/components/reusable/QueryDialog';
 
 export const metadata: Metadata = {
 	title: 'Shri Rajayoham Construction Company',
@@ -16,11 +18,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<TooltipProvider>
-			<Navbar />
-			{children}
-			<Footer />
-			<Toaster />
-		</TooltipProvider>
+		<QueryModalProvider>
+			<TooltipProvider>
+				<Navbar />
+				{children}
+				<Footer />
+				<Toaster />
+				<QueryDialog />
+			</TooltipProvider>
+		</QueryModalProvider>
 	);
 }

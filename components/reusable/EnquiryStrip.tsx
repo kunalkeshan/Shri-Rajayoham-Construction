@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { Button } from '../ui/button';
+import QueryDialogButton from './QueryDialogButton';
 
 const EnquiryStrip = () => {
 	return (
@@ -29,9 +29,7 @@ const EnquiryStrip = () => {
 						nostrum!
 					</p>
 					<div>
-						<Button className='p-8 bg-app hover:bg-app/90 hover: hover:-translate-y-1 transition-all duration-300'>
-							GET FREE CONSULTATION
-						</Button>
+						<QueryDialogButton />
 					</div>
 				</div>
 			</section>
