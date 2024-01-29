@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import ProjectCard from '../projects/ProjectCard';
 
 type ProjectsProps = React.ComponentProps<'section'> & {
 	projects: Array<SRCC_Project>;
@@ -16,20 +17,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 				</h2>
 				<div>
 					<ul className='columns-2 lg:columns-3 md:gap-4 gap-2 [&>li:not(:first-child)]:mt-4 mt-16'>
-						{Array.from({ length: 5 }).map((_, index) => (
-							<li
-								key={`gallery-item-${index}`}
-								className='block rounded-lg overflow-hidden'
-							>
-								<Image
-									src={`/assets/hero/${index + 1}.jpg`}
-									alt={'item.alt'}
-									width={100}
-									height={100}
-									className='w-full h-auto object-cover'
-									unoptimized
-								/>
-							</li>
+						{projects.map((project) => (
+							<ProjectCard
+								key={`project-home-item-${project._id}`}
+								project={project}
+							/>
 						))}
 					</ul>
 				</div>

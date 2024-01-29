@@ -34,7 +34,9 @@ const HomePage = async () => {
 			<WhatWeDo />
 			<EnquiryStrip />
 			<Locations />
-			<Projects projects={projects} />
+			{projects && projects.length > 0 ? (
+				<Projects projects={projects} />
+			) : null}
 			<Services services={services} />
 			<InstaCard />
 			<Form />

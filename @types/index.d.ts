@@ -89,7 +89,7 @@ type SRCC_Project = SRCC_Base_Model &
 		slug: string;
 		duration?: number;
 		budget?: number;
-		status: 'planned' | 'in-progress' | 'completed' | '3d-design';
+		status: 'upcoming' | 'ongoing' | 'completed';
 		services?: Array<SRCC_Service>;
 		packages?: Array<SRCC_Package>;
 		testimonials?: Array<SRCC_Testimonial>;
