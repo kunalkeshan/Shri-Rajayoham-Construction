@@ -1,25 +1,26 @@
 import React from 'react';
+import Counter from '../reusable/Counter';
 
 const WhyUs = () => {
 	const data = [
 		{
-			num: '7+',
+			num: 7,
 			title: 'Years of experience for SRCC’s Team',
 		},
 		{
-			num: '37+',
+			num: 37,
 			title: 'Decades-Long Construction Mastery',
 		},
 		{
-			num: '27+',
+			num: 27,
 			title: 'Ongoing Projects',
 		},
 		{
-			num: '125+',
+			num: 125,
 			title: 'Staff members',
 		},
 		{
-			num: '2',
+			num: 2,
 			title: 'Years minimum warranty',
 		},
 	];
@@ -53,11 +54,13 @@ const WhyUs = () => {
 				<div className='grid grid-cols-3 md:grid-cols-5 items-center justify-center gap-8 md:gap-16 mt-12'>
 					{data.map(({ title, num }, idx) => (
 						<div
-							key={idx}
+							key={`why-srcc-impact-${idx}`}
 							className='flex w-full max-w-xs flex-col items-center justify-center mb-auto'
 						>
 							<div className='text-center mt-4'>
-								<h3 className='text-4xl font-bold'>{num}</h3>
+								<h3 className='text-4xl font-bold'>
+									<Counter from={0} to={num} />
+								</h3>
 								<p className='text-slate-500 mt-2 text-base md:text-lg'>
 									{title}
 								</p>
@@ -68,7 +71,7 @@ const WhyUs = () => {
 				<div className='grid grid-cols-3 md:grid-cols-5 items-center justify-center gap-6 mt-12'>
 					{cards.map(({ title }, idx) => (
 						<div
-							key={idx}
+							key={`wh-srcc-reason-${idx}`}
 							className='flex w-full h-full max-w-xs border flex-col items-center justify-center p-4 rounded'
 						>
 							<div className='text-center'>

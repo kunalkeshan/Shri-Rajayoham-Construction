@@ -17,7 +17,9 @@ type TestimonialsProps = React.ComponentProps<'section'> & {
 	testimonials: Array<SRCC_Testimonial>;
 };
 
-const Testimonials: React.FC<TestimonialsProps> = ({testimonials}) => {
+const MAX_NUMBER_OF_STARS = 5 as const;
+
+const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 	const [api, setApi] = React.useState<CarouselApi>();
 	const [current, setCurrent] = React.useState(3);
 	const [count, setCount] = React.useState(0);
@@ -40,7 +42,6 @@ const Testimonials: React.FC<TestimonialsProps> = ({testimonials}) => {
 		api.scrollTo(index);
 	};
 
-	// console.log(testimonials)
 	return (
 		<section className='bg-app-bg w-full'>
 			<div className='bg-[url("/assets/testbg.svg")] overflow-hidden bg-no-repeat bg-cover bg-center'>
@@ -55,18 +56,22 @@ const Testimonials: React.FC<TestimonialsProps> = ({testimonials}) => {
 						className='w-full mx-auto max-w-xl mt-12'
 					>
 						<CarouselContent className=''>
-							{Array.from({ length: 5 }).map((_, index) => (
-								<CarouselItem key={index}>
+							{testimonials.map((testimonial, index) => (
+								<CarouselItem
+									key={`testimonial-item-${testimonial._id}`}
+								>
 									<Card>
 										<CardContent className='flex aspect-video items-center justify-center p-6'>
 											<div className='text-center flex flex-col gap-2 md:gap-4 justify-center items-center'>
 												<Tooltip>
 													<TooltipTrigger className='flex gap-2 items-center'>
-														{Array(4)
+														{Array(
+															testimonial.rating
+														)
 															.fill(true)
 															.map((_, i) => (
 																<StarIcon
-																	key={`star-${'l'}-${i}`}
+																	key={`star-${testimonial._id}-included-${i}`}
 																	size={20}
 																	strokeWidth={
 																		1.5
@@ -75,11 +80,14 @@ const Testimonials: React.FC<TestimonialsProps> = ({testimonials}) => {
 																	fill='#b4843e'
 																/>
 															))}
-														{Array(5 - 4)
+														{Array(
+															MAX_NUMBER_OF_STARS -
+																testimonial.rating
+														)
 															.fill(true)
 															.map((_, i) => (
 																<StarIcon
-																	key={`star-${'l'}-${i}`}
+																	key={`star-${testimonial._id}-excluded-${i}`}
 																	size={20}
 																	strokeWidth={
 																		1.5
@@ -89,22 +97,19 @@ const Testimonials: React.FC<TestimonialsProps> = ({testimonials}) => {
 															))}
 													</TooltipTrigger>
 													<TooltipContent>
-														{4}/{5} stars!
+														{testimonial.rating}/
+														{MAX_NUMBER_OF_STARS -
+															testimonial.rating}{' '}
+														stars!
 													</TooltipContent>
 												</Tooltip>
 												<div className='text-base md:text-lg text-gray-500'>
-													Lorem ipsum dolor sit amet,
-													consectetur adipiscing elit, sed
-													do eiusmod tempor incididunt ut
-													labore et dolore magna aliqua.
+													{testimonial.content}
 												</div>
 												<div>
-													<a
-														href='#'
-														className='text-blue-500 font-semibold hover:text-blue-600 text-sm md:text-base'
-													>
-														- John Doe
-													</a>
+													<p className='text-blue-500 font-semibold hover:text-blue-600 text-sm md:text-base'>
+														- {testimonial.name}
+													</p>
 												</div>
 											</div>
 										</CardContent>
@@ -116,16 +121,23 @@ const Testimonials: React.FC<TestimonialsProps> = ({testimonials}) => {
 						<CarouselNext />
 					</Carousel>
 					<div className='py-2 text-center min-h-20 flex justify-center items-center mt-4 text-muted-foreground'>
-						{Array.from({ length: 5 }).map((_, index) => (
+						{testimonials.map((testimonial, index) => (
 							<Avatar
-								key={index}
+								key={`testimonail-image-${testimonial._id}`}
 								onClick={() => handleSlideChange(index)}
 								className={`inline-block cursor-pointer transition-all duration-300 rounded-full mx-1 ${
-									index === current - 1 ? 'w-14 h-14' : 'w-8 h-8'
+									index === current - 1
+										? 'w-14 h-14'
+										: 'w-8 h-8'
 								}`}
 							>
-								<AvatarImage src='https://github.com/shadcn.png' />
-								<AvatarFallback>CN</AvatarFallback>
+								<AvatarImage
+									src={testimonial.image.url}
+									alt={testimonial.image.alt}
+								/>
+								<AvatarFallback>
+									{testimonial.name}
+								</AvatarFallback>
 							</Avatar>
 						))}
 					</div>

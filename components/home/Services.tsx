@@ -5,7 +5,7 @@ type ServicesProps = React.ComponentProps<'section'> & {
 };
 
 const Services: React.FC<ServicesProps> = ({ services }) => {
-	return <section>Services</section>;
+	return <section></section>;
 };
 
 export default Services;

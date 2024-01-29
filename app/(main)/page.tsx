@@ -38,7 +38,9 @@ const HomePage = async () => {
 			<Services services={services} />
 			<InstaCard />
 			<Form />
-			<Testimonials testimonials={testimonials} />
+			{testimonials && testimonials.length > 0 ? (
+				<Testimonials testimonials={testimonials} />
+			) : null}
 			<FeaturedBlogs posts={posts} />
 		</main>
 	);
