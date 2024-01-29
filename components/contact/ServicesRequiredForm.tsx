@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '@/lib/utils';
+import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
 	Form,
@@ -20,15 +20,13 @@ import { VALIDATION_REGEX } from '@/config';
 
 type ServicesRequiredFormProps = React.ComponentProps<'section'>;
 
-const formSchema = z.object({
-	name: z.string().min(2),
-	email: z.string().email(),
-	address: z.string().min(3),
-	phoneNumber: z
-		.string()
-		.regex(VALIDATION_REGEX.phone, 'Invalid phone number.'),
-	message: z.string().min(3),
-});
+const formSchema = defaultFormSchemaUnion(
+	z.object({
+		address: z.string().min(3, {
+			message: 'Address should be at least 3 characters long.',
+		}),
+	})
+);
 
 const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 	className,

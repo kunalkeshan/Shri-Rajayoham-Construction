@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '@/lib/utils';
+import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
 	Form,
@@ -16,21 +16,13 @@ import { Textarea } from '@/components/ui/textarea';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { VALIDATION_REGEX } from '@/config';
 import Link from 'next/link';
 
 type CareersFormProps = React.ComponentProps<'section'> & {
 	careers: Array<SRCC_Career>;
 };
 
-const formSchema = z.object({
-	name: z.string().min(2),
-	email: z.string().email(),
-	phoneNumber: z
-		.string()
-		.regex(VALIDATION_REGEX.phone, 'Invalid phone number.'),
-	message: z.string().min(3),
-});
+const formSchema = defaultFormSchemaUnion(z.object({}));
 
 const CareersForm: React.FC<CareersFormProps> = ({
 	className,

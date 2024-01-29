@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '@/lib/utils';
+import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
 	Form,
@@ -20,15 +20,13 @@ import { VALIDATION_REGEX } from '@/config';
 
 type EnquiryFormProps = React.ComponentProps<'section'>;
 
-const formSchema = z.object({
-	name: z.string().min(2),
-	email: z.string().email(),
-	phoneNumber: z
-		.string()
-		.regex(VALIDATION_REGEX.phone, 'Invalid phone number.'),
-	pinCode: z.string().regex(VALIDATION_REGEX.pinCode, 'Invalid Pin Code.'),
-	message: z.string().min(3),
-});
+const formSchema = defaultFormSchemaUnion(
+	z.object({
+		pinCode: z
+			.string()
+			.regex(VALIDATION_REGEX.pinCode, 'Invalid Pin Code.'),
+	})
+);
 
 const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 	const form = useForm<z.infer<typeof formSchema>>({
