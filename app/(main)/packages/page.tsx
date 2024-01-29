@@ -11,67 +11,80 @@ const PackagesPage = async () => {
 
 	const materials = [
 		{
-			img: "",
+			img: "/assets/materials/steel.webp",
 			title: "Steel",
 			type: "JWS / Kamatchi / Arun",
-			desc: "",
+			desc: "Fe 550 High Tensioned TMT Rods",
 		},
 		{
-			img: "",
+			img: "/assets/materials/cement.webp",
 			title: "Cement",
 			type: "UltraTech / Ramco",
-			desc: "",
+			desc: "Ramco PPC Cement Grade-53 or UltraTech PPC Cement Grade-53.",
 		},
 		{
-			img: "",
+			img: "/assets/materials/sand.jpg",
 			title: "Sand",
 			type: "M-Sand & P-Sand",
-			desc: "",
+			desc: " M-Sand used for Masonry and Concrete Work.P-Sand used for plastering.",
 		},
 		{
-			img: "",
+			img: "/assets/materials/paint.jpg",
 			title: "Painting",
 			type: "Interior & Exterior Walls",
-			desc: "",
+			desc: "Putty - Nerolac.Paint - Nippon Pro Matex Gold.Exterior Grade Paint - Nippon Weatherbond Advance",
 		},
 		{
-			img: "",
+			img: "/assets/materials/readymix.jpg",
 			title: "Readymix Concrete",
 			type: "RDC / VRMS / ACC Concrete",
-			desc: "",
+			desc: "M20 Grade Concrete used for Roof Slabs & RCC Structures.M10 Grade Concrete used for PCC",
 		},
 		{
-			img: "",
+			img: "/assets/materials/plumbing.webp",
 			title: "Plumbing",
 			type: "Finolex / Ashirwad",
-			desc: "",
+			desc: "Branded CPVC Heat Resistant Pipes used for concealed plumbing",
 		},
 		{
-			img: "",
+			img: "/assets/materials/flooring.png",
 			title: "Flooring",
 			type: "Kajaria / Somany",
-			desc: "",
+			desc: "Anti-skid floor tile of size 4'x2' digital vitrified tiles",
 		},
 		{
-			img: "",
+			img: "/assets/materials/sanitary.jpg",
 			title: "Sanitary Ware & Fittings",
 			type: "Jaguar / Hindware / Parryware",
-			desc: "",
+			desc: "Wall Mounted EWCs,Concealed Diverter, Overhead Shower & Bath Spout",
 		},
 	];
 
-	const FrontOfCard = ({ title, type }: { title: string; type: string }) => {
+	const FrontOfCard = ({
+		title,
+		type,
+		img,
+	}: {
+		title: string;
+		type: string;
+		img: string;
+	}) => {
 		return (
-			<div className="absolute inset-0 w-full h-full flex flex-col gap-4 justify-center text-center p-6 items-center bg-green-900 transition-all duration-100 delay-200 z-20 hover:opacity-0">
-				<h1 className="text-2xl font-semibold">{title}</h1>
-				<p>{type}</p>
+			<div
+				style={{ backgroundImage: `url(${img})` }}
+				className="absolute bg-black inset-0 w-full h-full bg-no-repeat bg-cover transition-all duration-100 delay-200 z-20 hover:opacity-0"
+			>
+				<div className="bg-gradient-to-b from-black/50 w-full h-full to-black/30 p-6 flex flex-col gap-4 justify-center text-center items-center">
+					<h1 className="text-2xl font-semibold">{title}</h1>
+					<p>{type}</p>
+				</div>
 			</div>
 		);
 	};
 
 	const BackOfCard = ({ desc }: { desc: string }) => {
 		return (
-			<div className="absolute inset-0 p-6 w-full h-full flex justify-center items-center bg-slate-500 transition-all z-10 [transform:rotateY(180deg)]">
+			<div className="absolute text-center inset-0 p-6 w-full h-full flex text-black justify-center items-center bg-slate-100 transition-all z-10 [transform:rotateY(180deg)]">
 				<p>{desc}</p>
 			</div>
 		);
@@ -92,9 +105,10 @@ const PackagesPage = async () => {
 						{materials.map((item, idx) => (
 							<div
 								key={idx}
-								className="relative w-full h-60 rounded-2xl text-white overflow-hidden cursor-pointer transition-all duration-700 hover:[transform:rotateY(180deg)] [transform-style:preserve-3d]"
+								className="relative  shadow-md w-full h-60 rounded-2xl text-white overflow-hidden cursor-pointer transition-all duration-700 hover:[transform:rotateY(180deg)] [transform-style:preserve-3d]"
 							>
 								<FrontOfCard
+									img={item.img}
 									title={item.title}
 									type={item.type}
 								/>
