@@ -1,8 +1,8 @@
 import React from "react";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { queries } from "@/sanity/queries";
-import Image from "next/image";
 import PackageCard from "@/components/packages/PackageCard";
+import QuotationCalculator from "@/components/packages/QuotationCalculator";
 
 const PackagesPage = async () => {
 	const packages = await sanityFetch<Array<SRCC_Package>>({
@@ -89,36 +89,56 @@ const PackagesPage = async () => {
 			</div>
 		);
 	};
+
 	return (
-		<main className="w-full mt-[8.5rem] p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32">
-			<section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-				{packages.map((item, idx) => (
-					<PackageCard pack={item} key={idx} />
-				))}
-			</section>
-			<section className="bg-[#f7f8fb w-full">
-				<div className="w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32">
-					<h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-normal">
-						<span className="font-medium">Materials</span> Used
-					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center gap-8 md:gap-16 mt-12">
-						{materials.map((item, idx) => (
-							<div
-								key={idx}
-								className="relative  shadow-md w-full h-60 rounded-2xl text-white overflow-hidden cursor-pointer transition-all duration-700 hover:[transform:rotateY(180deg)] [transform-style:preserve-3d]"
-							>
-								<FrontOfCard
-									img={item.img}
-									title={item.title}
-									type={item.type}
-								/>
-								<BackOfCard desc={item.desc} />
-							</div>
-						))}
+		<>
+			<main className="w-full mt-[8.5rem] p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32">
+				<h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-normal">
+					Our <span className="font-medium">Packages</span>
+				</h2>
+				<section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-12">
+					{packages.map((item, idx) => (
+						<PackageCard pack={item} key={idx} />
+					))}
+				</section>
+				<section className="w-full">
+					<div className="w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32">
+						<h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-normal">
+							<span className="font-medium">Materials</span> Used
+						</h2>
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center gap-8 md:gap-16 mt-12">
+							{materials.map((item, idx) => (
+								<div
+									key={idx}
+									className="relative  shadow-md w-full h-60 rounded-2xl text-white overflow-hidden cursor-pointer transition-all duration-700 hover:[transform:rotateY(180deg)] [transform-style:preserve-3d]"
+								>
+									<FrontOfCard
+										img={item.img}
+										title={item.title}
+										type={item.type}
+									/>
+									<BackOfCard desc={item.desc} />
+								</div>
+							))}
+						</div>
 					</div>
+				</section>
+			</main>
+			<section className="rounded-lg bg-[#f7f8fb] w-full">
+				<div className="p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16">
+					<div className="py-12 ">
+						<h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-normal">
+							Online
+							<span className="font-medium"> Quotation</span>
+						</h2>
+						<p className="text-center text-slate-500 mt-2">
+							You Can Arrive Your Construction Estimate Here
+						</p>
+					</div>
+					<QuotationCalculator />
 				</div>
 			</section>
-		</main>
+		</>
 	);
 };
 

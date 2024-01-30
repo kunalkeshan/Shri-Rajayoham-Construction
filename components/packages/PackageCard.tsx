@@ -9,7 +9,6 @@ type PackageCardProps = React.ComponentProps<"div"> & {
 };
 
 const PackageCard: React.FC<PackageCardProps> = ({ pack }) => {
-	console.log(pack);
 	return (
 		<div className="w-full rounded-lg border flex flex-col gap-6">
 			<div>
@@ -25,17 +24,12 @@ const PackageCard: React.FC<PackageCardProps> = ({ pack }) => {
 				<h3 className="text-2xl font-semibold text-center">
 					{pack.name}
 				</h3>
-				<p className="text-4xl font-bold flex items-center"><IndianRupeeIcon/>{pack.price}</p>
+				<p className="text-4xl font-bold flex items-center">
+					<IndianRupeeIcon />
+					{pack.price}
+				</p>
 				<p className="text-justify">{pack.description}</p>
-				<div className="w-ful mt-auto">
-					{pack.services?.map((service, idx) => (
-						<div key={idx} className="flex">
-							<BadgeCheckIcon className="text-green-500" />
-							{/* {service.icon?.svg} */}
-							<p className="ml-2">{service.name}</p>
-						</div>
-					))}
-				</div>
+				<div className="w-ful mt-auto"></div>
 			</div>
 		</div>
 	);
