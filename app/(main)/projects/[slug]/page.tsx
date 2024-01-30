@@ -94,9 +94,9 @@ const IndividualProjectPage = async ({ params }: Props) => {
 							testimonials={project.testimonials}
 						/>
 					) : null}
-					{project.teamMembers && project.teamMembers.length > 0 ? (
+					{/* {project.teamMembers && project.teamMembers.length > 0 ? (
 						<ProjectMembers teamMembers={project.teamMembers} />
-					) : null}
+					) : null} */}
 				</section>
 			</div>
 		</main>

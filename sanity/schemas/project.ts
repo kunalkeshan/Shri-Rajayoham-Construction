@@ -85,13 +85,13 @@ export default defineType({
 				'Specify the budget for the project as a positive number.',
 			placeholder: 'Project Budget',
 		}),
-		defineField({
-			name: 'teamMembers',
-			title: 'Team Members',
-			type: 'array',
-			of: [{ type: 'reference', to: { type: 'teamMember' } }],
-			description: 'Select team members associated with the project.',
-		}),
+		// defineField({
+		// 	name: 'teamMembers',
+		// 	title: 'Team Members',
+		// 	type: 'array',
+		// 	of: [{ type: 'reference', to: { type: 'teamMember' } }],
+		// 	description: 'Select team members associated with the project.',
+		// }),
 		defineField({
 			name: 'services',
 			title: 'Services',
