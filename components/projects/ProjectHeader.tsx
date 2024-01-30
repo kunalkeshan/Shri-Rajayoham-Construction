@@ -15,7 +15,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 			<h2 className='text-lg md:text-xl mt-2 w-full'>
 				{project.description}
 			</h2>
-			<div className='mt-2 flex items-center gap-4 flex-wrap'>
+			<div className='mt-2 flex items-center gap-6 flex-wrap'>
 				<Badge variant='outline' className='uppercase lg:text-base'>
 					Status: <b>{project.status}</b>
 				</Badge>

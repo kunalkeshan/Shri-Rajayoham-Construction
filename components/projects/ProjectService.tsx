@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 import IconFromSVGString from '../reusable/SVGFromString';
 import { BadgeCheckIcon, Settings } from 'lucide-react';
 
@@ -13,21 +18,25 @@ const ProjectService: React.FC<ProjectServiceProps> = ({ services }) => {
 				<Settings className='mr-2' strokeWidth={1.5} /> Services
 				Provided
 			</h3>
-			<ul className='flex items-center gap-4 flex-wrap mt-4'>
+			<ul className='flex items-center gap-6 flex-wrap mt-4'>
 				{services!.map((service, idx) => (
-					<li
-						key={`${service._id}-${idx}`}
-						className='flex items-center'
-					>
-						{service?.icon?.svg ? (
-							<IconFromSVGString
-								svgString={service?.icon?.svg}
-								className='text-green-500'
-							/>
-						) : (
-							<BadgeCheckIcon className='text-green-500' />
-						)}
-						<span className='ml-2'>{service.name}</span>
+					<li key={`${service._id}-${idx}`}>
+						<Tooltip>
+							<TooltipTrigger className='flex items-center'>
+								{service?.icon?.svg ? (
+									<IconFromSVGString
+										svgString={service?.icon?.svg}
+										className='text-green-500'
+									/>
+								) : (
+									<BadgeCheckIcon className='text-green-500' />
+								)}
+								<span className='ml-2'>{service.name}</span>
+							</TooltipTrigger>
+							<TooltipContent className='max-w-sm'>
+								{service.description}
+							</TooltipContent>
+						</Tooltip>
 					</li>
 				))}
 			</ul>

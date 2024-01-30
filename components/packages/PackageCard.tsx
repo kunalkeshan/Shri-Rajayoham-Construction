@@ -1,24 +1,26 @@
-'use client';
-import service from '@/sanity/schemas/service';
-import { BadgeCheckIcon, IndianRupeeIcon } from 'lucide-react';
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import IconFromSVGString from '../reusable/SVGFromString';
+import { BadgeCheckIcon, IndianRupeeIcon } from 'lucide-react';
 
-type PackageCardProps = React.ComponentProps<'div'> & {
+type PackageCardProps = React.ComponentProps<'a'> & {
 	pckg: SRCC_Package;
 };
 
 const PackageCard: React.FC<PackageCardProps> = ({ pckg }) => {
 	return (
-		<div className='w-full rounded-lg border flex flex-col gap-6'>
-			<div>
+		<Link
+			href={`/packages/${pckg.slug}`}
+			className='w-full rounded-lg border flex flex-col gap-6 group'
+		>
+			<div className='rounded-t-lg overflow-hidden'>
 				<Image
 					src={pckg.image?.url ?? '/assets/fallback/icon-grid.svg'}
 					alt={pckg.image?.alt ?? '/assets/fallback/icon-grid.svg'}
 					width={100}
 					height={100}
-					className='w-full rounded-t-lg'
+					className='w-full h-auto object-cover group-hover:scale-105 transition-all duration-300'
 				/>
 			</div>
 			<div className='flex h-full flex-col items-center gap-4 text-center p-4'>
@@ -49,7 +51,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pckg }) => {
 					))}
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
