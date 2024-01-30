@@ -2,8 +2,8 @@ import React from 'react';
 import { PortableText } from '@portabletext/react';
 import SanityImage from '@/components/reusable/SanityImage';
 
-type BlogBodyProps = React.ComponentProps<'section'> & {
-	body: SRCC_BlogPost['body'];
+type ProjectBodyProps = React.ComponentProps<'section'> & {
+	body: SRCC_Project['body'];
 };
 
 const portableTextComponents = {
@@ -14,7 +14,7 @@ const portableTextComponents = {
 	},
 };
 
-const BlogBody: React.FC<BlogBodyProps> = ({ body }) => {
+const ProjectBody: React.FC<ProjectBodyProps> = ({ body }) => {
 	return (
 		<section className='mt-8 prose max-w-5xl mx-auto'>
 			<PortableText value={body} components={portableTextComponents} />
@@ -22,4 +22,4 @@ const BlogBody: React.FC<BlogBodyProps> = ({ body }) => {
 	);
 };
 
-export default BlogBody;
+export default ProjectBody;
