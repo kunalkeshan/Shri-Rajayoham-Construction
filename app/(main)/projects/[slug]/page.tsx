@@ -3,11 +3,15 @@ import Image from 'next/image';
 import { Metadata, ResolvingMetadata } from 'next';
 import { redirect } from 'next/navigation';
 import ProjectHeader from '@/components/projects/ProjectHeader';
+import ProjectBody from '@/components/projects/ProjectBody';
+import ProjectGallery from '@/components/projects/ProjectGallery';
+import ProjectService from '@/components/projects/ProjectService';
+import ProjectPackage from '@/components/projects/ProjectPackage';
+import ProjectTestimonial from '@/components/projects/ProjectTestimonial';
+import ProjectMembers from '@/components/projects/ProjectMembers';
 import { client } from '@/sanity/lib/client';
 import { queries } from '@/sanity/queries';
 import { SRCC_WEBSITE_URL } from '@/constants/srcc';
-import ProjectBody from '@/components/projects/ProjectBody';
-import ProjectGallery from '@/components/projects/ProjectGallery';
 
 type Props = {
 	params: { slug: string };
@@ -78,6 +82,20 @@ const IndividualProjectPage = async ({ params }: Props) => {
 					{project.body ? <ProjectBody body={project.body} /> : null}
 					{project.imageGallery && project.imageGallery.length > 0 ? (
 						<ProjectGallery imageGallery={project.imageGallery} />
+					) : null}
+					{project.packages && project.packages.length > 0 ? (
+						<ProjectPackage packages={project.packages} />
+					) : null}
+					{project.services && project.services.length > 0 ? (
+						<ProjectService services={project.services} />
+					) : null}
+					{project.testimonials && project.testimonials.length > 0 ? (
+						<ProjectTestimonial
+							testimonials={project.testimonials}
+						/>
+					) : null}
+					{project.teamMembers && project.teamMembers.length > 0 ? (
+						<ProjectMembers teamMembers={project.teamMembers} />
 					) : null}
 				</section>
 			</div>
