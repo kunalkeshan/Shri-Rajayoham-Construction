@@ -1,8 +1,8 @@
 import React from 'react';
 import Hero from '@/components/projects/Hero';
+import Projects from '@/components/projects/Projects';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
-import Projects from '@/components/projects/Projects';
 
 // Function to sort projects by status
 const groupProjectsByStatus = (
