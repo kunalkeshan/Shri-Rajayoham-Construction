@@ -124,7 +124,7 @@ const PackagesPage = async () => {
 					</div>
 				</section>
 			</main>
-			<section className="rounded-lg bg-[#f7f8fb] w-full">
+			<section className="rounded-lg bg-app-bg w-full">
 				<div className="p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16">
 					<div className="py-12 ">
 						<h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-normal">
