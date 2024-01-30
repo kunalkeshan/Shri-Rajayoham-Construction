@@ -1,10 +1,10 @@
 import React from 'react';
 
 type ProjectMembersProps = React.ComponentProps<'section'> & {
-	teamMembers: SRCC_Project['teamMembers'];
+	// teamMembers: SRCC_Project['teamMembers'];
 };
 
-const ProjectMembers: React.FC<ProjectMembersProps> = ({ teamMembers }) => {
+const ProjectMembers: React.FC<ProjectMembersProps> = () => {
 	return <section className='mt-4'></section>;
 };
 
