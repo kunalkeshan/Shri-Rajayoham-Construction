@@ -3,6 +3,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import { redirect } from 'next/navigation';
 import { client } from '@/sanity/lib/client';
 import { queries } from '@/sanity/queries';
+import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 
 type Props = {
 	params: { slug: string };
@@ -23,12 +24,12 @@ export async function generateMetadata(
 		params
 	);
 	return {
-		// metadataBase: new URL(SRCC_WEBSITE_URL),
+		metadataBase: new URL(SRCC_WEBSITE_URL),
 		title: `${pckg.name} | Shri Rajayoham Construction Company`,
 		description: pckg.description,
 		openGraph: {
 			title: `${pckg.name} | Shri Rajayoham Construction Company`,
-			// url: `${SRCC_WEBSITE_URL}/blogs/${pckg.slug}`,
+			url: `${SRCC_WEBSITE_URL}/packages/${pckg.slug}`,
 			// TODO: Add image from blog pckg, else add fallback from srcc thumbnail og image, same for twitter in all pages!
 			description: pckg.description,
 		},

@@ -8,6 +8,7 @@ import JobDescription from '@/components/careers/JobDescription';
 import JobBenefits from '@/components/careers/JobBenefits';
 import JobExperience from '@/components/careers/JobExperience';
 import { Button } from '@/components/ui/button';
+import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 
 type Props = {
 	params: { slug: string };
@@ -28,12 +29,12 @@ export async function generateMetadata(
 		params
 	);
 	return {
-		// metadataBase: new URL(SRCC_WEBSITE_URL),
+		metadataBase: new URL(SRCC_WEBSITE_URL),
 		title: `${career.role.name} - ${career.position.name} | Shri Rajayoham Construction Company`,
 		description: `Job opening for an ${career.role.name} - ${career.position.name} with experience of ${career.experience}+ years or more. Apply to join Shri Rajayoham Construction Company.`,
 		openGraph: {
 			title: `${career.role.name} - ${career.position.name} | Shri Rajayoham Construction Company`,
-			// url: `${SRCC_WEBSITE_URL}/blogs/${career.slug}`,
+			url: `${SRCC_WEBSITE_URL}/careers/${career.slug}`,
 			description: `Job opening for an ${career.role.name} - ${career.position.name} with experience of ${career.experience}+ years or more. Apply to join Shri Rajayoham Construction Company.`,
 		},
 		twitter: {

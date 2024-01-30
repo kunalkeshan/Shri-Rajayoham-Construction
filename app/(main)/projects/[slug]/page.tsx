@@ -1,3 +1,4 @@
+import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 import { client } from '@/sanity/lib/client';
 import { queries } from '@/sanity/queries';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -23,12 +24,12 @@ export async function generateMetadata(
 		params
 	);
 	return {
-		// metadataBase: new URL(SRCC_WEBSITE_URL),
+		metadataBase: new URL(SRCC_WEBSITE_URL),
 		title: `${project.title} | Shri Rajayoham Construction Company`,
 		description: project.description,
 		openGraph: {
 			title: `${project.title} | Shri Rajayoham Construction Company`,
-			// url: `${SRCC_WEBSITE_URL}/blogs/${project.slug}`,
+			url: `${SRCC_WEBSITE_URL}/projects/${project.slug}`,
 			// TODO: Add image from blog project, else add fallback from srcc thumbnail og image, same for twitter in all pages!
 			description: project.description,
 		},

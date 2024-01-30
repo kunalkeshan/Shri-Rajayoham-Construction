@@ -9,6 +9,7 @@ import { dateFormatter } from '@/lib/utils';
 import ReadTime from '@/components/blogs/ReadTime';
 import BlogBody from '@/components/blogs/BlogBody';
 import SocialShare from '@/components/blogs/SocialShare';
+import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 
 type Props = {
 	params: { slug: string };
@@ -29,12 +30,12 @@ export async function generateMetadata(
 		params
 	);
 	return {
-		// metadataBase: new URL(SRCC_WEBSITE_URL),
+		metadataBase: new URL(SRCC_WEBSITE_URL),
 		title: `${post.title} | Shri Rajayoham Construction Company`,
 		description: post.description,
 		openGraph: {
 			title: `${post.title} | Shri Rajayoham Construction Company`,
-			// url: `${SRCC_WEBSITE_URL}/blogs/${post.slug}`,
+			url: `${SRCC_WEBSITE_URL}/blogs/${post.slug}`,
 			// TODO: Add image from blog post, else add fallback from srcc thumbnail og image, same for twitter in all pages!
 			description: post.description,
 		},
