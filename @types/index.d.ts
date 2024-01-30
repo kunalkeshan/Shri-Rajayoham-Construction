@@ -93,7 +93,7 @@ type SRCC_Project = SRCC_Base_Model &
 		services?: Array<SRCC_Service>;
 		packages?: Array<SRCC_Package>;
 		testimonials?: Array<SRCC_Testimonial>;
-		teamMembers?: Array<SRCC_TeamMember>;
+		// teamMembers?: Array<SRCC_TeamMember>;
 		imageGallery?: Array<{
 			caption: string;
 			image: { url: string; alt: string };
