@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL(SRCC_WEBSITE_URL),
 	title: 'Terms & Conditions | Shri Rajayoham Construction Company',
 	description:
-		'Very Trustable. High Values. Complete Transparency. High Quality. Reasonable price.',
+		"Welcome to Shri Rajayoham Construction Company's website. By accessing and using this website, you agree to comply with and be bound by these Terms and Conditions.",
 };
 
 export default function TermsAndConditionsPageLayout({

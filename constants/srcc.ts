@@ -27,7 +27,7 @@ export const SRCC_SOCIALS: Array<SocialLinks> = [
 	{
 		name: 'Instagram',
 		Icon: InstagramIcon,
-		url: '#',
+		url: 'https://www.instagram.com/shri_rajayoham_construction',
 	},
 	{
 		name: 'Facebook',
