@@ -5,13 +5,10 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
 import QueryModalProvider from '@/context/QueryModalContext';
 import QueryDialog from '@/components/reusable/QueryDialog';
-import { SRCC_WEBSITE_URL } from '@/constants/srcc';
+import { generateDefaultMetadata } from '@/lib/helper';
 
 export const metadata: Metadata = {
-	metadataBase: new URL(SRCC_WEBSITE_URL),
-	title: 'Shri Rajayoham Construction Company',
-	description:
-		'Very Trustable. High Values. Complete Transparency. High Quality. Reasonable price.',
+	...generateDefaultMetadata(),
 };
 
 export default function RootLayout({

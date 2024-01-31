@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Palanquin } from 'next/font/google';
 import './globals.css';
-import { SRCC_WEBSITE_URL } from '@/constants/srcc';
+import { generateDefaultMetadata } from '@/lib/helper';
 
 const palanquin = Palanquin({
 	subsets: ['latin'],
@@ -9,10 +9,7 @@ const palanquin = Palanquin({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL(SRCC_WEBSITE_URL),
-	title: 'Shri Rajayoham Construction Company',
-	description:
-		'Very Trustable. High Values. Complete Transparency. High Quality. Reasonable price.',
+	...generateDefaultMetadata(),
 };
 
 export default function RootLayout({

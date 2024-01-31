@@ -12,6 +12,7 @@ import ProjectMembers from '@/components/projects/ProjectMembers';
 import { client } from '@/sanity/lib/client';
 import { queries } from '@/sanity/queries';
 import { SRCC_WEBSITE_URL } from '@/constants/srcc';
+import { generateDefaultMetadata } from '@/lib/helper';
 
 type Props = {
 	params: { slug: string };
@@ -23,6 +24,8 @@ export async function generateStaticParams() {
 	return projects;
 }
 
+const defaultMetadata = generateDefaultMetadata();
+
 export async function generateMetadata(
 	{ params, searchParams }: Props,
 	parent: ResolvingMetadata
@@ -32,19 +35,24 @@ export async function generateMetadata(
 		params
 	);
 	return {
-		metadataBase: new URL(SRCC_WEBSITE_URL),
+		...defaultMetadata,
 		title: `${project.title} | Shri Rajayoham Construction Company`,
 		description: project.description,
 		openGraph: {
+			...defaultMetadata.openGraph,
 			title: `${project.title} | Shri Rajayoham Construction Company`,
 			url: `${SRCC_WEBSITE_URL}/projects/${project.slug}`,
-			// TODO: Add image from blog project, else add fallback from srcc thumbnail og image, same for twitter in all pages!
 			description: project.description,
+			...(project?.image &&
+				project?.image?.url && { images: [project.image.url] }),
 		},
 		twitter: {
+			...defaultMetadata.twitter,
 			card: 'summary_large_image',
 			title: `${project.title} | Shri Rajayoham Construction Company`,
 			description: project.description,
+			...(project?.image &&
+				project?.image?.url && { images: [project.image.url] }),
 		},
 	};
 }
@@ -57,7 +65,6 @@ const IndividualProjectPage = async ({ params }: Props) => {
 	if (!project) {
 		redirect('/projects');
 	}
-	console.log(project);
 	return (
 		<main className='w-full min-h-screen mt-[8.5rem]'>
 			<div className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32 w-full grid grid-cols-1 lg:grid-cols-3 gap-8'>

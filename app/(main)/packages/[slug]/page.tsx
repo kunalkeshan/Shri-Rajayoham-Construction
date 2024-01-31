@@ -8,6 +8,7 @@ import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 import PackageHeader from '@/components/packages/PackageHeader';
 import PackageFeatures from '@/components/packages/PackageFeatures';
 import ProjectService from '@/components/projects/ProjectService';
+import { generateDefaultMetadata } from '@/lib/helper';
 
 type Props = {
 	params: { slug: string };
@@ -19,6 +20,8 @@ export async function generateStaticParams() {
 	return packages;
 }
 
+const defaultMetadata = generateDefaultMetadata();
+
 export async function generateMetadata(
 	{ params, searchParams }: Props,
 	parent: ResolvingMetadata
@@ -28,19 +31,24 @@ export async function generateMetadata(
 		params
 	);
 	return {
-		metadataBase: new URL(SRCC_WEBSITE_URL),
+		...defaultMetadata,
 		title: `${pckg.name} | Shri Rajayoham Construction Company`,
 		description: pckg.description,
 		openGraph: {
+			...defaultMetadata.openGraph,
 			title: `${pckg.name} | Shri Rajayoham Construction Company`,
 			url: `${SRCC_WEBSITE_URL}/packages/${pckg.slug}`,
-			// TODO: Add image from blog pckg, else add fallback from srcc thumbnail og image, same for twitter in all pages!
 			description: pckg.description,
+			...(pckg?.image &&
+				pckg?.image?.url && { images: [pckg.image.url] }),
 		},
 		twitter: {
+			...defaultMetadata.twitter,
 			card: 'summary_large_image',
 			title: `${pckg.name} | Shri Rajayoham Construction Company`,
 			description: pckg.description,
+			...(pckg?.image &&
+				pckg?.image?.url && { images: [pckg.image.url] }),
 		},
 	};
 }

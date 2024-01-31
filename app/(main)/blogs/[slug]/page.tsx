@@ -16,6 +16,7 @@ import ReadTime from '@/components/blogs/ReadTime';
 import BlogBody from '@/components/blogs/BlogBody';
 import SocialShare from '@/components/blogs/SocialShare';
 import { SRCC_WEBSITE_URL } from '@/constants/srcc';
+import { generateDefaultMetadata } from '@/lib/helper';
 
 type Props = {
 	params: { slug: string };
@@ -27,6 +28,8 @@ export async function generateStaticParams() {
 	return posts;
 }
 
+const defaultMetadata = generateDefaultMetadata();
+
 export async function generateMetadata(
 	{ params, searchParams }: Props,
 	parent: ResolvingMetadata
@@ -36,19 +39,24 @@ export async function generateMetadata(
 		params
 	);
 	return {
-		metadataBase: new URL(SRCC_WEBSITE_URL),
+		...defaultMetadata,
 		title: `${post.title} | Shri Rajayoham Construction Company`,
 		description: post.description,
 		openGraph: {
+			...defaultMetadata.openGraph,
 			title: `${post.title} | Shri Rajayoham Construction Company`,
 			url: `${SRCC_WEBSITE_URL}/blogs/${post.slug}`,
-			// TODO: Add image from blog post, else add fallback from srcc thumbnail og image, same for twitter in all pages!
 			description: post.description,
+			...(post?.image &&
+				post?.image?.url && { images: [post.image.url] }),
 		},
 		twitter: {
+			...defaultMetadata.twitter,
 			card: 'summary_large_image',
 			title: `${post.title} | Shri Rajayoham Construction Company`,
 			description: post.description,
+			...(post?.image &&
+				post?.image?.url && { images: [post.image.url] }),
 		},
 	};
 }

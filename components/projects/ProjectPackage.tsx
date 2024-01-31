@@ -7,7 +7,6 @@ type ProjectPackageProps = React.ComponentProps<'section'> & {
 };
 
 const ProjectPackage: React.FC<ProjectPackageProps> = ({ packages }) => {
-	console.log(packages![0].services);
 	return (
 		<section className='mt-8'>
 			<h3 className='text-lg lg:text-2xl font-medium flex items-center'>
