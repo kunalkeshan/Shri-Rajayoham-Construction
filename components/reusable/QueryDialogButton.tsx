@@ -11,7 +11,7 @@ const QueryDialogButton = () => {
 			onClick={handleOpenQueryModal}
 			className='p-8 bg-app hover:bg-app/90 hover: hover:-translate-y-1 transition-all duration-300'
 		>
-			GET FREE CONSULTATION
+			Enquire now
 		</Button>
 	);
 };

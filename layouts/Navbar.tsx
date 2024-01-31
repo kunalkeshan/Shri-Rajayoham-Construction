@@ -27,7 +27,10 @@ const Navbar = () => {
 						</Button>
 					))}
 				</div>
-				<div className='w-16 rounded-full overflow-hidden mx-4'>
+				<Link
+					href='/'
+					className='w-16 rounded-full overflow-hidden mx-4 block'
+				>
 					<Image
 						src='/assets/logo.jpg'
 						width={100}
@@ -35,7 +38,7 @@ const Navbar = () => {
 						className='w-full h-auto object-cover'
 						alt='SRCC'
 					/>
-				</div>
+				</Link>
 				<div className='hidden lg:flex'>
 					{NAVBAR_NAVIGATION.slice(3, 6).map((item) => (
 						<Button
