@@ -65,9 +65,9 @@ export default defineType({
 			name: 'about',
 			title: 'About',
 			type: 'text',
-			validation: (Rule) => Rule.max(250),
+			validation: (Rule) => Rule.max(750),
 			description:
-				'Provide a brief description (max 250 characters) about the team member. (Note: Text entered in a new line will be considered as a space)',
+				'Provide a brief description (max 750 characters) about the team member. (Note: Text entered in a new line will be considered as a space)',
 		}),
 		// defineField({
 		// 	name: 'bio',

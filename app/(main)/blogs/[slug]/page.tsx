@@ -6,6 +6,12 @@ import { redirect } from 'next/navigation';
 import { client } from '@/sanity/lib/client';
 import { queries } from '@/sanity/queries';
 import { dateFormatter } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 import ReadTime from '@/components/blogs/ReadTime';
 import BlogBody from '@/components/blogs/BlogBody';
 import SocialShare from '@/components/blogs/SocialShare';
@@ -78,15 +84,44 @@ const IndividualBlogPage = async ({ params }: Props) => {
 						{post.description}
 					</h2>
 					<div className='flex items-center w-full justify-evenly mt-2 flex-wrap'>
-						<p>{dateFormatter(new Date(post.publishedAt))}</p>
+						<p>{dateFormatter(new Date(post.publishedAt))}</p>•
 						<p className='capitalize'>
 							Written by {post.author.name}
 						</p>
+						•
 						<ReadTime body={post.body} />
 					</div>
+					{post.categories && post.categories.length > 0 ? (
+						<div className='mt-4 flex flex-wrap gap-2 items-center justify-center'>
+							{post.categories.map((category) => (
+								<Tooltip
+									key={`${post._id}-category-${category._id}`}
+								>
+									<TooltipTrigger>
+										<Badge>{category.title}</Badge>
+									</TooltipTrigger>
+									<TooltipContent className='max-w-xs'>
+										{category.description}
+									</TooltipContent>
+								</Tooltip>
+							))}
+						</div>
+					) : null}
 				</section>
 				<BlogBody body={post.body} />
 				<SocialShare post={post} />
+				{post.canonicalLink ? (
+					<section className='mt-8 text-sm'>
+						Source Post:{' '}
+						<Link
+							href={post.canonicalLink}
+							target='_blank'
+							className='hover:underline text-blue-500'
+						>
+							{post.canonicalLink}
+						</Link>
+					</section>
+				) : null}
 			</div>
 		</main>
 	);
