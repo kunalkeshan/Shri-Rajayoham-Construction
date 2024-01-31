@@ -15,14 +15,12 @@ const ProjectTestimonial: React.FC<ProjectTestimonialProps> = ({
 				<Quote className='mr-2' strokeWidth={1.5} /> Testimonials
 			</h3>
 			<ul className='mt-4 grid grid-cols-1 md:grid-cols-2 gap-6'>
-				{testimonials!
-					.concat(Array(4).fill(testimonials![0]))
-					.map((testimonial, idx) => (
-						<TestimonialCard
-							key={`${testimonial._id}-${idx}`}
-							testimonial={testimonial}
-						/>
-					))}
+				{testimonials!.map((testimonial, idx) => (
+					<TestimonialCard
+						key={`${testimonial._id}-${idx}`}
+						testimonial={testimonial}
+					/>
+				))}
 			</ul>
 		</section>
 	);
