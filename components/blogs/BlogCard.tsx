@@ -1,6 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Badge } from '@/components/ui/badge';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { dateFormatter } from '@/lib/utils';
 
 type BlogCardProps = React.ComponentProps<'div'> & {
@@ -39,6 +45,20 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 					</Link>
 				</div>
 			</div>
+			{post.categories && post.categories.length > 0 ? (
+				<div className='mt-4 flex flex-wrap gap-2 items-center'>
+					{post.categories.map((category) => (
+						<Tooltip key={`${post._id}-category-${category._id}`}>
+							<TooltipTrigger>
+								<Badge>{category.title}</Badge>
+							</TooltipTrigger>
+							<TooltipContent className='max-w-xs'>
+								{category.description}
+							</TooltipContent>
+						</Tooltip>
+					))}
+				</div>
+			) : null}
 		</div>
 	);
 };
