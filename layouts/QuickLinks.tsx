@@ -17,7 +17,7 @@ const QuickLinks = () => {
 						<MailIcon
 							strokeWidth={1.5}
 							size={20}
-							className='mr-2 text-[#ff6969]'
+							className='mr-2 text-app'
 						/>
 						{SRCC_EMAIL}
 					</Link>
@@ -31,7 +31,7 @@ const QuickLinks = () => {
 						<PhoneIcon
 							strokeWidth={1.5}
 							size={20}
-							className='mr-2 text-[#ff6969]'
+							className='mr-2 text-app'
 						/>
 						{SRCC_MOBILE}
 					</Link>
@@ -47,7 +47,7 @@ const QuickLinks = () => {
 						title={social.name}
 					>
 						<social.Icon
-							className='hover:text-[#ff6969] transition-all duration-300'
+							className='hover:text-app transition-all duration-300'
 							strokeWidth={1.5}
 							size={20}
 						/>
