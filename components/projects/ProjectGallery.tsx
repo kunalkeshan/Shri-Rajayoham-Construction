@@ -8,7 +8,7 @@ type ProjectGalleryProps = React.ComponentProps<'section'> & {
 
 const ProjectGallery: React.FC<ProjectGalleryProps> = ({ imageGallery }) => {
 	return (
-		<section className='mt-4'>
+		<section className='mt-8'>
 			<h3 className='text-lg lg:text-2xl font-medium flex items-center'>
 				<ImageIcon className='mr-2' strokeWidth={1.5} /> Gallery
 			</h3>

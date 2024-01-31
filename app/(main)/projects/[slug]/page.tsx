@@ -60,7 +60,7 @@ const IndividualProjectPage = async ({ params }: Props) => {
 	console.log(project);
 	return (
 		<main className='w-full min-h-screen mt-[8.5rem]'>
-			<div className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32 w-full grid grid-cols-1 lg:grid-cols-2 gap-8'>
+			<div className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32 w-full grid grid-cols-1 lg:grid-cols-3 gap-8'>
 				<section className='w-full h-fit lg:sticky lg:top-40'>
 					<div className='rounded-lg overflow-hidden'>
 						<Image
@@ -77,7 +77,7 @@ const IndividualProjectPage = async ({ params }: Props) => {
 						/>
 					</div>
 				</section>
-				<section className='w-full'>
+				<section className='w-full lg:col-span-2'>
 					<ProjectHeader project={project} />
 					{project.body ? <ProjectBody body={project.body} /> : null}
 					{project.imageGallery && project.imageGallery.length > 0 ? (

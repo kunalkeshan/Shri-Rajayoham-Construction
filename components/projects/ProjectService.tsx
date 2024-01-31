@@ -13,7 +13,7 @@ type ProjectServiceProps = React.ComponentProps<'section'> & {
 
 const ProjectService: React.FC<ProjectServiceProps> = ({ services }) => {
 	return (
-		<section className='mt-4'>
+		<section className='mt-8'>
 			<h3 className='text-lg lg:text-2xl font-medium flex items-center'>
 				<Settings className='mr-2' strokeWidth={1.5} /> Services
 				Provided
