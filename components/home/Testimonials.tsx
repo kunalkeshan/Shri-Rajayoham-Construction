@@ -79,6 +79,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 								<AvatarImage
 									src={testimonial.image.url}
 									alt={testimonial.image.alt}
+									className='w-full h-auto aspect-square object-cover'
 								/>
 								<AvatarFallback>
 									{testimonial.name}
