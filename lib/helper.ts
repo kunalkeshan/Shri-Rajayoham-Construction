@@ -12,14 +12,14 @@ export const generateDefaultMetadata = (): Metadata => {
 		title: COMMONS.title,
 		description: COMMONS.description,
 		openGraph: {
-			images: ['/opengraph-image.png'],
+			images: ['/opengraph-image.jpg'],
 			type: 'website',
 			title: COMMONS.title,
 			description: COMMONS.description,
 			url: `${SRCC_WEBSITE_URL}`,
 		},
 		twitter: {
-			images: ['/twitter-image.png'],
+			images: ['/twitter-image.jpg'],
 			title: COMMONS.title,
 			description: COMMONS.description,
 		},
