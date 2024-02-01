@@ -32,7 +32,7 @@ const HomePage = async () => {
 	return (
 		<main className='w-full min-h-screen mt-[8.5rem]'>
 			<HeroCarousel />
-			<WhyUs />
+			<WhyUs impacts={impacts} />
 			<WhatWeDo />
 			<EnquiryStrip />
 			<Locations />

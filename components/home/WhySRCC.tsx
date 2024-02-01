@@ -1,30 +1,11 @@
 import React from 'react';
 import Counter from '../reusable/Counter';
 
-const WhyUs = () => {
-	const data = [
-		{
-			num: 7,
-			title: 'Years of experience for SRCC’s Team',
-		},
-		{
-			num: 37,
-			title: 'Decades-Long Construction Mastery',
-		},
-		{
-			num: 27,
-			title: 'Ongoing Projects',
-		},
-		{
-			num: 125,
-			title: 'Staff members',
-		},
-		{
-			num: 2,
-			title: 'Years minimum warranty',
-		},
-	];
+type WhyUsProps = React.ComponentProps<'section'> & {
+	impacts: Array<SRCC_Impact>;
+};
 
+const WhyUs: React.FC<WhyUsProps> = ({ impacts }) => {
 	const cards = [
 		{
 			title: 'Bank Loan & Building Approval Support',
@@ -52,17 +33,17 @@ const WhyUs = () => {
 					</span>
 				</h2>
 				<div className='grid grid-cols-3 md:grid-cols-5 items-center justify-center gap-8 md:gap-16 mt-12'>
-					{data.map(({ title, num }, idx) => (
+					{impacts.map((impact) => (
 						<div
-							key={`why-srcc-impact-${idx}`}
+							key={`why-srcc-impact-${impact._id}`}
 							className='flex w-full max-w-xs flex-col items-center justify-center mb-auto'
 						>
 							<div className='text-center mt-4'>
 								<h3 className='text-4xl font-bold'>
-									<Counter from={0} to={num} />
+									<Counter from={0} to={impact.count} />
 								</h3>
 								<p className='text-slate-500 mt-2 text-base md:text-lg'>
-									{title}
+									{impact.title}
 								</p>
 							</div>
 						</div>
