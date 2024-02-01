@@ -72,7 +72,7 @@
 		@apply border-border;
 	}
 	html {
-		@apply scroll-smooth scroll-pt-20;
+		@apply !scroll-smooth scroll-pt-32;
 	}
 	body {
 		@apply bg-background text-foreground;
