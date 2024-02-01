@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/sonner';
 import QueryModalProvider from '@/context/QueryModalContext';
 import QueryDialog from '@/components/reusable/QueryDialog';
 import { generateDefaultMetadata } from '@/lib/helper';
+import WhatsAppCTA from '@/components/reusable/WhatsAppCTA';
 
 export const metadata: Metadata = {
 	...generateDefaultMetadata(),
@@ -25,6 +26,7 @@ export default function RootLayout({
 				<Toaster />
 				<QueryDialog />
 			</TooltipProvider>
+			<WhatsAppCTA/>
 		</QueryModalProvider>
 	);
 }
