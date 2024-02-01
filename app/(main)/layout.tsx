@@ -25,8 +25,8 @@ export default function RootLayout({
 				<Footer />
 				<Toaster />
 				<QueryDialog />
+				<WhatsAppCTA />
 			</TooltipProvider>
-			<WhatsAppCTA/>
 		</QueryModalProvider>
 	);
 }
