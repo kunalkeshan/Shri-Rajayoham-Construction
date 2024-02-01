@@ -2,6 +2,12 @@ type SRCC_Base_Model = Readonly<{
 	_id: string;
 }>;
 
+type SRCC_Impact = SRCC_Base_Model &
+	Readonly<{
+		count: number;
+		title: string;
+	}>;
+
 type SRCC_BlogPost = SRCC_Base_Model &
 	Readonly<{
 		title: string;

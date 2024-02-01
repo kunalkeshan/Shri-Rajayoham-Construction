@@ -7,6 +7,7 @@ import SERVICE from './queries/service';
 import POST from './queries/post';
 import PACKAGE from './queries/package';
 import PROJECT from './queries/project';
+import IMPACT from './queries/impact';
 
 export const queries = {
 	testimonial: TESTIMONIAL,
@@ -17,4 +18,5 @@ export const queries = {
 	post: POST,
 	package: PACKAGE,
 	project: PROJECT,
+	impact: IMPACT,
 };

@@ -26,6 +26,9 @@ const HomePage = async () => {
 	const projects = await sanityFetch<Array<SRCC_Project>>({
 		query: queries.project.getAllCompleted,
 	});
+	const impacts = await sanityFetch<Array<SRCC_Impact>>({
+		query: queries.impact.getAll,
+	});
 	return (
 		<main className='w-full min-h-screen mt-[8.5rem]'>
 			<HeroCarousel />
