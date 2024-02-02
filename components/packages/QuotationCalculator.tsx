@@ -100,14 +100,14 @@ const QuotationCalculator = () => {
 					<TableHead className=' min-w-[100px] text-center'>
 						Sl. No
 					</TableHead>
-					<TableHead className='min-w-[400px] text-center'>
+					<TableHead className='min-w-[160px] text-center'>
 						Work
 					</TableHead>
 					<TableHead className='min-w-[300px] text-center'>
 						Area
 					</TableHead>
 					<TableHead className='text-center'>Unit</TableHead>
-					<TableHead className='text-center min-w-[100px]'>
+					<TableHead className='text-center min-w-[200px]'>
 						Rate
 					</TableHead>
 					<TableHead className='text-center'>Cost</TableHead>

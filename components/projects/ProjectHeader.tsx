@@ -47,7 +47,6 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 								{new Intl.NumberFormat('en-IN', {
 									style: 'currency',
 									currency: 'INR',
-									notation: 'compact',
 								}).format(project.budget)}
 							</b>
 						</span>

@@ -29,7 +29,6 @@ const PackageHeader: React.FC<PackageHeaderProps> = ({ pckg }) => {
 								{new Intl.NumberFormat('en-IN', {
 									style: 'currency',
 									currency: 'INR',
-									notation: 'compact',
 								}).format(pckg.price)}
 							</b>
 						</span>
