@@ -78,18 +78,18 @@ const AllForms: React.FC<AllFormsProps> = ({ careers }) => {
 				defaultValue='enquiry'
 				className='w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-8 mt-10'
 			>
-				<TabsList className='grid grid-cols-2 md:grid-cols-1 h-fit gap-2 min-w-60 md:sticky md:top-40'>
+				<TabsList className='grid grid-cols-1 h-fit gap-2 min-w-60 md:sticky md:top-40'>
 					{TRIGGERS.map((trigger) => (
 						<TabsTrigger
 							key={`trigger-${trigger.value}`}
 							value={trigger.value}
-							className='flex items-center md:text-lg w-full justify-start text-left whitespace-normal h-full'
+							className='flex items-center md:text-lg w-full justify-start text-left whitespace-normal'
 						>
 							<trigger.Icon
 								className='mr-2 shrink-0'
 								strokeWidth={1.5}
 							/>
-							<div className='max-w-[18ch] w-full break-words'>
+							<div className='md:max-w-[18ch] w-full break-words'>
 								<p>{trigger.title}</p>
 								<p className='text-xs'>{trigger.subtitle}</p>
 							</div>

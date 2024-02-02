@@ -49,7 +49,7 @@ const WhyUs: React.FC<WhyUsProps> = ({ impacts }) => {
 						</div>
 					))}
 				</div>
-				<div className='grid grid-cols-3 md:grid-cols-5 items-center justify-center gap-6 mt-12'>
+				<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center justify-center gap-6 mt-12'>
 					{cards.map(({ title }, idx) => (
 						<div
 							key={`wh-srcc-reason-${idx}`}

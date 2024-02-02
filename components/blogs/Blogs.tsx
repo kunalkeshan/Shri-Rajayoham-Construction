@@ -7,7 +7,7 @@ type BlogsProps = React.ComponentProps<'section'> & {
 
 const Blogs: React.FC<BlogsProps> = ({ posts }) => {
 	return (
-		<section className='mt-12 md:gap-16 grid grid-cols-1 lg:grid-cols-2'>
+		<section className='mt-12 md:gap-16 grid grid-cols-1'>
 			{posts.map((post) => (
 				<BlogCard post={post} key={post._id} />
 			))}

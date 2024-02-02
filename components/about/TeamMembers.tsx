@@ -24,7 +24,7 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 											'/assets/fallback/icon-grid.svg'
 										}
 										unoptimized
-										className='w-full lg:w-96 rounded-lg'
+										className='w-[80%] lg:w-96 rounded-lg'
 										alt={item.image?.alt ?? item.name}
 										width={100}
 										height={100}
@@ -62,7 +62,7 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 											'/assets/fallback/icon-grid.svg'
 										}
 										unoptimized
-										className='w-full md:w-96 rounded-lg'
+										className='w-[80%] md:w-96 rounded-lg'
 										alt={item.image?.alt ?? item.name}
 										width={100}
 										height={100}

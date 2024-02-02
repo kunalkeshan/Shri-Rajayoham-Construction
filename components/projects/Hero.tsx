@@ -14,7 +14,10 @@ const Hero = () => {
 						className='hidden lg:block -rotate-[36deg]'
 					/>
 				</div>
-				<Link href={'#upcoming'} className='col-span-1 w-full group'>
+				<Link
+					href={'#upcoming'}
+					className='col-span-1 w-full group hover:bg-app-bg transition-all duration-300 rounded-lg'
+				>
 					<div className='w-full rounded-lg overflow-hidden'>
 						<Image
 							src={'/assets/fallback/icon-grid.svg'}
@@ -24,7 +27,7 @@ const Hero = () => {
 							height={100}
 						/>
 					</div>
-					<h2 className='text-center text-lg md:text-xl lg:text-2xl font-semibold mt-4'>
+					<h2 className='text-center text-lg md:text-xl lg:text-2xl font-semibold mt-4 underline pb-4'>
 						Upcoming
 					</h2>
 				</Link>
@@ -35,7 +38,10 @@ const Hero = () => {
 						className='hidden lg:block rotate-[54deg]'
 					/>
 				</div>
-				<Link href={'#ongoing'} className='col-span-1 w-full group'>
+				<Link
+					href={'#ongoing'}
+					className='col-span-1 w-full group hover:bg-app-bg transition-all duration-300 rounded-lg'
+				>
 					<div className='w-full rounded-lg overflow-hidden'>
 						<Image
 							src={'/assets/fallback/icon-grid.svg'}
@@ -45,14 +51,17 @@ const Hero = () => {
 							height={100}
 						/>
 					</div>
-					<h2 className='text-center text-lg md:text-xl lg:text-2xl font-semibold mt-4'>
+					<h2 className='text-center text-lg md:text-xl lg:text-2xl font-semibold mt-4 underline pb-4'>
 						Ongoing
 					</h2>
 				</Link>
 				<div className='col-span-1 w-full h-full flex items-center justify-center'>
 					<MoveDownIcon size={96} className='lg:rotate-90' />
 				</div>
-				<Link href={'#completed'} className='col-span-1 w-full group'>
+				<Link
+					href={'#completed'}
+					className='col-span-1 w-full group hover:bg-app-bg transition-all duration-300 rounded-lg'
+				>
 					<div className='w-full rounded-lg overflow-hidden'>
 						<Image
 							src={'/assets/fallback/icon-grid.svg'}
@@ -62,7 +71,7 @@ const Hero = () => {
 							height={100}
 						/>
 					</div>
-					<h2 className='text-center text-lg md:text-xl lg:text-2xl font-semibold mt-4'>
+					<h2 className='text-center text-lg md:text-xl lg:text-2xl font-semibold mt-4 underline pb-4'>
 						Completed
 					</h2>
 				</Link>

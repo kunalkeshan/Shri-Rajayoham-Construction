@@ -16,11 +16,11 @@ type SocialLinks = {
 };
 
 export const SRCC_EMAIL = 'example@gmail.com' as const;
-export const SRCC_MOBILE = '+919876543210' as const;
+export const SRCC_MOBILE = '+919025869012' as const;
 
 export const SRCC_WEBSITE_URL =
 	process.env.NODE_ENV === 'development'
-		? 'http://localhost:3000'
+		? ('http://localhost:3000' as const)
 		: ('https://shrirajayohamcc.vercel.app' as const);
 
 export const SRCC_SOCIALS: Array<SocialLinks> = [

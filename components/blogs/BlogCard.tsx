@@ -22,7 +22,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 				{post.author.name}
 			</p>
 			<div className='flex items-center flex-col lg:flex-row gap-8 mt-4'>
-				<div className='w-full overflow-hidden rounded-md'>
+				<div className='w-[48%] overflow-hidden rounded-md'>
 					<Image
 						src={
 							post?.image?.url ?? '/assets/fallback/icon-grid.svg'
@@ -34,9 +34,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 					/>
 				</div>
 				<div>
-					<p className='text-justify'>
-						{post.description.slice(0, 120) + '...'}
-					</p>
+					<p className='text-justify'>{post.description}</p>
 					<Link
 						href={`/blogs/${post.slug}`}
 						className='text-blue-500 hover:underline'

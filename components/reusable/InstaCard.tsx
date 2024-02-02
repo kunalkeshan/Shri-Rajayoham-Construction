@@ -11,7 +11,7 @@ const InstaCard = () => {
 	)!.url;
 	return (
 		<section className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32'>
-			<section className='w-full border max-w-4xl mx-auto rounded-lg p-6 md:p-16  grid grid-cols-1 place-items-center md:grid-cols-3 gap-4'>
+			<section className='w-full border max-w-4xl mx-auto rounded-lg p-6 md:p-16  grid grid-cols-1 place-items-center lg:grid-cols-3 gap-4'>
 				<div className='flex items-center gap-4'>
 					<Image
 						src='/assets/logo.jpg'
@@ -43,19 +43,19 @@ const InstaCard = () => {
 						unoptimized
 					/>
 				</div>
-				<div className=''>
+				<div className='w-52 lg:w-fit'>
 					<Image
 						src='/assets/instalogo.png'
 						alt='instagram'
 						width={100}
 						height={100}
-						className='w-fit'
+						className='w-full h-auto object-contain'
 						unoptimized
 					/>
 				</div>
 			</section>
 			<section className='w-full max-w-4xl flex justify-center mx-auto h-fit'>
-				<div className='flex gap-12'>
+				<div className='flex gap-4 md:gap-6 lg:gap-12'>
 					<Link
 						href={instagramLink}
 						target='_blank'
