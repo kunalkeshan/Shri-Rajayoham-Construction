@@ -26,12 +26,12 @@ const WhyUs: React.FC<WhyUsProps> = ({ impacts }) => {
 	return (
 		<section className='w-full'>
 			<div className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
-				<h2 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal'>
+				<h1 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal'>
 					Why{' '}
 					<span className='font-medium'>
 						Shri Rajayoham Construction Company
 					</span>
-				</h2>
+				</h1>
 				<div className='grid grid-cols-3 md:grid-cols-5 items-center justify-center gap-8 md:gap-16 mt-12'>
 					{impacts.map((impact) => (
 						<div
@@ -39,12 +39,12 @@ const WhyUs: React.FC<WhyUsProps> = ({ impacts }) => {
 							className='flex w-full max-w-xs flex-col items-center justify-center mb-auto'
 						>
 							<div className='text-center mt-4'>
-								<h3 className='text-4xl font-bold'>
+								<p className='text-4xl font-bold'>
 									<Counter from={0} to={impact.count} />
-								</h3>
-								<p className='text-slate-500 mt-2 text-base md:text-lg'>
-									{impact.title}
 								</p>
+								<h2 className='text-slate-500 mt-2 text-base md:text-lg'>
+									{impact.title}
+								</h2>
 							</div>
 						</div>
 					))}

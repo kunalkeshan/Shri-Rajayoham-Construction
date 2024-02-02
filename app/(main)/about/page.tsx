@@ -36,6 +36,7 @@ const AboutPage = async () => {
 					</h1>
 				</div>
 			</section> */}
+			<h1 className='hidden'>About Us</h1>
 			<section className='w-full p-8 md:px-16 lg:max-w-7xl lg:mx-auto'>
 				{data.map((item, idx) => (
 					<section
@@ -52,9 +53,9 @@ const AboutPage = async () => {
 							/>
 						</div>
 						<div className='flex flex-col gap-4 lg:w-1/2'>
-							<h1 className='text-2xl md:text-3xl lg:text-4xl text-center md:text-left text-app font-semibold'>
+							<h2 className='text-2xl md:text-3xl lg:text-4xl text-center md:text-left text-app font-semibold'>
 								{item.title}
-							</h1>
+							</h2>
 							<p className='text-justify text-base md:text-lg text-slate-500'>
 								{item.desc}
 							</p>

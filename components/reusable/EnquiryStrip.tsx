@@ -13,7 +13,7 @@ const EnquiryStrip = () => {
 						height={100}
 						className='w-full h-auto '
 						src='/assets/strip.svg'
-						alt='strip'
+						alt=''
 					/>
 				</div>
 				<div className='w-full flex flex-col gap-4 lg:gap-8 lg:w-1/2'>

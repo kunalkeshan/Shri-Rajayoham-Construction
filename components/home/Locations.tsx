@@ -30,14 +30,14 @@ const Locations = () => {
 						>
 							<Image
 								src={item.icon}
-								alt='icon'
+								alt={item.title}
 								width={100}
 								height={100}
 								className='w-40'
 							/>
-							<h1 className='text-xl font-semibold'>
+							<p className='text-xl font-semibold'>
 								{item.title}
-							</h1>
+							</p>
 						</div>
 					))}
 				</div>

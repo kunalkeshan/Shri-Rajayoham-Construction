@@ -42,7 +42,7 @@ const WhatWeDo = () => {
 		},
 		{
 			title: 'Searching for land',
-			subtitle: 'We’re good at real estate too',
+			subtitle: "We're good at real estate too",
 			Icon: SearchIcon,
 		},
 		{

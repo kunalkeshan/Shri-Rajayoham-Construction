@@ -15,7 +15,7 @@ const InstaCard = () => {
 				<div className='flex items-center gap-4'>
 					<Image
 						src='/assets/logo.jpg'
-						alt='instagram logo'
+						alt='srcc logo'
 						width={100}
 						height={100}
 						className='rounded-full lg:w-32'
@@ -36,7 +36,7 @@ const InstaCard = () => {
 				<div>
 					<Image
 						src='/assets/qrcode.png'
-						alt='instagram'
+						alt='srcc instagram account qr'
 						width={100}
 						height={100}
 						className='w-44'
@@ -46,7 +46,7 @@ const InstaCard = () => {
 				<div className='w-52 lg:w-fit'>
 					<Image
 						src='/assets/instalogo.png'
-						alt='instagram'
+						alt='instagram logo'
 						width={100}
 						height={100}
 						className='w-full h-auto object-contain'
