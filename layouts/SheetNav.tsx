@@ -35,7 +35,7 @@ const SheetNav = () => {
 					<SheetTitle>
 						<Link href={'/'}>
 							<Image
-								src='/assets/logo.png'
+								src='/assets/logo.jpg'
 								width={100}
 								height={100}
 								alt='logo'
