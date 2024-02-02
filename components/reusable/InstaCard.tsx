@@ -11,8 +11,8 @@ const InstaCard = () => {
 	)!.url;
 	return (
 		<section className='w-full p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16 lg:pb-32'>
-			<section className='w-full border max-w-4xl mx-auto rounded-lg p-6 md:p-16  grid grid-cols-1 place-items-center lg:grid-cols-3 gap-4'>
-				<div className='flex items-center gap-4'>
+			<section className='w-full border max-w-4xl mx-auto rounded-lg p-6 md:p-12  grid grid-cols-1 place-items-center lg:grid-cols-4 gap-4'>
+				<div className='flex items-center gap-4 lg:col-span-2'>
 					<Image
 						src='/assets/logo.jpg'
 						alt='srcc logo'
@@ -22,7 +22,7 @@ const InstaCard = () => {
 						unoptimized
 					/>
 					<div className='flex flex-col gap-2 justify-center'>
-						<h2 className='max-w-[12ch] text-wrap break-words md:text-lg'>
+						<h2 className='text-wrap break-words md:text-lg lg:text-xl font-semibold'>
 							shri_rajayoham_construction
 						</h2>
 						<p>52 followers</p>
