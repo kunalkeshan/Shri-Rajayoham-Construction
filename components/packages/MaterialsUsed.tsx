@@ -1,5 +1,4 @@
 import React from 'react';
-
 const materials = [
 	{
 		img: '/assets/materials/steel.webp',
@@ -92,7 +91,7 @@ const MaterialsUsed = () => {
 					{materials.map((item, idx) => (
 						<div
 							key={idx}
-							className='relative  shadow-md w-full h-60 rounded-2xl text-white overflow-hidden cursor-pointer transition-all duration-700 hover:[transform:rotateY(180deg)] [transform-style:preserve-3d]'
+							className='relative shadow-md w-full h-60 rounded-2xl text-white overflow-hidden cursor-pointer transition-all duration-700 hover:[transform:rotateY(180deg)] [transform-style:preserve-3d]'
 						>
 							<FrontOfCard
 								img={item.img}
