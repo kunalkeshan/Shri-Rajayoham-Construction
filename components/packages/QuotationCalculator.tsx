@@ -11,6 +11,17 @@ import {
 	TableRow,
 } from '@/components/ui/table';
 import { Input } from '@/components/ui/input';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
+
+type QuotationCalculatorProps = React.ComponentProps<'table'> & {
+	packages: Array<SRCC_Package>;
+};
 
 const costFormatter = (num: number) =>
 	new Intl.NumberFormat('en-IN', {
@@ -20,13 +31,14 @@ const costFormatter = (num: number) =>
 	}).format(num);
 
 const RATES = {
-	area: 2250,
 	waterSump: 18,
 	septicTank: 18,
 	compoundWall: 425,
 };
 
-const QuotationCalculator = () => {
+const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
+	packages,
+}) => {
 	const [total, setTotal] = useState(0);
 	const [inputs, setInputs] = useState({
 		area: 0,
@@ -35,6 +47,7 @@ const QuotationCalculator = () => {
 		length: 0,
 		height: 0,
 	});
+	const [selectedAreaRate, setSelectedAreaRate] = useState(packages[0].price);
 
 	const handleChange =
 		(name: keyof typeof inputs) =>
@@ -58,7 +71,7 @@ const QuotationCalculator = () => {
 	};
 
 	const calculateArea = (): number => {
-		return Number(inputs.area) * RATES.area;
+		return Number(inputs.area) * selectedAreaRate;
 	};
 
 	const calculateWaterSump = (): number => {
@@ -76,6 +89,10 @@ const QuotationCalculator = () => {
 			calculateWaterSump() +
 			calculateSepticTank()
 		);
+	};
+
+	const handleSelectedAreaRate = (value: string) => {
+		setSelectedAreaRate(Number(value));
 	};
 
 	useEffect(() => {
@@ -130,7 +147,24 @@ const QuotationCalculator = () => {
 					</TableCell>
 					<TableCell className='text-center'>Sq.Ft</TableCell>
 					<TableCell className='text-center'>
-						<div>₹ {RATES.area}</div>
+						<Select
+							value={String(selectedAreaRate)}
+							onValueChange={handleSelectedAreaRate}
+						>
+							<SelectTrigger className='w-[100px]'>
+								<SelectValue placeholder='Price' />
+							</SelectTrigger>
+							<SelectContent>
+								{packages.map((pckg) => (
+									<SelectItem
+										key={`price-select-${pckg._id}`}
+										value={String(pckg.price)} // Convert pckg.price to a string
+									>
+										₹ {pckg.price}
+									</SelectItem>
+								))}
+							</SelectContent>
+						</Select>
 					</TableCell>
 					<TableCell className='text-center'>
 						<div>{costFormatter(calculateArea())}</div>

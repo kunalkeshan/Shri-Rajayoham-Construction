@@ -28,7 +28,7 @@ const PackagesPage = async () => {
 							You Can Arrive Your Construction Estimate Here
 						</p>
 					</div>
-					<QuotationCalculator />
+					<QuotationCalculator packages={packages} />
 				</div>
 			</section>
 		</main>
