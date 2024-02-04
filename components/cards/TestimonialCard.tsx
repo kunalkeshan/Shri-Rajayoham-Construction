@@ -15,7 +15,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
 			<CardContent className='flex aspect-video items-center justify-center p-6'>
 				<div className='text-center flex flex-col gap-2 md:gap-4 justify-center items-center'>
 					<Tooltip>
-						<TooltipTrigger className='flex gap-2 items-center'>
+						<TooltipTrigger
+							className='flex gap-2 items-center'
+							aria-label='rating information'
+						>
 							{Array(testimonial.rating)
 								.fill(true)
 								.map((_, i) => (
@@ -46,7 +49,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
 						{testimonial.content}
 					</div>
 					<div>
-						<p className='text-blue-500 font-semibold hover:text-blue-600 text-sm md:text-base'>
+						<p className='text-blue-900 font-semibold hover:text-blue-950 text-sm md:text-base'>
 							- {testimonial.name}
 						</p>
 					</div>

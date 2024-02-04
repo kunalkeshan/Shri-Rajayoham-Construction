@@ -24,7 +24,7 @@ const PackagesPage = async () => {
 							Online
 							<span className='font-medium'> Quotation</span>
 						</h2>
-						<p className='text-center text-slate-500 mt-2'>
+						<p className='text-center text-slate-800 mt-2'>
 							You Can Arrive Your Construction Estimate Here
 						</p>
 					</div>
