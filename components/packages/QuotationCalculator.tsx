@@ -114,20 +114,24 @@ const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 			</TableCaption>
 			<TableHeader>
 				<TableRow>
-					<TableHead className=' min-w-[100px] text-center'>
+					<TableHead className=' min-w-[100px] text-center text-slate-800'>
 						Sl. No
 					</TableHead>
-					<TableHead className='min-w-[160px] text-center'>
+					<TableHead className='min-w-[160px] text-center text-slate-800'>
 						Work
 					</TableHead>
-					<TableHead className='min-w-[300px] text-center'>
+					<TableHead className='min-w-[300px] text-center text-slate-800'>
 						Area
 					</TableHead>
-					<TableHead className='text-center'>Unit</TableHead>
-					<TableHead className='text-center min-w-[200px]'>
+					<TableHead className='text-center text-slate-800'>
+						Unit
+					</TableHead>
+					<TableHead className='text-center min-w-[200px] text-slate-800'>
 						Rate
 					</TableHead>
-					<TableHead className='text-center'>Cost</TableHead>
+					<TableHead className='text-center text-slate-800'>
+						Cost
+					</TableHead>
 				</TableRow>
 			</TableHeader>
 			<TableBody>
@@ -151,7 +155,10 @@ const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 							value={String(selectedAreaRate)}
 							onValueChange={handleSelectedAreaRate}
 						>
-							<SelectTrigger className='w-[100px]'>
+							<SelectTrigger
+								className='w-[100px]'
+								aria-label='package price'
+							>
 								<SelectValue placeholder='Price' />
 							</SelectTrigger>
 							<SelectContent>

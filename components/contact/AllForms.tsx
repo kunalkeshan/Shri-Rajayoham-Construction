@@ -90,8 +90,12 @@ const AllForms: React.FC<AllFormsProps> = ({ careers }) => {
 								strokeWidth={1.5}
 							/>
 							<div className='md:max-w-[18ch] w-full break-words'>
-								<p>{trigger.title}</p>
-								<p className='text-xs'>{trigger.subtitle}</p>
+								<p className='text-slate-800'>
+									{trigger.title}
+								</p>
+								<p className='text-xs text-slate-700'>
+									{trigger.subtitle}
+								</p>
 							</div>
 						</TabsTrigger>
 					))}
