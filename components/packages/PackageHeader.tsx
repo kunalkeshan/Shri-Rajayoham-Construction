@@ -15,7 +15,7 @@ const PackageHeader: React.FC<PackageHeaderProps> = ({ pckg }) => {
 			<h2 className='text-lg md:text-xl mt-2 w-full'>
 				{pckg.description}
 			</h2>
-			<div className='mt-2 flex items-center gap-6 flex-wrap'>
+			<div className='mt-4 flex items-center gap-6 flex-wrap'>
 				{pckg.price ? (
 					<Badge variant='outline' className='uppercase lg:text-base'>
 						<IndianRupee

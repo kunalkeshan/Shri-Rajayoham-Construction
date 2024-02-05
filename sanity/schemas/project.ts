@@ -85,6 +85,47 @@ export default defineType({
 				'Specify the budget for the project as a positive number.',
 			placeholder: 'Project Budget',
 		}),
+		defineField({
+			name: 'listing',
+			title: 'Listing',
+			type: 'string',
+			options: {
+				list: ['sale', 'rent', 'closed'],
+			},
+			description:
+				'Categorize the property listing as "sale", "rent", or "closed". If "closed," appreciation prediction, location, address and contact number will not appear on the website.',
+			validation: (Rule) => Rule.required(),
+			initialValue: 'closed',
+		}),
+		defineField({
+			name: 'appreciationPrediction',
+			title: 'Appreciation Prediction',
+			type: 'number',
+			description: 'Predicted appreciation as a percentage.',
+			validation: (Rule) => Rule.integer().positive().max(100),
+		}),
+		defineField({
+			name: 'contactNumber',
+			title: 'Contact Number',
+			type: 'string',
+			description: 'Contact phone number associated with the property.',
+		}),
+
+		defineField({
+			name: 'locationURL',
+			title: 'Location URL',
+			type: 'url',
+			description: "Google Map URL related to the property's location.",
+			validation: (Rule) => Rule.uri({ scheme: ['https'] }),
+		}),
+
+		defineField({
+			name: 'address',
+			title: 'Address',
+			type: 'text',
+			description:
+				'Physical address of the property. (Note: Text entered in a new line will be considered as a space)',
+		}),
 		// defineField({
 		// 	name: 'teamMembers',
 		// 	title: 'Team Members',
