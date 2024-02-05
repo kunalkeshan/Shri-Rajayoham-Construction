@@ -96,6 +96,11 @@ type SRCC_Project = SRCC_Base_Model &
 		duration?: number;
 		budget?: number;
 		status: 'upcoming' | 'ongoing' | 'completed';
+		listing: 'closed' | 'sale' | 'rent';
+		appreciationPrediction?: number;
+		contactNumber?: string;
+		locationURL?: string;
+		address?: string;
 		services?: Array<SRCC_Service>;
 		packages?: Array<SRCC_Package>;
 		testimonials?: Array<SRCC_Testimonial>;
