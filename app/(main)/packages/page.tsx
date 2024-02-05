@@ -36,3 +36,5 @@ const PackagesPage = async () => {
 };
 
 export default PackagesPage;
+
+export const revalidate = 60;

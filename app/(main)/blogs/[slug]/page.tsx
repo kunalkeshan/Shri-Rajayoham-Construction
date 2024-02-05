@@ -136,3 +136,5 @@ const IndividualBlogPage = async ({ params }: Props) => {
 };
 
 export default IndividualBlogPage;
+
+export const revalidate = 60;

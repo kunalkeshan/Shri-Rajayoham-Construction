@@ -43,3 +43,5 @@ const ProjectsPage = async () => {
 };
 
 export default ProjectsPage;
+
+export const revalidate = 60;

@@ -95,3 +95,5 @@ const IndividualPackagePage = async ({ params }: Props) => {
 };
 
 export default IndividualPackagePage;
+
+export const revalidate = 60;

@@ -104,3 +104,5 @@ const IndividualCareerPage = async ({ params }: Props) => {
 };
 
 export default IndividualCareerPage;
+
+export const revalidate = 60;

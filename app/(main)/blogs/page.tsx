@@ -18,3 +18,5 @@ const BlogsPage = async () => {
 };
 
 export default BlogsPage;
+
+export const revalidate = 60;
