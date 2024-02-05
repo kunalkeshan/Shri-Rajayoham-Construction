@@ -132,7 +132,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 					<Link
 						href={project.locationURL}
 						target='_blank'
-						className='flex items-center lg:text-base font-medium mt-2 underline hover:text-blue-500 transition-all duration-300'
+						className='w-fit flex items-center lg:text-base font-medium mt-2 underline hover:text-blue-500 transition-all duration-300'
 					>
 						<MapPin
 							strokeWidth={1.5}
