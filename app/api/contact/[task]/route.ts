@@ -28,10 +28,9 @@ const commonSchema = z.object({
 		})
 		.max(500, 'Message should not exceed 500 characters.'),
 	address: z
-		.object({
-			address: z.string().min(3, {
-				message: 'Address should be at least 3 characters long.',
-			}),
+		.string()
+		.min(3, {
+			message: 'Address should be at least 3 characters long.',
 		})
 		.optional(),
 	pinCode: z
@@ -101,7 +100,7 @@ export async function POST(
 				emailText = `\nName: ${data.name}\nEmail: ${
 					data.email
 				}\nPhone Number: ${data.phoneNumber}\nAddress: ${
-					data.address?.address || 'N/A'
+					data.address || 'N/A'
 				}\nMessage: ${data.message}\n`;
 				break;
 			}
@@ -110,7 +109,7 @@ export async function POST(
 				emailText = `\nName: ${data.name}\nEmail: ${
 					data.email
 				}\nPhone Number: ${data.phoneNumber}\nAddress: ${
-					data.address?.address || 'N/A'
+					data.address || 'N/A'
 				}\nMessage: ${data.message}\n`;
 				break;
 			}

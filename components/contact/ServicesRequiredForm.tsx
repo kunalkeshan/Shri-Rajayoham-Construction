@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,11 +16,13 @@ import { Textarea } from '@/components/ui/textarea';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { VALIDATION_REGEX } from '@/config';
+import { RotateCw, Terminal } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { submitContactFormDetails } from '@/services/contact';
 
 type ServicesRequiredFormProps = React.ComponentProps<'section'>;
 
-const formSchema = defaultFormSchemaUnion(
+const formSchema = defaultFormSchemaUnion().and(
 	z.object({
 		address: z.string().min(3, {
 			message: 'Address should be at least 3 characters long.',
@@ -32,6 +34,9 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 	className,
 	...props
 }) => {
+	const [submitting, setSubmitting] = useState(false);
+	const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -42,12 +47,43 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 			message: '',
 		},
 	});
-	function onSubmit(values: z.infer<typeof formSchema>) {
+	async function onSubmit(values: z.infer<typeof formSchema>) {
+		setSubmitting(true);
+		setStatus('idle');
 		console.log(values);
+		try {
+			const sent = await submitContactFormDetails(
+				'services-required',
+				values
+			);
+			if (sent) {
+				setStatus('success');
+			} else {
+				setStatus('error');
+			}
+		} catch (error) {
+			setStatus('error');
+		} finally {
+			setSubmitting(false);
+		}
 	}
 	return (
 		<section className={cn('', className)} {...props}>
 			<Form {...form}>
+				{status !== 'idle' ? (
+					<Alert
+						variant={status === 'error' ? 'destructive' : 'success'}
+						className='mb-4'
+					>
+						<Terminal className='h-4 w-4' />
+						<AlertTitle className='capitalize'>{status}</AlertTitle>
+						<AlertDescription>
+							{status === 'error'
+								? 'An error occurred while submitting the form. Please try again.'
+								: 'Form submitted successfully.'}
+						</AlertDescription>
+					</Alert>
+				) : null}
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
 					className='grid grid-cols-1 lg:grid-cols-3 gap-4'
@@ -55,6 +91,7 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 					<FormField
 						control={form.control}
 						name='name'
+						disabled={submitting}
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Name</FormLabel>
@@ -68,6 +105,7 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 					<FormField
 						control={form.control}
 						name='email'
+						disabled={submitting}
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Email</FormLabel>
@@ -84,6 +122,7 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 					<FormField
 						control={form.control}
 						name='phoneNumber'
+						disabled={submitting}
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Phone Number</FormLabel>
@@ -100,6 +139,7 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 					<FormField
 						control={form.control}
 						name='address'
+						disabled={submitting}
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Address</FormLabel>
@@ -116,6 +156,7 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 					<FormField
 						control={form.control}
 						name='message'
+						disabled={submitting}
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Service Required</FormLabel>
@@ -132,7 +173,15 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 					<Button
 						className='lg:col-span-3 lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300'
 						type='submit'
+						disabled={submitting}
 					>
+						{submitting ? (
+							<RotateCw
+								className='mr-2 animate-spin'
+								strokeWidth={1.5}
+								size={20}
+							/>
+						) : null}
 						Submit
 					</Button>
 				</form>
