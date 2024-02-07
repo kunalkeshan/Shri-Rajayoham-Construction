@@ -1,5 +1,6 @@
 import React from 'react';
 import PackageCard from '@/components/packages/PackageCard';
+import DetailedServices from '@/components/packages/DetailedServices';
 import MaterialsUsed from '@/components/packages/MaterialsUsed';
 import QuotationCalculator from '@/components/packages/QuotationCalculator';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
@@ -16,6 +17,7 @@ const PackagesPage = async () => {
 					<PackageCard pckg={pckg} key={pckg._id} />
 				))}
 			</section>
+			<DetailedServices />
 			<MaterialsUsed />
 			<section className='rounded-lg bg-app-bg w-full' id='quotation'>
 				<div className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto pb-8 md:pb-16'>
