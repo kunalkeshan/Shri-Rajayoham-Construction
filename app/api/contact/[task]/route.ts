@@ -79,55 +79,39 @@ export async function POST(
 		switch (params.task) {
 			case 'enquiry': {
 				const data = isValidSchema(params.task, body);
-				emailText = `
-					Name: ${data.name}
-					Email: ${data.email}
-					Phone Number: ${data.phoneNumber}
-					Pin Code: ${data.pinCode || 'N/A'}
-					Query: ${data.message}
-				`;
+				emailText = `Name: ${data.name}\nEmail: ${
+					data.email
+				}\nPhone Number: ${data.phoneNumber}\nPin Code: ${
+					data.pinCode || 'N/A'
+				}\nQuery: ${data.message}\n\t\t\t`;
 				break;
 			}
 			case 'investor-relations': {
 				const data = isValidSchema(params.task, body);
-				emailText = `
-					Name: ${data.name}
-					Email: ${data.email}
-					Phone Number: ${data.phoneNumber}
-					Message: ${data.message}
-				`;
+				emailText = `Name: ${data.name}\nEmail: ${data.email}\nPhone Number: ${data.phoneNumber}\nMessage: ${data.message}`;
 				break;
 			}
 			case 'supplier-vendor': {
 				const data = isValidSchema(params.task, body);
-				emailText = `
-					Business Name: ${data.name}
-					Business Email: ${data.email}
-					Business Phone Number: ${data.phoneNumber}
-					Supply Details: ${data.message}
-				`;
+				emailText = `\nBusiness Name: ${data.name}\nBusiness Email: ${data.email}\nBusiness Phone Number: ${data.phoneNumber}\nSupply Details: ${data.message}\n`;
 				break;
 			}
 			case 'services-required': {
 				const data = isValidSchema(params.task, body);
-				emailText = `
-					Name: ${data.name}
-					Email: ${data.email}
-					Phone Number: ${data.phoneNumber}
-					Address: ${data.address?.address || 'N/A'}
-					Message: ${data.message}
-				`;
+				emailText = `\nName: ${data.name}\nEmail: ${
+					data.email
+				}\nPhone Number: ${data.phoneNumber}\nAddress: ${
+					data.address?.address || 'N/A'
+				}\nMessage: ${data.message}\n`;
 				break;
 			}
 			case 'careers': {
 				const data = isValidSchema(params.task, body);
-				emailText = `
-					Name: ${data.name}
-					Email: ${data.email}
-					Phone Number: ${data.phoneNumber}
-					Address: ${data.address?.address || 'N/A'}
-					Message: ${data.message}
-				`;
+				emailText = `\nName: ${data.name}\nEmail: ${
+					data.email
+				}\nPhone Number: ${data.phoneNumber}\nAddress: ${
+					data.address?.address || 'N/A'
+				}\nMessage: ${data.message}\n`;
 				break;
 			}
 			default: {
