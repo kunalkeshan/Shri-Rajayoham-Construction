@@ -21,13 +21,10 @@ const BlogsPage = async () => {
 				<section className='lg:col-span-3 w-full h-fit lg:sticky lg:top-40'>
 					<h2 className='text-2xl font-semibold'>Latest Posts</h2>
 					{posts.map((post) => (
-						<>
-							<LatestBlogCard
-								post={post}
-								key={`latest-post-${post._id}`}
-							/>
+						<div key={`latest-post-${post._id}`}>
+							<LatestBlogCard post={post} />
 							<hr className='mt-2' />
-						</>
+						</div>
 					))}
 				</section>
 			</div>
