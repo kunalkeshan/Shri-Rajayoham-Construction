@@ -2,6 +2,30 @@
 import Image from 'next/image';
 import React from 'react';
 
+const IndividualTeamMember = ({ member }: { member: SRCC_TeamMember }) => {
+	return (
+		<div className='flex flex-col md:gap-4 md:flex-row md:odd:flex-row-reverse'>
+			<div className='md:w-1/2 flex justify-center'>
+				<Image
+					src={member.image?.url ?? '/assets/fallback/icon-grid.svg'}
+					unoptimized
+					className='w-[80%] md:w-[80%] lg:w-96 rounded-lg'
+					alt={member.image?.alt ?? member.name}
+					width={100}
+					height={100}
+				/>
+			</div>
+			<div className='mt-4 md:w-1/2 flex flex-col justify-center'>
+				<h3 className='text-2xl md:text-3xl font-bold '>
+					{member.name}
+				</h3>
+				<p className='text-slate-500 text-lg'>{member.position.name}</p>
+				<p className='text-justify mt-4'>{member.about}</p>
+			</div>
+		</div>
+	);
+};
+
 const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 	return (
 		<div>
@@ -11,11 +35,7 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 				</h2>
 				<div className='my-16 flex flex-col gap-16'>
 					{teamMembers
-						.filter(
-							(item) =>
-								item.slug === 'rajarajan-kamaraj' ||
-								item.slug === 'silambarasan'
-						)
+						.filter((item) => item.slug === 'rajarajan-kamaraj')
 						.map((item, idx) => (
 							<div
 								key={`${item._id}`}
@@ -53,41 +73,24 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 				</h2>
 				<div className='my-16 flex flex-col gap-16'>
 					{teamMembers
+						.filter((item) => item.slug === 'silambarasan')
+						.map((item, idx) => (
+							<IndividualTeamMember
+								key={`${item._id}`}
+								member={item}
+							/>
+						))}
+					{teamMembers
 						.filter(
 							(item) =>
 								item.slug !== 'rajarajan-kamaraj' &&
 								item.slug !== 'silambarasan'
 						)
 						.map((item, idx) => (
-							<div
+							<IndividualTeamMember
 								key={`${item._id}`}
-								className='flex flex-col md:gap-4 md:flex-row md:odd:flex-row-reverse'
-							>
-								<div className='md:w-1/2 flex justify-center'>
-									<Image
-										src={
-											item.image?.url ??
-											'/assets/fallback/icon-grid.svg'
-										}
-										unoptimized
-										className='w-[80%] md:w-[80%] lg:w-96 rounded-lg'
-										alt={item.image?.alt ?? item.name}
-										width={100}
-										height={100}
-									/>
-								</div>
-								<div className='mt-4 md:w-1/2 flex flex-col justify-center'>
-									<h3 className='text-2xl md:text-3xl font-bold '>
-										{item.name}
-									</h3>
-									<p className='text-slate-500 text-lg'>
-										{item.position.name}
-									</p>
-									<p className='text-justify mt-4'>
-										{item.about}
-									</p>
-								</div>
-							</div>
+								member={item}
+							/>
 						))}
 				</div>
 			</section>
