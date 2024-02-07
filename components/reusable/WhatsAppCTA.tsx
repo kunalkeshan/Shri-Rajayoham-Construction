@@ -1,12 +1,12 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { SRCC_MOBILE } from "@/constants/srcc";
+} from '@/components/ui/tooltip';
+import { SRCC_MOBILE } from '@/constants/srcc';
 
 const WhatsAppCTA = () => {
 	const WHATSAPP_TEXT = encodeURIComponent(
@@ -14,25 +14,25 @@ const WhatsAppCTA = () => {
 	);
 	return (
 		<Tooltip>
-			<TooltipTrigger className="fixed bottom-10 right-5 z-50">
+			<TooltipTrigger className='fixed bottom-10 right-5 z-50'>
 				<Link
 					href={`https://wa.me/${SRCC_MOBILE}?text=${WHATSAPP_TEXT}`}
-					target="_blank"
-					className=""
+					target='_blank'
+					className=''
 				>
 					<Image
-						src="/assets/logo.jpg"
-						alt="logo"
+						src='/assets/logo.jpg'
+						alt='logo'
 						width={100}
 						height={100}
-						className="rounded-full w-16"
+						className='rounded-full w-16'
 					/>
 				</Link>
 			</TooltipTrigger>
 			<TooltipContent
-				className="max-w-xs z-50"
-				side="left"
-				align="center"
+				className='max-w-xs z-50'
+				side='left'
+				align='center'
 			>
 				Get in Touch on WhatsApp!
 			</TooltipContent>

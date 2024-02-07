@@ -1,7 +1,7 @@
 import { VALIDATION_REGEX } from '@/config';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import z, { Schema } from 'zod';
+import z, { ZodObject } from 'zod';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -13,7 +13,7 @@ export const dateFormatter = (date: Date) =>
 		timeZone: 'Asia/Kolkata',
 	}).format(date);
 
-export const defaultFormSchemaUnion = (schema: Schema) => {
+export const defaultFormSchemaUnion = (schema?: ZodObject<any>) => {
 	const defaults = z.object({
 		name: z
 			.string()
@@ -30,5 +30,6 @@ export const defaultFormSchemaUnion = (schema: Schema) => {
 			})
 			.max(500, 'Message should not exceed 500 characters.'),
 	});
-	return z.union([defaults, schema]);
+	if (schema instanceof ZodObject) return z.union([defaults, schema]);
+	return defaults;
 };
