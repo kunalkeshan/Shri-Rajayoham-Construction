@@ -37,7 +37,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 					<p className='text-justify'>{post.description}</p>
 					<Link
 						href={`/blogs/${post.slug}`}
-						className='text-blue-900 hover:text-blue-950 font-medium hover:underline'
+						className='text-blue-500 hover:text-blue-600 font-medium hover:underline'
 					>
 						Continue reading...
 					</Link>
