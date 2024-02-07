@@ -106,11 +106,7 @@ export async function POST(
 			}
 			case 'careers': {
 				const data = isValidSchema(params.task, body);
-				emailText = `\nName: ${data.name}\nEmail: ${
-					data.email
-				}\nPhone Number: ${data.phoneNumber}\nAddress: ${
-					data.address || 'N/A'
-				}\nMessage: ${data.message}\n`;
+				emailText = `\nName: ${data.name}\nEmail: ${data.email}\nPhone Number: ${data.phoneNumber}\nMessage: ${data.message}\n`;
 				break;
 			}
 			default: {
