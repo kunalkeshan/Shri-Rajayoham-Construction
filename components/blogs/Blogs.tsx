@@ -9,7 +9,7 @@ type BlogsProps = React.ComponentProps<'section'> & {
 const Blogs: React.FC<BlogsProps> = ({ posts, className, ...props }) => {
 	return (
 		<section
-			className={cn('mt-12 md:gap-16 grid grid-cols-1', className)}
+			className={cn('mt-12 md:gap-16 grid grid-cols-1 gap-6', className)}
 			{...props}
 		>
 			{posts.map((post) => (
