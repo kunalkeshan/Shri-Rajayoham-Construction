@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import z from 'zod';
 import { defaultFormSchemaUnion } from '@/lib/utils';
 
@@ -40,7 +40,11 @@ export const submitContactFormDetails: SubmitContactFormDetailsFunc = (
 				resolve(false);
 			}
 		} catch (error) {
-			reject(error);
+			if (error instanceof AxiosError) {
+				reject(error);
+			} else {
+				resolve(false);
+			}
 		}
 	});
 };

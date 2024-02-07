@@ -19,6 +19,8 @@ import { useForm } from 'react-hook-form';
 import { RotateCw, Terminal } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { submitContactFormDetails } from '@/services/contact';
+import { AxiosError } from 'axios';
+import { toast } from 'sonner';
 
 type ServicesRequiredFormProps = React.ComponentProps<'section'>;
 
@@ -62,6 +64,19 @@ const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 				setStatus('error');
 			}
 		} catch (error) {
+			if (error instanceof AxiosError) {
+				switch (error.response?.data.message) {
+					case 'contact/recent-form-submission': {
+						toast.error(
+							'You have recently submitted a form. Please try again later.'
+						);
+						break;
+					}
+					default: {
+						break;
+					}
+				}
+			}
 			setStatus('error');
 		} finally {
 			setSubmitting(false);

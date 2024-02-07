@@ -3,6 +3,7 @@ import { ApiError } from '@/lib/apiError';
 import z from 'zod';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
+import NodeCache from 'node-cache';
 
 const TASKS: ContactFormTaskType[] = [
 	'enquiry',
@@ -11,6 +12,9 @@ const TASKS: ContactFormTaskType[] = [
 	'services-required',
 	'careers',
 ];
+
+// Create a cache instance with a default TTL of 10 minutes
+const formSubmissionCache = new NodeCache({ stdTTL: 600 });
 
 const commonSchema = z.object({
 	name: z
@@ -73,6 +77,21 @@ export async function POST(
 			});
 		const body = await request.json();
 
+		// Get the user's IP address
+		const userIp =
+			request.headers.get('x-forwarded-for') ||
+			request.headers.get('cf-connecting-ip') ||
+			request.headers.get('x-real-ip');
+
+		// Check if a recent form submission exists in the cache for the user's IP address
+		const cacheKey = `${params.task}-${userIp}`;
+		if (formSubmissionCache.has(cacheKey)) {
+			throw new ApiError({
+				statusCode: 429,
+				message: 'contact/recent-form-submission',
+			});
+		}
+
 		let emailText: string = '';
 
 		switch (params.task) {
@@ -116,6 +135,9 @@ export async function POST(
 				});
 			}
 		}
+
+		// Add the current form submission to the cache
+		formSubmissionCache.set(cacheKey, true);
 
 		const mailOptions: Mail['options'] = {
 			from: process.env.NODEMAILER_EMAIL,
