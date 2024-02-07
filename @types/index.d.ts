@@ -146,3 +146,10 @@ type LegalDataBase = Readonly<{
 type TermsAndConditionsData = ReadonlyArray<LegalDataBase>;
 
 type PrivacyPolicyData = ReadonlyArray<LegalDataBase>;
+
+type ContactFormTaskType =
+	| 'enquiry'
+	| 'investor-relations'
+	| 'supplier-vendor'
+	| 'services-required'
+	| 'careers';

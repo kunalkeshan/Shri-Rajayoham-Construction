@@ -1,15 +1,10 @@
 import { VALIDATION_REGEX } from '@/config';
 import { ApiError } from '@/lib/apiError';
-import z, { Schema } from 'zod';
+import z from 'zod';
+import nodemailer from 'nodemailer';
+import Mail from 'nodemailer/lib/mailer';
 
-type TaskType =
-	| 'enquiry'
-	| 'investor-relations'
-	| 'supplier-vendor'
-	| 'services-required'
-	| 'careers';
-
-const TASKS: TaskType[] = [
+const TASKS: ContactFormTaskType[] = [
 	'enquiry',
 	'investor-relations',
 	'supplier-vendor',
@@ -32,36 +27,44 @@ const commonSchema = z.object({
 			message: 'Message should be at least 3 characters long.',
 		})
 		.max(500, 'Message should not exceed 500 characters.'),
+	address: z
+		.object({
+			address: z.string().min(3, {
+				message: 'Address should be at least 3 characters long.',
+			}),
+		})
+		.optional(),
+	pinCode: z
+		.string()
+		.regex(VALIDATION_REGEX.pinCode, 'Invalid Pin Code.')
+		.optional(),
 });
 
-const serviceRequiredSchema = z.union([
-	commonSchema,
-	z.object({
-		address: z.string().min(3, {
-			message: 'Address should be at least 3 characters long.',
-		}),
-	}),
-]);
+const transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: process.env.NODEMAILER_EMAIL,
+		pass: process.env.NODEMAILER_PASSWORD,
+	},
+});
 
-function isValidSchema(task: TaskType, data: any) {
-	let parsed;
-	if (task.includes('services-required')) {
-		parsed = serviceRequiredSchema.safeParse(data);
-	} else {
-		parsed = commonSchema.safeParse(data);
-	}
+const isValidSchema = (
+	task: ContactFormTaskType,
+	data: z.infer<typeof commonSchema>
+) => {
+	const parsed = commonSchema.safeParse(data);
 	if (!parsed.success)
 		throw new ApiError({
 			statusCode: 400,
 			message: 'contact/invalid-body-content',
 			data: { ...parsed.error },
 		});
-	return parsed;
-}
+	return parsed.data;
+};
 
 export async function POST(
 	request: Request,
-	{ params }: { params: { task: TaskType } }
+	{ params }: { params: { task: ContactFormTaskType } }
 ) {
 	try {
 		if (!params.task || !TASKS.includes(params.task))
@@ -70,46 +73,62 @@ export async function POST(
 				message: 'contact/invalid-task',
 			});
 		const body = await request.json();
+
+		let emailText: string = '';
+
 		switch (params.task) {
 			case 'enquiry': {
 				const data = isValidSchema(params.task, body);
-				console.log(data);
-				return Response.json(
-					{ message: `${params.task} form mail sent successfully.` },
-					{ status: 201, statusText: 'OK' }
-				);
+				emailText = `
+					Name: ${data.name}
+					Email: ${data.email}
+					Phone Number: ${data.phoneNumber}
+					Pin Code: ${data.pinCode || 'N/A'}
+					Query: ${data.message}
+				`;
+				break;
 			}
 			case 'investor-relations': {
 				const data = isValidSchema(params.task, body);
-				console.log(data);
-				return Response.json(
-					{ message: `${params.task} form mail sent successfully.` },
-					{ status: 201, statusText: 'OK' }
-				);
+				emailText = `
+					Name: ${data.name}
+					Email: ${data.email}
+					Phone Number: ${data.phoneNumber}
+					Message: ${data.message}
+				`;
+				break;
 			}
 			case 'supplier-vendor': {
 				const data = isValidSchema(params.task, body);
-				console.log(data);
-				return Response.json(
-					{ message: `${params.task} form mail sent successfully.` },
-					{ status: 201, statusText: 'OK' }
-				);
+				emailText = `
+					Business Name: ${data.name}
+					Business Email: ${data.email}
+					Business Phone Number: ${data.phoneNumber}
+					Supply Details: ${data.message}
+				`;
+				break;
 			}
 			case 'services-required': {
 				const data = isValidSchema(params.task, body);
-				console.log(data);
-				return Response.json(
-					{ message: `${params.task} form mail sent successfully.` },
-					{ status: 201, statusText: 'OK' }
-				);
+				emailText = `
+					Name: ${data.name}
+					Email: ${data.email}
+					Phone Number: ${data.phoneNumber}
+					Address: ${data.address?.address || 'N/A'}
+					Message: ${data.message}
+				`;
+				break;
 			}
 			case 'careers': {
 				const data = isValidSchema(params.task, body);
-				console.log(data);
-				return Response.json(
-					{ message: `${params.task} form mail sent successfully.` },
-					{ status: 201, statusText: 'OK' }
-				);
+				emailText = `
+					Name: ${data.name}
+					Email: ${data.email}
+					Phone Number: ${data.phoneNumber}
+					Address: ${data.address?.address || 'N/A'}
+					Message: ${data.message}
+				`;
+				break;
 			}
 			default: {
 				throw new ApiError({
@@ -118,6 +137,20 @@ export async function POST(
 				});
 			}
 		}
+
+		const mailOptions: Mail['options'] = {
+			from: process.env.NODEMAILER_EMAIL,
+			to: process.env.NODEMAILER_EMAIL,
+			subject: `${params.task.replace('-', ' ')} form mail`,
+			text: emailText,
+		};
+
+		await transporter.sendMail(mailOptions);
+
+		return Response.json(
+			{ message: `contact/${params.task}-email-sent-successfully` },
+			{ status: 201, statusText: 'OK' }
+		);
 	} catch (error) {
 		console.log(error);
 		if (error instanceof ApiError) {
