@@ -4,6 +4,9 @@ import z from 'zod';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 import NodeCache from 'node-cache';
+import { SRCC_EMAIL } from '@/constants/srcc';
+
+const FORWARDER_EMAIL = SRCC_EMAIL;
 
 const TASKS: ContactFormTaskType[] = [
 	'enquiry',
@@ -139,11 +142,17 @@ export async function POST(
 		// Add the current form submission to the cache
 		formSubmissionCache.set(cacheKey, true);
 
+		const data = isValidSchema(params.task, body);
+
 		const mailOptions: Mail['options'] = {
-			from: process.env.NODEMAILER_EMAIL,
-			to: process.env.NODEMAILER_EMAIL,
-			subject: `${params.task.replace('-', ' ')} form mail`,
+			from: `${data.name}`,
+			to: FORWARDER_EMAIL,
+			subject: `${data.name} contacting via ${params.task.replace(
+				'-',
+				' '
+			)} form.`,
 			text: emailText,
+			replyTo: data.email,
 		};
 
 		await transporter.sendMail(mailOptions);

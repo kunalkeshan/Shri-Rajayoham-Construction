@@ -15,7 +15,7 @@ type SocialLinks = {
 	Icon: LucideIcon;
 };
 
-export const SRCC_EMAIL = 'example@gmail.com' as const;
+export const SRCC_EMAIL = 'shrirajayohamcc@gmail.com' as const;
 export const SRCC_MOBILE = '+919025869012' as const;
 
 export const SRCC_WEBSITE_URL =
