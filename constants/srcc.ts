@@ -21,7 +21,7 @@ export const SRCC_MOBILE = '+919025869012' as const;
 export const SRCC_WEBSITE_URL =
 	process.env.NODE_ENV === 'development'
 		? ('http://localhost:3000' as const)
-		: ('https://shrirajayohamcc.vercel.app' as const);
+		: ('shrirajayohamcc.com' as const);
 
 export const SRCC_SOCIALS: Array<SocialLinks> = [
 	{
