@@ -1,3 +1,4 @@
+// Dependencies
 import { VALIDATION_REGEX } from '@/config';
 import { ApiError } from '@/lib/apiError';
 import z from 'zod';
@@ -68,6 +69,12 @@ const isValidSchema = (
 	return parsed.data;
 };
 
+/**
+ * Handles the POST request for the contact form.
+ * @param request - The request object.
+ * @param params - The parameters object containing the task.
+ * @returns A response object indicating the status of the request.
+ */
 export async function POST(
 	request: Request,
 	{ params }: { params: { task: ContactFormTaskType } }
