@@ -145,7 +145,7 @@ export async function POST(
 		const data = isValidSchema(params.task, body);
 
 		const mailOptions: Mail['options'] = {
-			from: `${data.name}`,
+			from: process.env.NODEMAILER_EMAIL,
 			to: FORWARDER_EMAIL,
 			subject: `${data.name} contacting via ${params.task.replace(
 				'-',
