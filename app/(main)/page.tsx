@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import HeroCarousel from '@/components/home/HeroCarousel';
 import Locations from '@/components/home/Locations';
 import WhatWeDo from '@/components/home/WhatWeDo';
@@ -9,8 +10,8 @@ import Testimonials from '@/components/home/Testimonials';
 import Services from '@/components/home/Services';
 import Projects from '@/components/home/Projects';
 import Form from '@/components/home/Form';
-import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import FeaturedBlogs from '@/components/home/FeaturedBlogs';
+import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
 
 const HomePage = async () => {
@@ -35,6 +36,20 @@ const HomePage = async () => {
 			<WhyUs impacts={impacts} />
 			<WhatWeDo />
 			<EnquiryStrip />
+			<section className='w-full'>
+				<div className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto pt-8 md:pt-16 lg:pt-32'>
+					<div className='w-full md:max-w-lg mx-auto'>
+						<Image
+							src='/assets/vivered.jpg'
+							alt='Vivered'
+							width={100}
+							height={100}
+							unoptimized
+							className='w-full h-auto object-cover'
+						/>
+					</div>
+				</div>
+			</section>
 			<Locations />
 			{projects && projects.length > 0 ? (
 				<Projects projects={projects} />
