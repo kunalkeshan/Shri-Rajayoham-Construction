@@ -51,7 +51,6 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		setSubmitting(true);
 		setStatus('idle');
-		console.log(values);
 		try {
 			const sent = await submitContactFormDetails('enquiry', values);
 			if (sent) {

@@ -49,7 +49,6 @@ const CareersForm: React.FC<CareersFormProps> = ({
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		setSubmitting(true);
 		setStatus('idle');
-		console.log(values);
 		try {
 			const sent = await submitContactFormDetails('careers', values);
 			if (sent) {
