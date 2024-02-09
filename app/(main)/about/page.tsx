@@ -70,19 +70,18 @@ const AboutPage = async () => {
 						About the company
 					</h1>
 					<p className='mt-4 text-justify text-slate-800'>
-						Lorem ipsum dolor sit, amet consectetur adipisicing
-						elit. Unde vel dolor necessitatibus impedit facere
-						similique quos doloribus, et architecto non. Ullam harum
-						quis vitae culpa iusto provident. Alias, ab nihil. Lorem
-						ipsum dolor sit amet consectetur adipisicing elit.
-						Repudiandae nemo sed dolores itaque, fugiat sint nulla
-						tenetur assumenda ex dicta rem corrupti pariatur
-						accusantium commodi harum minima est eligendi ullam.
-						Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Qui quasi commodi impedit eaque repudiandae
-						voluptatibus harum laudantium, eveniet sunt ut inventore
-						reprehenderit aliquid modi quae vel consectetur
-						recusandae blanditiis a?
+						Shri Rajayogam Construction Company is a realm where
+						innovation intersects architecture, electrical prowess
+						energizes spaces, civil engineering forms the bedrock,
+						plumbing ensures comfort, environmental solutions weave
+						sustainability, structural excellence provides strength,
+						and interior design adds the finishing touch. At Shri
+						Rajayogam Construction Company, we are your partners in
+						crafting extraordinary spaces that encapsulate your
+						dreams. Embark on a journey of construction and design
+						with Shri Rajayogam Construction Company. Let&apos;s
+						weave your dreams into reality. Reach out to us today to
+						begin your project.
 					</p>
 				</div>
 			</section>
