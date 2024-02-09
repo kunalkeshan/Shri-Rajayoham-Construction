@@ -20,27 +20,25 @@ const CareersPage = async () => {
 				</p>
 				{careers && careers.length > 0 ? (
 					<ul className='w-full mt-8'>
-						{careers
-							.concat(Array(10).fill(careers[0]))
-							.map((career) => (
-								<li
-									key={career._id}
-									className='w-full border-b py-6 last:border-none'
+						{careers.map((career) => (
+							<li
+								key={career._id}
+								className='w-full border-b py-6 last:border-none'
+							>
+								<Link
+									href={`/careers/${career.slug}`}
+									className='w-full flex items-center justify-between font-medium text-lg group'
 								>
-									<Link
-										href={`/careers/${career.slug}`}
-										className='w-full flex items-center justify-between font-medium text-lg group'
-									>
-										<h2 className='group-hover:underline'>
-											{career.role.name} -{' '}
-											{career.position.name}
-										</h2>
-										<p className='text-blue-500 text-base group-hover:underline decoration-blue-500'>
-											{career.location}
-										</p>
-									</Link>
-								</li>
-							))}
+									<h2 className='group-hover:underline'>
+										{career.role.name} -{' '}
+										{career.position.name}
+									</h2>
+									<p className='text-blue-500 text-base group-hover:underline decoration-blue-500'>
+										{career.location}
+									</p>
+								</Link>
+							</li>
+						))}
 					</ul>
 				) : null}
 			</div>
