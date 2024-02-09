@@ -6,8 +6,8 @@ import { SRCC_EMAIL, SRCC_MOBILE, SRCC_SOCIALS } from '@/constants/srcc';
 
 const QuickLinks = () => {
 	return (
-		<section className='border-b w-full flex items-center h-10 justify-between px-4 md:px-8 lg:px-32 bg-white'>
-			<div>
+		<section className='border-b w-full flex items-center justify-between px-4 md:px-8 lg:px-32 bg-white'>
+			<div className='flex md:block flex-wrap w-full justify-center items-center'>
 				<Button asChild className='' variant={'link'}>
 					<Link
 						href={`mailto:${SRCC_EMAIL}`}
