@@ -29,13 +29,12 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 					variant='outline'
 					className='capitalize lg:text-base font-medium'
 				>
-					Status : <b className='ml-1'>{project.status}</b>
-				</Badge>
-				<Badge
-					variant='outline'
-					className='capitalize lg:text-base font-medium'
-				>
-					Listing : <b className='ml-1'>{project.listing}</b>
+					Status :{' '}
+					<b className='ml-1'>
+						{project.status === 'sale-rent'
+							? 'Sale/Rent'
+							: project.status}
+					</b>
 				</Badge>
 				{project.duration ? (
 					<Badge
@@ -76,7 +75,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 						</span>
 					</Badge>
 				) : null}
-				{project.listing !== 'closed' &&
+				{project.status === 'sale-rent' &&
 				project?.appreciationPrediction ? (
 					<Badge
 						variant='outline'
@@ -95,7 +94,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 						</span>
 					</Badge>
 				) : null}
-				{project.listing !== 'closed' && project?.contactNumber ? (
+				{project.status === 'sale-rent' && project?.contactNumber ? (
 					<Badge
 						variant='outline'
 						className='capitalize lg:text-base font-medium'
@@ -115,10 +114,10 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 			<div
 				className={cn(
 					'w-full',
-					project.listing !== 'closed' ? 'mt-4' : ''
+					project.status === 'sale-rent' ? 'mt-4' : ''
 				)}
 			>
-				{project.listing !== 'closed' && project?.address ? (
+				{project.status === 'sale-rent' && project?.address ? (
 					<p className='flex items-center lg:text-base font-medium mt-2'>
 						<Map
 							strokeWidth={1.5}
@@ -128,7 +127,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 						<span>{project.address}</span>
 					</p>
 				) : null}
-				{project.listing !== 'closed' && project?.locationURL ? (
+				{project.status === 'sale-rent' && project?.locationURL ? (
 					<Link
 						href={project.locationURL}
 						target='_blank'

@@ -72,7 +72,7 @@ export default defineType({
 			title: 'Status',
 			type: 'string',
 			options: {
-				list: ['upcoming', 'ongoing', 'completed'],
+				list: ['upcoming', 'ongoing', 'completed', 'sale-rent'],
 			},
 			validation: (Rule) => Rule.required(),
 		}),
@@ -84,18 +84,6 @@ export default defineType({
 			description:
 				'Specify the budget for the project as a positive number.',
 			placeholder: 'Project Budget',
-		}),
-		defineField({
-			name: 'listing',
-			title: 'Listing',
-			type: 'string',
-			options: {
-				list: ['sale', 'rent', 'closed'],
-			},
-			description:
-				'Categorize the property listing as "sale", "rent", or "closed". If "closed," appreciation prediction, location, address and contact number will not appear on the website.',
-			validation: (Rule) => Rule.required(),
-			initialValue: 'closed',
 		}),
 		defineField({
 			name: 'appreciationPrediction',
