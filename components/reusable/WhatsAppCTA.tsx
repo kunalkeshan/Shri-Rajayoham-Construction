@@ -10,7 +10,7 @@ import { SRCC_MOBILE } from '@/constants/srcc';
 
 const WhatsAppCTA = () => {
 	const WHATSAPP_TEXT = encodeURIComponent(
-		`Hello Shri Rajayoham Construction Company! I'm interested in your construction services. Could you please provide more information about your offerings and pricing? Thanks!`
+		`Hello Shri Rajayoham Construction Company! I'm interested in your construction services. Could you please contact me with your offerings and pricing?`
 	);
 	return (
 		<Tooltip>

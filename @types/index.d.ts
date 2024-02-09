@@ -95,8 +95,7 @@ type SRCC_Project = SRCC_Base_Model &
 		slug: string;
 		duration?: number;
 		budget?: number;
-		status: 'upcoming' | 'ongoing' | 'completed';
-		listing: 'closed' | 'sale' | 'rent';
+		status: 'upcoming' | 'ongoing' | 'completed' | 'sale-rent';
 		appreciationPrediction?: number;
 		contactNumber?: string;
 		locationURL?: string;

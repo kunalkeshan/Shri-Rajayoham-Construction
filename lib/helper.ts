@@ -4,8 +4,7 @@ import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 export const generateDefaultMetadata = (): Metadata => {
 	const COMMONS = {
 		title: 'Shri Rajayoham Construction Company',
-		description:
-			'Very Trustable. High Values. Complete Transparency. High Quality. Reasonable price.',
+		description: 'High Quality Construction Company.',
 	};
 	return {
 		metadataBase: new URL(SRCC_WEBSITE_URL),

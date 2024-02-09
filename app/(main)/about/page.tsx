@@ -13,17 +13,17 @@ const AboutPage = async () => {
 		{
 			title: 'Mission',
 			desc: "Our mission is to continue shaping our surroundings skyline with iconic structures that blend architectural innovation, functionality, and sustainability. We aim to be the driving force behind the city's growth, creating spaces that enrich lives of beautiful families and inspire communities. At SRCC, we don't just build structures, we craft experiences that endure. Join us on this journey to transform dreams into reality, one brick at a time.",
-			img: '/assets/about/1.svg',
+			img: '/assets/about/mission.jpg',
 		},
 		{
 			title: 'Vision',
 			desc: "Our Client's satisfaction is the essence of our success and as such we will continually strive to provide each and every Client with an extraordinary experience, while delivering every project on time, within budget and with the highest level of quality and professionalism.",
-			img: '/assets/about/2.svg',
+			img: '/assets/about/vision.jpg',
 		},
 		{
 			title: 'Brand values',
 			desc: 'At SRCC , our focus is on YOU and what YOU want to achieve. We pride ourselves on forging strong, lasting relationships, which help us to continue to thrive and develop. Our desire to work closely with those who share the same vision and values is why many of our clients have a multiple project history. Exceeding client expectations has resulted in continual repeat business within the local area, which means we are building a foundation not only for our business but also for our community.',
-			img: '/assets/about/3.svg',
+			img: '/assets/about/brand-values.jpg',
 		},
 	];
 
@@ -43,13 +43,14 @@ const AboutPage = async () => {
 						key={idx}
 						className='flex flex-col-reverse lg:odd:flex-row lg:even:flex-row-reverse items-center justify-between gap-8 md:gap-16'
 					>
-						<div className='lg:w-1/2'>
+						<div className='lg:w-1/2 overflow-hidden rounded-lg'>
 							<Image
 								src={item.img}
 								alt={item.title}
 								width={100}
 								height={100}
-								className='w-full'
+								className='w-full h-auto'
+								unoptimized
 							/>
 						</div>
 						<div className='flex flex-col gap-4 lg:w-1/2'>
@@ -69,19 +70,18 @@ const AboutPage = async () => {
 						About the company
 					</h1>
 					<p className='mt-4 text-justify text-slate-800'>
-						Lorem ipsum dolor sit, amet consectetur adipisicing
-						elit. Unde vel dolor necessitatibus impedit facere
-						similique quos doloribus, et architecto non. Ullam harum
-						quis vitae culpa iusto provident. Alias, ab nihil. Lorem
-						ipsum dolor sit amet consectetur adipisicing elit.
-						Repudiandae nemo sed dolores itaque, fugiat sint nulla
-						tenetur assumenda ex dicta rem corrupti pariatur
-						accusantium commodi harum minima est eligendi ullam.
-						Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Qui quasi commodi impedit eaque repudiandae
-						voluptatibus harum laudantium, eveniet sunt ut inventore
-						reprehenderit aliquid modi quae vel consectetur
-						recusandae blanditiis a?
+						Shri Rajayogam Construction Company is a realm where
+						innovation intersects architecture, electrical prowess
+						energizes spaces, civil engineering forms the bedrock,
+						plumbing ensures comfort, environmental solutions weave
+						sustainability, structural excellence provides strength,
+						and interior design adds the finishing touch. At Shri
+						Rajayogam Construction Company, we are your partners in
+						crafting extraordinary spaces that encapsulate your
+						dreams. Embark on a journey of construction and design
+						with Shri Rajayogam Construction Company. Let&apos;s
+						weave your dreams into reality. Reach out to us today to
+						begin your project.
 					</p>
 				</div>
 			</section>

@@ -66,7 +66,7 @@ const FrontOfCard = ({
 		>
 			<div className='bg-gradient-to-b from-black/50 w-full h-full to-black/30 p-6 flex flex-col gap-4 justify-center text-center items-center'>
 				<h1 className='text-2xl font-semibold'>{title}</h1>
-				<p>{type}</p>
+				{/* <p>{type}</p> */}
 			</div>
 		</div>
 	);
