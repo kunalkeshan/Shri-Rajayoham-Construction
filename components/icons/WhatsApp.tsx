@@ -8,7 +8,6 @@ const WhatsApp: React.FC<WhatsAppProps> = ({
 	width = 24,
 	height = 24,
 	className,
-	strokeWidth,
 	size,
 	fill,
 	...props
