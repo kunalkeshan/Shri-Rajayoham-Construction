@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -15,6 +16,12 @@ type ProjectHeaderProps = React.ComponentProps<'section'> & {
 	project: SRCC_Project;
 };
 
+/**
+ * Renders the header of a project.
+ * @param {ProjectHeaderProps} props - The props for the ProjectHeader component.
+ * @param {SRCC_Project} props.project - The project data.
+ * @returns {JSX.Element} The rendered ProjectHeader component.
+ */
 const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 	return (
 		<section>

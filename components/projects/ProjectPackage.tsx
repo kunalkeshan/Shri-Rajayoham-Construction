@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { Package } from 'lucide-react';
 import PackageCard from '../packages/PackageCard';
@@ -6,6 +7,12 @@ type ProjectPackageProps = React.ComponentProps<'section'> & {
 	packages: SRCC_Project['packages'];
 };
 
+/**
+ * Renders the packages of a project.
+ * @param {ProjectPackageProps} props - The props for the ProjectPackage component.
+ * @param {SRCC_Project['packages']} props.packages - The packages of the project.
+ * @returns {JSX.Element} The rendered ProjectPackage component.
+ */
 const ProjectPackage: React.FC<ProjectPackageProps> = ({ packages }) => {
 	return (
 		<section className='mt-8'>

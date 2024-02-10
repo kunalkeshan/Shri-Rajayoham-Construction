@@ -1,3 +1,4 @@
+// Dependencies
 import axios, { AxiosError } from 'axios';
 import z from 'zod';
 import { defaultFormSchemaUnion } from '@/lib/utils';
@@ -14,7 +15,9 @@ const FormSchema = defaultFormSchemaUnion(
 );
 
 type SubmitContactFormDetailsFunc = (
+	// eslint-disable-next-line no-unused-vars
 	type: ContactFormTaskType,
+	// eslint-disable-next-line no-unused-vars
 	details: z.infer<typeof FormSchema>
 ) => Promise<boolean>;
 
@@ -24,6 +27,13 @@ type ContactFormResponse = {
 	statusText: 'OK';
 };
 
+/**
+ * Submits the contact form details to the server.
+ *
+ * @param type - The type of contact form.
+ * @param details - The details of the contact form.
+ * @returns A promise that resolves to a boolean indicating whether the form submission was successful.
+ */
 export const submitContactFormDetails: SubmitContactFormDetailsFunc = (
 	type,
 	details

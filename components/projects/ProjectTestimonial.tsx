@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { Quote } from 'lucide-react';
 import TestimonialCard from '../cards/TestimonialCard';
@@ -6,6 +7,12 @@ type ProjectTestimonialProps = React.ComponentProps<'section'> & {
 	testimonials: SRCC_Project['testimonials'];
 };
 
+/**
+ * Renders the testimonials of a project.
+ * @param {ProjectTestimonialProps} props - The props for the ProjectTestimonial component.
+ * @param {SRCC_Project['testimonials']} props.testimonials - The testimonials of the project.
+ * @returns {JSX.Element} The rendered ProjectTestimonial component.
+ */
 const ProjectTestimonial: React.FC<ProjectTestimonialProps> = ({
 	testimonials,
 }) => {

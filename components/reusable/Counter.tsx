@@ -13,6 +13,15 @@ type CounterProps = React.ComponentProps<'span'> & {
 	to: number;
 };
 
+/**
+ * Counter component that animates a number from a starting value to an ending value.
+ *
+ * @component
+ * @param {CounterProps} props - The props for the Counter component.
+ * @param {number} props.from - The starting value of the counter.
+ * @param {number} props.to - The ending value of the counter.
+ * @returns {JSX.Element} The Counter component.
+ */
 const Counter: React.FC<CounterProps> = ({ from, to, ...props }) => {
 	const nodeRef = useRef<HTMLSpanElement | null>(null);
 	const isInView = useInView(nodeRef, { once: true });

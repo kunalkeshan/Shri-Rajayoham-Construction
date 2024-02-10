@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import {
 	Tooltip,
@@ -11,6 +12,12 @@ type ProjectServiceProps = React.ComponentProps<'section'> & {
 	services: SRCC_Project['services'];
 };
 
+/**
+ * Renders the services of a project.
+ * @param {ProjectServiceProps} props - The props for the ProjectService component.
+ * @param {SRCC_Project['services']} props.services - The services of the project.
+ * @returns {JSX.Element} The rendered ProjectService component.
+ */
 const ProjectService: React.FC<ProjectServiceProps> = ({ services }) => {
 	return (
 		<section className='mt-8'>

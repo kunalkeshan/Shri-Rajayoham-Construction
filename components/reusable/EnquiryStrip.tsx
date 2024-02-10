@@ -1,8 +1,13 @@
+// Dependencies
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 
+/**
+ * Renders an enquiry strip component.
+ * @returns The rendered enquiry strip component.
+ */
 const EnquiryStrip = () => {
 	return (
 		<section className='bg-app-bg w-full'>

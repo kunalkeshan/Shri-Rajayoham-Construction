@@ -1,5 +1,5 @@
 'use client';
-
+// Dependencies
 import React from 'react';
 import EnquiryForm from '../contact/EnquiryForm';
 import {
@@ -10,6 +10,10 @@ import {
 } from '@/components/ui/dialog';
 import { useQueryModal } from '@/context/QueryModalContext';
 
+/**
+ * Renders a dialog component for querying information.
+ * @returns JSX.Element
+ */
 const QueryDialog = () => {
 	const { isModalOpen, handleToggleQueryModal } = useQueryModal();
 	return (

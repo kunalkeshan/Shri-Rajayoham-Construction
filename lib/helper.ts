@@ -1,6 +1,11 @@
+// Dependencies
 import { Metadata } from 'next';
 import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 
+/**
+ * Generates the default metadata for the Shri Rajayoham Construction Company website.
+ * @returns The default metadata object.
+ */
 export const generateDefaultMetadata = (): Metadata => {
 	const COMMONS = {
 		title: 'Shri Rajayoham Construction Company',

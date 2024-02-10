@@ -1,5 +1,5 @@
+// Dependencies
 import { type SchemaTypeDefinition } from 'sanity';
-
 import blockContent from './schemas/blockContent';
 import category from './schemas/category';
 import post from './schemas/post';
@@ -14,6 +14,9 @@ import workPackage from './schemas/package';
 import project from './schemas/project';
 import careers from './schemas/careers';
 
+/**
+ * Represents the schema definition for the project.
+ */
 export const schema: { types: SchemaTypeDefinition[] } = {
 	types: [
 		post,

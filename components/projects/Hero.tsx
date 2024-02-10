@@ -1,7 +1,12 @@
+// Dependencies
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+/**
+ * Renders the projects hero section.
+ * @returns {JSX.Element} The projects hero section.
+ */
 const Hero = () => {
 	return (
 		<section className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 w-full h-full'>

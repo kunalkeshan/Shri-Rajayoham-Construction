@@ -1,5 +1,5 @@
+// Dependencies
 import 'server-only';
-
 import type { FilteredResponseQueryOptions, QueryParams } from 'next-sanity';
 import { draftMode } from 'next/headers';
 import { client } from '@/sanity/lib/client';
@@ -12,6 +12,16 @@ const FETCH_OPTIONS = {
 
 export const token = process.env.SANITY_API_READ_TOKEN;
 
+/**
+ * Fetches data from the Sanity API using the specified query and parameters.
+ *
+ * @param query - The query string to fetch data from the Sanity API.
+ * @param params - The query parameters to be included in the request.
+ * @param tags - The tags to be included in the request.
+ * @param options - Additional options for the request.
+ * @returns A promise that resolves to the response data.
+ * @throws An error if the `SANITY_API_READ_TOKEN` environment variable is required but not provided in draft mode.
+ */
 export async function sanityFetch<QueryResponse>({
 	query,
 	params = DEFAULT_PARAMS,
@@ -29,7 +39,6 @@ export async function sanityFetch<QueryResponse>({
 			'The `SANITY_API_READ_TOKEN` environment variable is required.'
 		);
 	}
-	const isDevelopment = process.env.NODE_ENV === 'development';
 
 	return client
 		.withConfig({ useCdn: true })
