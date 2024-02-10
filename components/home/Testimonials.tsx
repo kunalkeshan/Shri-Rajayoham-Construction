@@ -18,7 +18,7 @@ type TestimonialsProps = React.ComponentProps<'section'> & {
 const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 	const [api, setApi] = React.useState<CarouselApi>();
 	const [current, setCurrent] = React.useState(3);
-	const [count, setCount] = React.useState(0);
+	const [, setCount] = React.useState(0);
 
 	React.useEffect(() => {
 		if (!api) {
@@ -52,7 +52,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 						className='w-full mx-auto max-w-xl mt-12'
 					>
 						<CarouselContent className=''>
-							{testimonials.map((testimonial, index) => (
+							{testimonials.map((testimonial) => (
 								<CarouselItem
 									key={`testimonial-item-${testimonial._id}`}
 								>

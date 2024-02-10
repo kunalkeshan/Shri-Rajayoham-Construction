@@ -9,7 +9,6 @@ const TwitterX: React.FC<TwitterXProps> = ({
 	width = 24,
 	height = 24,
 	className,
-	strokeWidth,
 	size,
 	fill,
 	...props

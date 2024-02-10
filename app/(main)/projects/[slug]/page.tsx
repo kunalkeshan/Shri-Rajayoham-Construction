@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import ProjectHeader from '@/components/projects/ProjectHeader';
 import ProjectBody from '@/components/projects/ProjectBody';
@@ -26,10 +26,7 @@ export async function generateStaticParams() {
 
 const defaultMetadata = generateDefaultMetadata();
 
-export async function generateMetadata(
-	{ params, searchParams }: Props,
-	parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const project = await client.fetch<SRCC_Project>(
 		queries.project.getIndividual,
 		params

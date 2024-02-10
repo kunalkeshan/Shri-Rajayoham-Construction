@@ -52,7 +52,6 @@ const materials = [
 
 const FrontOfCard = ({
 	title,
-	type,
 	img,
 }: {
 	title: string;

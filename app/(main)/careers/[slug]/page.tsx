@@ -1,5 +1,5 @@
 import React from 'react';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
@@ -23,10 +23,7 @@ export async function generateStaticParams() {
 
 const defaultMetadata = generateDefaultMetadata();
 
-export async function generateMetadata(
-	{ params, searchParams }: Props,
-	parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const career = await client.fetch<SRCC_Career>(
 		queries.career.getIndividual,
 		params

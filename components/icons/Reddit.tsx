@@ -9,7 +9,6 @@ const Reddit: React.FC<RedditProps> = ({
 	width = 24,
 	height = 24,
 	className,
-	strokeWidth,
 	size,
 	fill,
 	...props

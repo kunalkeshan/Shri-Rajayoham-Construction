@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { client } from '@/sanity/lib/client';
 import { queries } from '@/sanity/queries';
@@ -22,10 +22,7 @@ export async function generateStaticParams() {
 
 const defaultMetadata = generateDefaultMetadata();
 
-export async function generateMetadata(
-	{ params, searchParams }: Props,
-	parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const pckg = await client.fetch<SRCC_Package>(
 		queries.package.getIndividual,
 		params

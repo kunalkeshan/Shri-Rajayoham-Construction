@@ -36,7 +36,7 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 				<div className='my-16 flex flex-col gap-16'>
 					{teamMembers
 						.filter((item) => item.slug === 'rajarajan-kamaraj')
-						.map((item, idx) => (
+						.map((item) => (
 							<div
 								key={`${item._id}`}
 								className='flex flex-col items-center gap-4 w-full l:flex-row'
@@ -74,7 +74,7 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 				<div className='my-16 flex flex-col gap-16'>
 					{teamMembers
 						.filter((item) => item.slug === 'silambarasan')
-						.map((item, idx) => (
+						.map((item) => (
 							<IndividualTeamMember
 								key={`${item._id}`}
 								member={item}
@@ -86,7 +86,7 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 								item.slug !== 'rajarajan-kamaraj' &&
 								item.slug !== 'silambarasan'
 						)
-						.map((item, idx) => (
+						.map((item) => (
 							<IndividualTeamMember
 								key={`${item._id}`}
 								member={item}
