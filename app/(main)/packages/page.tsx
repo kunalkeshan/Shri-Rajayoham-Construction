@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import PackageCard from '@/components/packages/PackageCard';
 import DetailedServices from '@/components/packages/DetailedServices';

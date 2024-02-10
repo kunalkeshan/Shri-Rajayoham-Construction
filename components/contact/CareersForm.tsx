@@ -1,5 +1,6 @@
 'use client';
 
+// Dependencies
 import React, { useState } from 'react';
 import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -29,6 +30,11 @@ type CareersFormProps = React.ComponentProps<'section'> & {
 
 const formSchema = defaultFormSchemaUnion();
 
+/**
+ * Renders the careers form.
+ * @param {Array<SRCC_Career>} careers - The careers available.
+ * @returns {JSX.Element} The rendered careers form.
+ */
 const CareersForm: React.FC<CareersFormProps> = ({
 	className,
 	careers,

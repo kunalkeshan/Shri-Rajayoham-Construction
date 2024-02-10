@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { SRCC_PRIVACY_POLICY } from '@/constants/legal';
 

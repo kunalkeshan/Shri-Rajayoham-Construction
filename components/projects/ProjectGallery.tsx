@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Image from 'next/image';
 import { ImageIcon } from 'lucide-react';
@@ -7,6 +8,12 @@ type ProjectGalleryProps = React.ComponentProps<'section'> & {
 	imageGallery: SRCC_Project['imageGallery'];
 };
 
+/**
+ * Renders a project gallery.
+ * @param {ProjectGalleryProps} props - The props for the ProjectGallery component.
+ * @param {SRCC_Project['imageGallery']} props.imageGallery - The gallery of the project.
+ * @returns {JSX.Element} The rendered ProjectGallery component.
+ */
 const ProjectGallery: React.FC<ProjectGalleryProps> = ({ imageGallery }) => {
 	return (
 		<section className='mt-8'>

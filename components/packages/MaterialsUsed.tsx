@@ -1,4 +1,6 @@
+// Dependencies
 import React from 'react';
+
 const materials = [
 	{
 		img: '/assets/materials/steel.webp',
@@ -50,6 +52,12 @@ const materials = [
 	},
 ];
 
+/**
+ * Renders the front side of a card with a background image and title.
+ * @param {string} title - The title of the card.
+ * @param {string} img - The URL of the background image.
+ * @returns {JSX.Element} The rendered front side of the card.
+ */
 const FrontOfCard = ({
 	title,
 	img,
@@ -71,6 +79,11 @@ const FrontOfCard = ({
 	);
 };
 
+/**
+ * Renders the back side of a card with the provided description.
+ * @param {string} desc - The description to be displayed on the card.
+ * @returns {JSX.Element} The JSX element representing the back side of the card.
+ */
 const BackOfCard = ({ desc }: { desc: string }) => {
 	return (
 		<div className='absolute text-center inset-0 p-6 w-full h-full flex text-black justify-center items-center bg-slate-100 transition-all z-10 [transform:rotateY(180deg)]'>
@@ -79,6 +92,10 @@ const BackOfCard = ({ desc }: { desc: string }) => {
 	);
 };
 
+/**
+ * Renders a section displaying the materials used.
+ * @returns JSX.Element
+ */
 const MaterialsUsed = () => {
 	return (
 		<section className='w-full'>

@@ -1,3 +1,4 @@
+// Dependencies
 import type { Metadata } from 'next';
 import Footer from '@/layouts/Footer';
 import Navbar from '@/layouts/Navbar';

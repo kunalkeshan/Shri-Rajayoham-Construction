@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import ProjectCard from './ProjectCard';
 
@@ -7,6 +8,14 @@ type ProjectsProps = React.ComponentProps<'section'> & {
 	status: SRCC_Project['status'];
 };
 
+/**
+ * Renders the projects section.
+ * @param {ProjectsProps} props - The props for the Projects component.
+ * @param {string} props.title - The title of the projects section.
+ * @param {Array<SRCC_Project>} props.projects - The projects to render.
+ * @param {SRCC_Project['status']} props.status - The status of the projects.
+ * @returns {JSX.Element} The rendered Projects component.
+ */
 const Projects: React.FC<ProjectsProps> = ({ title, projects, status }) => {
 	return (
 		<section

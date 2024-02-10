@@ -1,3 +1,4 @@
+// Dependencies
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -5,6 +6,10 @@ import SheetNav from './SheetNav';
 import QuickLinks from '@/layouts/QuickLinks';
 import { NAVBAR_NAVIGATION } from '@/constants/navigation';
 
+/**
+ * Renders the navigation bar component.
+ * @returns The JSX element representing the navigation bar.
+ */
 const Navbar = () => {
 	return (
 		<nav className='fixed z-50 top-0 w-full'>

@@ -1,9 +1,14 @@
+// Dependencies
 import React from 'react';
 import { MailIcon, PhoneIcon } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import Link from 'next/link';
 import { SRCC_EMAIL, SRCC_MOBILE, SRCC_SOCIALS } from '@/constants/srcc';
 
+/**
+ * Renders a section with quick links, including email, phone, and social media links.
+ * @returns JSX.Element
+ */
 const QuickLinks = () => {
 	return (
 		<section className='border-b w-full flex items-center justify-between px-4 md:px-8 lg:px-32 bg-white'>

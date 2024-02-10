@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import EnquiryForm from './EnquiryForm';
@@ -17,6 +18,11 @@ type AllFormsProps = React.ComponentProps<'section'> & {
 	careers: Array<SRCC_Career>;
 };
 
+/**
+ * Renders all the forms for contacting SRCC.
+ * @param {Array<SRCC_Career>} careers - The careers available.
+ * @returns {JSX.Element} The rendered forms.
+ */
 const AllForms: React.FC<AllFormsProps> = ({ careers }) => {
 	const TRIGGERS = [
 		{

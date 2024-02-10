@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Hero from '@/components/projects/Hero';
 import MapsEmbed from '@/components/projects/MapsEmbed';

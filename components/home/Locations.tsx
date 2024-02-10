@@ -1,6 +1,11 @@
+// Dependencies
 import Image from 'next/image';
 import React from 'react';
 
+/**
+ * Renders the locations of the company.
+ * @returns {JSX.Element} The rendered locations.
+ */
 const Locations = () => {
 	const data = [
 		{

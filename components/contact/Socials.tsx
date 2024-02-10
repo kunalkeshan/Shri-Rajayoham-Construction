@@ -1,7 +1,12 @@
+// Dependencies
 import React from 'react';
 import Link from 'next/link';
 import { SRCC_SOCIALS } from '@/constants/srcc';
 
+/**
+ * Renders a section with social media links.
+ * @returns {JSX.Element} The rendered section.
+ */
 const Socials = () => {
 	return (
 		<section className='w-full bg-app-bg'>

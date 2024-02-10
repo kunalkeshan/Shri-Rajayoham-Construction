@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -7,6 +8,12 @@ type ProjectCardProps = React.ComponentProps<'li'> & {
 	project: SRCC_Project;
 };
 
+/**
+ * Renders a project card.
+ * @param {ProjectCardProps} props - The props for the ProjectCard component.
+ * @param {SRCC_Project} props.project - The project data.
+ * @returns {JSX.Element} The rendered ProjectCard component.
+ */
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 	return (
 		<li className='block rounded-lg overflow-hidden'>

@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import ProjectCard from '../projects/ProjectCard';
 
@@ -5,6 +6,11 @@ type ProjectsProps = React.ComponentProps<'section'> & {
 	projects: Array<SRCC_Project>;
 };
 
+/**
+ * Renders a section with featured projects.
+ * @param {Array<SRCC_Project>} projects - The featured projects.
+ * @returns {JSX.Element} The rendered section.
+ */
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 	return (
 		<section className='bg-app-b w-full'>

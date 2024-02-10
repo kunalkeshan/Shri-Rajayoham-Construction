@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { StarIcon } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -9,6 +10,11 @@ type TestimonialCardProps = React.ComponentProps<'div'> & {
 
 const MAX_NUMBER_OF_STARS = 5 as const;
 
+/**
+ * Renders a testimonial card.
+ * @param {SRCC_Testimonial} testimonial - The testimonial details.
+ * @returns {JSX.Element} The rendered testimonial card.
+ */
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
 	return (
 		<Card>

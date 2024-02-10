@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee } from 'lucide-react';
@@ -6,6 +7,11 @@ type PackageHeaderProps = React.ComponentProps<'section'> & {
 	pckg: SRCC_Package;
 };
 
+/**
+ * Renders the header of a package.
+ * @param {SRCC_Package} pckg - The package details.
+ * @returns {JSX.Element} The rendered package header.
+ */
 const PackageHeader: React.FC<PackageHeaderProps> = ({ pckg }) => {
 	return (
 		<section>

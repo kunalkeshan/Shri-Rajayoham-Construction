@@ -9,6 +9,9 @@ import PACKAGE from './queries/package';
 import PROJECT from './queries/project';
 import IMPACT from './queries/impact';
 
+/**
+ * Object containing various queries.
+ */
 export const queries = {
 	testimonial: TESTIMONIAL,
 	faq: FAQ,

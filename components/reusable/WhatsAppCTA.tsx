@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,6 +9,10 @@ import {
 } from '@/components/ui/tooltip';
 import { SRCC_MOBILE } from '@/constants/srcc';
 
+/**
+ * Renders a WhatsApp Call-to-Action button that allows users to contact Shri Rajayoham Construction Company.
+ * The button opens a WhatsApp chat window with a pre-filled message.
+ */
 const WhatsAppCTA = () => {
 	const WHATSAPP_TEXT = encodeURIComponent(
 		`Hello Shri Rajayoham Construction Company! I'm interested in your construction services. Could you please contact me with your offerings and pricing?`

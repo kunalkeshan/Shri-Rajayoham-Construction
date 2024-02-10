@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,6 +10,11 @@ type PackageCardProps = React.ComponentProps<'a'> & {
 	pckg: SRCC_Package;
 };
 
+/**
+ * Renders a card with package details.
+ * @param {SRCC_Package} pckg - The package details.
+ * @returns {JSX.Element} The rendered card.
+ */
 const PackageCard: React.FC<PackageCardProps> = ({ pckg }) => {
 	return (
 		<Link

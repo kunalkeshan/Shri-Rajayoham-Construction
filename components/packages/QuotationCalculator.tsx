@@ -1,5 +1,6 @@
 'use client';
 
+// Dependencies
 import React, { useEffect, useState } from 'react';
 import {
 	Table,
@@ -23,6 +24,12 @@ type QuotationCalculatorProps = React.ComponentProps<'table'> & {
 	packages: Array<SRCC_Package>;
 };
 
+/**
+ * Formats the given number as a currency in Indian Rupees (INR).
+ *
+ * @param num The number to be formatted.
+ * @returns The formatted currency string.
+ */
 const costFormatter = (num: number) =>
 	new Intl.NumberFormat('en-IN', {
 		notation: 'standard',
@@ -30,12 +37,23 @@ const costFormatter = (num: number) =>
 		currency: 'INR',
 	}).format(num);
 
+/**
+ * Rates for various components used in the quotation calculator.
+ */
 const RATES = {
 	waterSump: 18,
 	septicTank: 18,
 	compoundWall: 425,
 };
 
+/**
+ * Quotation Calculator component for calculating construction costs.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Array} props.packages - The list of packages for selecting the area rate.
+ * @returns {JSX.Element} The QuotationCalculator component.
+ */
 const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 	packages,
 }) => {

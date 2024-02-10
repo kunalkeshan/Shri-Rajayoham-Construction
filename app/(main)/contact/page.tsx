@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import AllForms from '@/components/contact/AllForms';
 import Socials from '@/components/contact/Socials';

@@ -1,3 +1,4 @@
+// Dependencies
 import { client } from '@/sanity/lib/client';
 import { queries } from '@/sanity/queries';
 import { MetadataRoute } from 'next';
@@ -5,6 +6,9 @@ import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 
 type Params = { params: { slug: string } };
 
+/**
+ * Default sitemaps for the website.
+ */
 const DEFAULT_SITEMAPS: MetadataRoute.Sitemap = [
 	{
 		url: `${SRCC_WEBSITE_URL}`,
@@ -62,6 +66,10 @@ const DEFAULT_SITEMAPS: MetadataRoute.Sitemap = [
 	},
 ];
 
+/**
+ * Returns the sitemap.xml of the website.
+ * @returns {Promise<MetadataRoute.Sitemap>} The sitemap of the website.
+ */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	try {
 		const careers = await client.fetch<Array<Params>>(

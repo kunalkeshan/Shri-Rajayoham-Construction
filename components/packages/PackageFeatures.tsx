@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { PortableText } from '@portabletext/react';
 import SanityImage from '@/components/reusable/SanityImage';
@@ -14,6 +15,11 @@ const portableTextComponents = {
 	},
 };
 
+/**
+ * Renders the features of a package.
+ * @param {SRCC_Package['features']} features - The features of the package.
+ * @returns {JSX.Element} The rendered features.
+ */
 const PackageFeatures: React.FC<PackageFeaturesProps> = ({ features }) => {
 	return (
 		<section className='mt-8 prose max-w-5xl mx-auto'>

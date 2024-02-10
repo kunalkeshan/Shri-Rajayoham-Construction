@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,6 +9,11 @@ type LatestBlogCardProps = React.ComponentProps<'div'> & {
 	post: SRCC_BlogPost;
 };
 
+/**
+ * Renders a card with the latest blog post details.
+ * @param {SRCC_BlogPost} post - The blog post details.
+ * @returns {JSX.Element} The rendered card.
+ */
 const LatestBlogCard: React.FC<LatestBlogCardProps> = ({ post }) => {
 	return (
 		<div className='w-full flex gap-4 mt-4'>

@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -5,6 +6,18 @@ type RedditProps = React.ComponentProps<'svg'> & {
 	size?: number | undefined;
 };
 
+/**
+ * Reddit icon component.
+ *
+ * @component
+ * @param {number} width - The width of the icon. Default is 24.
+ * @param {number} height - The height of the icon. Default is 24.
+ * @param {string} className - Additional CSS class for the icon.
+ * @param {number} size - The size of the icon. Overrides width and height if provided.
+ * @param {string} fill - The fill color of the icon.
+ * @param {React.SVGProps<SVGSVGElement>} props - Additional props for the SVG element.
+ * @returns {JSX.Element} The rendered Reddit icon.
+ */
 const Reddit: React.FC<RedditProps> = ({
 	width = 24,
 	height = 24,

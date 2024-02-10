@@ -1,5 +1,6 @@
 'use client';
 
+// Dependencies
 import React, { useState } from 'react';
 import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -32,6 +33,10 @@ const formSchema = defaultFormSchemaUnion().and(
 	})
 );
 
+/**
+ * Renders the services required form.
+ * @returns {JSX.Element} The rendered services required form.
+ */
 const ServicesRequiredForm: React.FC<ServicesRequiredFormProps> = ({
 	className,
 	...props

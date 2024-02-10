@@ -1,9 +1,12 @@
 'use client';
-
+// Dependencies
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useQueryModal } from '@/context/QueryModalContext';
 
+/**
+ * Renders a button component that opens a query modal when clicked.
+ */
 const QueryDialogButton = () => {
 	const { handleOpenQueryModal } = useQueryModal();
 	return (

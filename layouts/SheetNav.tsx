@@ -1,5 +1,5 @@
 'use client';
-
+// Dependencies
 import React, { useState } from 'react';
 import {
 	Sheet,
@@ -14,6 +14,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { NAVBAR_NAVIGATION } from '@/constants/navigation';
 
+/**
+ * Renders a sheet navigation component.
+ * @returns The sheet navigation component.
+ */
 const SheetNav = () => {
 	const [open, setOpen] = useState(false);
 

@@ -1,5 +1,6 @@
 'use client';
 
+// Dependencies
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -15,6 +16,11 @@ type SocialShareProps = React.ComponentProps<'section'> & {
 	post: SRCC_BlogPost;
 };
 
+/**
+ * Renders the social share section of a blog post.
+ * @param {SRCC_BlogPost} post - The blog post.
+ * @returns {JSX.Element} The rendered social share section.
+ */
 const SocialShare: React.FC<SocialShareProps> = ({ post }) => {
 	const LINK = `${SRCC_WEBSITE_URL}/blogs/${post.slug}`;
 	const SHARE_TEXT = encodeURI(post.title);

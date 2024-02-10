@@ -1,9 +1,15 @@
+// Dependencies
 import { FOOTER_NAVIGATION } from '@/constants/navigation';
 import { SRCC_SOCIALS } from '@/constants/srcc';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+/**
+ * Footer component for the Shri Rajayoham Construction website.
+ * Displays the footer section with company logo, navigation links, social media links, and legal information.
+ * @returns JSX.Element
+ */
 const Footer = () => {
 	return (
 		<footer className='bg-white border-t'>
