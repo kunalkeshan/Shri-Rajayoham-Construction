@@ -37,7 +37,7 @@ export const SRCC_SOCIALS: Array<SocialLinks> = [
 	{
 		name: 'LinkedIn',
 		Icon: LinkedinIcon,
-		url: '#',
+		url: 'https://www.linkedin.com/company/shri-rajayoham-construction-company',
 	},
 	{
 		name: 'Twitter',
