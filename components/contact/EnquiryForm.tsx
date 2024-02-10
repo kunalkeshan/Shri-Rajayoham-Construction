@@ -1,5 +1,6 @@
 'use client';
 
+// Dependencies
 import React, { useState } from 'react';
 import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -34,6 +35,10 @@ const formSchema = baseSchema.and(
 	})
 );
 
+/**
+ * Renders the enquiry form.
+ * @returns {JSX.Element} The rendered enquiry form.
+ */
 const EnquiryForm: React.FC<EnquiryFormProps> = ({ className, ...props }) => {
 	const [submitting, setSubmitting] = useState(false);
 	const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');

@@ -1,4 +1,5 @@
 'use client';
+// Dependencies
 import * as React from 'react';
 import {
 	Carousel,
@@ -8,6 +9,10 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 
+/**
+ * Renders the hero carousel for the home page.
+ * @returns {JSX.Element} The rendered hero carousel.
+ */
 const HeroCarousel = () => {
 	const [api, setApi] = React.useState<CarouselApi>();
 	const [current, setCurrent] = React.useState(0);

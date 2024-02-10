@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Blogs from '@/components/blogs/Blogs';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';

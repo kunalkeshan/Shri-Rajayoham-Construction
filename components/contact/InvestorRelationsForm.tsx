@@ -1,5 +1,6 @@
 'use client';
 
+// Dependencies
 import React, { useState } from 'react';
 import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -26,6 +27,10 @@ type InvestorRelationsFormProps = React.ComponentProps<'section'>;
 
 const formSchema = defaultFormSchemaUnion();
 
+/**
+ * Renders the investor relations form.
+ * @returns {JSX.Element} The rendered investor relations form.
+ */
 const InvestorRelationsForm: React.FC<InvestorRelationsFormProps> = ({
 	className,
 	...props

@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { SRCC_TERMS_AND_CONDITIONS } from '@/constants/legal';
 

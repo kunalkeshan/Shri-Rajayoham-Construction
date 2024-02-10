@@ -1,8 +1,14 @@
 'use client';
+// Dependencies
 import { urlForImage } from '@/sanity/lib/image';
 import Image from 'next/image';
 import React from 'react';
 
+/**
+ * Renders the individual team member.
+ * @param {SRCC_TeamMember} member - The team member details.
+ * @returns {JSX.Element} The rendered team member.
+ */
 const IndividualTeamMember = ({ member }: { member: SRCC_TeamMember }) => {
 	return (
 		<div className='flex flex-col md:gap-4 md:flex-row md:odd:flex-row-reverse'>

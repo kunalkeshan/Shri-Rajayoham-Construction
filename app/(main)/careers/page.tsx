@@ -1,3 +1,4 @@
+// Dependencies
 import Link from 'next/link';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';

@@ -1,7 +1,8 @@
+// Dependencies
 import type { Metadata } from 'next';
 import { Palanquin } from 'next/font/google';
-import './globals.css';
 import { generateDefaultMetadata } from '@/lib/helper';
+import './globals.css';
 
 const palanquin = Palanquin({
 	subsets: ['latin'],

@@ -1,6 +1,11 @@
+// Dependencies
 import React from 'react';
 import EnquiryForm from '../contact/EnquiryForm';
 
+/**
+ * Renders a section with an enquiry form.
+ * @returns {JSX.Element} The rendered section.
+ */
 const Form = () => {
 	return (
 		<section className='w-full bg-app-bg'>

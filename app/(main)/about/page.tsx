@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Image from 'next/image';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';

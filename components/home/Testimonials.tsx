@@ -1,4 +1,5 @@
 'use client';
+// Dependencies
 import * as React from 'react';
 import {
 	Carousel,
@@ -16,6 +17,11 @@ type TestimonialsProps = React.ComponentProps<'section'> & {
 	testimonials: Array<SRCC_Testimonial>;
 };
 
+/**
+ * Renders the testimonials section.
+ * @param {Array<SRCC_Testimonial>} testimonials - The list of testimonials.
+ * @returns {JSX.Element} The rendered testimonials section.
+ */
 const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 	const [api, setApi] = React.useState<CarouselApi>();
 	const [current, setCurrent] = React.useState(3);

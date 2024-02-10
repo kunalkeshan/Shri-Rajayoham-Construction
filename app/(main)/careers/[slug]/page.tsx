@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';

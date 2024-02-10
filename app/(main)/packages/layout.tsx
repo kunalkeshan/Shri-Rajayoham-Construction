@@ -1,3 +1,4 @@
+// Dependencies
 import type { Metadata } from 'next';
 import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 import { generateDefaultMetadata } from '@/lib/helper';

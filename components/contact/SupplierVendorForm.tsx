@@ -1,5 +1,6 @@
 'use client';
 
+// Dependencies
 import React, { useState } from 'react';
 import { cn, defaultFormSchemaUnion } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -26,6 +27,10 @@ type SupplierVendorFormProps = React.ComponentProps<'section'>;
 
 const formSchema = defaultFormSchemaUnion();
 
+/**
+ * Renders the supplier vendor form.
+ * @returns {JSX.Element} The rendered supplier vendor form.
+ */
 const SupplierVendorForm: React.FC<SupplierVendorFormProps> = ({
 	className,
 	...props

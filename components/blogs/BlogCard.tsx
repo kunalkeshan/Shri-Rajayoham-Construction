@@ -1,3 +1,4 @@
+// Dependencies
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,6 +15,11 @@ type BlogCardProps = React.ComponentProps<'div'> & {
 	post: SRCC_BlogPost;
 };
 
+/**
+ * Renders a card with blog post details.
+ * @param {SRCC_BlogPost} post - The blog post details.
+ * @returns {JSX.Element} The rendered card.
+ */
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 	return (
 		<div className='w-full'>

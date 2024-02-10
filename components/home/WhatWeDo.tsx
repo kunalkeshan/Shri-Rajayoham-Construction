@@ -1,3 +1,5 @@
+// Dependencies
+import React from 'react';
 import {
 	ArrowLeftRightIcon,
 	HeartHandshakeIcon,
@@ -8,8 +10,11 @@ import {
 	ShieldCheckIcon,
 	UsersRoundIcon,
 } from 'lucide-react';
-import React from 'react';
 
+/**
+ * Renders a section with the services offered.
+ * @returns {JSX.Element} The rendered section.
+ */
 const WhatWeDo = () => {
 	const data: { title: string; subtitle: string; Icon: LucideIcon }[] = [
 		{

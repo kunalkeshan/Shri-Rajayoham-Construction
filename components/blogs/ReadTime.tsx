@@ -2,6 +2,7 @@
 /**
  * Read Time Component
  */
+// Dependencies
 import React, { useMemo } from 'react';
 import { Book } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -10,6 +11,11 @@ type ReadTimeProps = React.ComponentProps<'div'> & {
 	body: SRCC_BlogPost['body'];
 };
 
+/**
+ * Renders the read time of a blog post.
+ * @param {SRCC_BlogPost['body']} body - The body of the blog post.
+ * @returns {JSX.Element} The rendered read time.
+ */
 const ReadTime: React.FC<ReadTimeProps> = ({ className, body, ...props }) => {
 	const readingTime = useMemo(() => {
 		const AVERAGE_READING_TIME = 200;
