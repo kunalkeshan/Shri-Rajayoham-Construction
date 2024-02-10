@@ -27,6 +27,7 @@
 		"@sanity/overlays": "^2.3.0",
 		"@sanity/react-loader": "^1.6.4",
 		"@sanity/vision": "3",
+		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"axios": "^1.6.3",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
