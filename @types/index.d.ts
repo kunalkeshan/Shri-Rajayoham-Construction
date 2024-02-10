@@ -21,6 +21,7 @@ type SRCC_BlogPost = SRCC_Base_Model &
 		body?: TypedObject | TypedObject[];
 		featured: boolean;
 		slug: string;
+		mainImage?: any;
 	}>;
 
 type SRCC_BlogCategory = SRCC_Base_Model &
@@ -33,7 +34,7 @@ type SRCC_BlogCategory = SRCC_Base_Model &
 type SRCC_TeamMember = SRCC_Base_Model &
 	Readonly<{
 		name: string;
-		image?: { url: string; alt: string };
+		image?: any;
 		slug: string;
 		position: SRCC_WorkPosition;
 		role?: SRCC_WorkRole;
@@ -85,6 +86,7 @@ type SRCC_Package = SRCC_Base_Model &
 		slug: string;
 		price: number;
 		services?: Array<SRCC_Service>;
+		imageData?: any;
 	}>;
 
 type SRCC_Project = SRCC_Base_Model &
@@ -108,7 +110,7 @@ type SRCC_Project = SRCC_Base_Model &
 		// teamMembers?: Array<SRCC_TeamMember>;
 		imageGallery?: Array<{
 			caption: string;
-			image: { url: string; alt: string };
+			image: any;
 		}>;
 		coverImage: any;
 	}>;

@@ -8,7 +8,6 @@ type ProjectCardProps = React.ComponentProps<'li'> & {
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-	console.log(project);
 	return (
 		<li className='block rounded-lg overflow-hidden'>
 			<Link href={`/projects/${project.slug}`} className='block relative'>
