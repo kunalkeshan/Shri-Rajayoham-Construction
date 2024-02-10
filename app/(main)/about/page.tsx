@@ -28,7 +28,7 @@ const AboutPage = async () => {
 	];
 
 	return (
-		<main className='mt-[8.5rem] h-full'>
+		<main className='mt-44 lg:mt-36 h-full'>
 			{/* <section className="bg-[url('/assets/hero/1.jpg')] bg-cover bg-no-repeat bg-center">
 				<div className="bg-black bg-opacity-60 px-4 md:px-16 py-16 md:py-32">
 					<h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-white">

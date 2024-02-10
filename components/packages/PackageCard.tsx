@@ -12,7 +12,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pckg }) => {
 	return (
 		<Link
 			href={`/packages/${pckg.slug}`}
-			className='w-full h-[36rem] rounded-lg border flex flex-col gap-6 group'
+			className='w-full rounded-lg border flex flex-col gap-6 group'
 		>
 			<div className='rounded-t-lg min-h-2/5 overflow-hidden'>
 				<Image
