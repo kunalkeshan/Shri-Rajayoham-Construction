@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/carousel';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import TestimonialCard from '../cards/TestimonialCard';
+import { urlForImage } from '@/sanity/lib/image';
 
 type TestimonialsProps = React.ComponentProps<'section'> & {
 	testimonials: Array<SRCC_Testimonial>;
@@ -77,7 +78,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 								}`}
 							>
 								<AvatarImage
-									src={testimonial.image.url}
+									src={urlForImage(testimonial.image)}
 									alt={testimonial.image.alt}
 									className='w-full h-auto aspect-square object-cover'
 								/>

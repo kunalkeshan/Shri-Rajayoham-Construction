@@ -110,6 +110,7 @@ type SRCC_Project = SRCC_Base_Model &
 			caption: string;
 			image: { url: string; alt: string };
 		}>;
+		coverImage: any;
 	}>;
 
 type SRCC_Testimonial = SRCC_Base_Model &
@@ -117,7 +118,7 @@ type SRCC_Testimonial = SRCC_Base_Model &
 		name: string;
 		content: string;
 		rating: number;
-		image: { url: string; alt: string };
+		image: any;
 	}>;
 
 type SRCC_FAQ = SRCC_Base_Model &
