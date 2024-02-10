@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { urlForImage } from '@/sanity/lib/image';
 
 type ProjectCardProps = React.ComponentProps<'li'> & {
 	project: SRCC_Project;
@@ -11,7 +12,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 		<li className='block rounded-lg overflow-hidden'>
 			<Link href={`/projects/${project.slug}`} className='block relative'>
 				<Image
-					src={project?.image?.url ?? '/assets/hero/1.jpg'}
+					src={
+						project?.coverImage
+							? urlForImage(project?.coverImage)
+							: '/assets/hero/1.jpg'
+					}
 					alt={project?.image?.alt ?? project.title}
 					width={100}
 					height={100}

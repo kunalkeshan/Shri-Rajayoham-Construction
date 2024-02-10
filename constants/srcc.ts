@@ -32,7 +32,7 @@ export const SRCC_SOCIALS: Array<SocialLinks> = [
 	{
 		name: 'Facebook',
 		Icon: FacebookIcon,
-		url: '#',
+		url: 'https://www.facebook.com/shri.rajayoham.construction.company',
 	},
 	{
 		name: 'LinkedIn',
@@ -42,6 +42,6 @@ export const SRCC_SOCIALS: Array<SocialLinks> = [
 	{
 		name: 'Twitter',
 		Icon: TwitterIcon,
-		url: '#',
+		url: 'https://twitter.com/Shrirajayohamcc',
 	},
 ] as const;

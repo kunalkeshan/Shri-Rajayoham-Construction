@@ -56,7 +56,7 @@ const IndividualCareerPage = async ({ params }: Props) => {
 		redirect('/careers');
 	}
 	return (
-		<main className='w-full mt-[8.5rem] p-4 md:p-16'>
+		<main className='w-full mt-44 lg:mt-36 p-4 md:p-16'>
 			<div className='w-full max-w-4xl mx-auto'>
 				<section>
 					<h1 className='text-2xl md:text-3xl lg:text-4xl text-center md:text-left font-normal'>

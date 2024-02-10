@@ -26,7 +26,7 @@ const ProjectsPage = async () => {
 	});
 	const groupedProjects = groupProjectsByStatus(projects);
 	return (
-		<main className='w-full min-h-screen mt-[8.5rem]'>
+		<main className='w-full min-h-screen mt-44 lg:mt-36'>
 			<Hero />
 			{(
 				Object.keys(groupedProjects) as Array<SRCC_Project['status']>

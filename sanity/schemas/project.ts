@@ -77,6 +77,15 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
+			name: 'postStatus',
+			title: 'Availability (If Completed)',
+			type: 'string',
+			options: {
+				list: ['sold out', 'rented out', 'unavailable'],
+			},
+			hidden: ({ document }) => document?.status !== 'completed',
+		}),
+		defineField({
 			name: 'budget',
 			title: 'Budget (Indian Rupees)',
 			type: 'number',

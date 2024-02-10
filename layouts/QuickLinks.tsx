@@ -8,7 +8,7 @@ const QuickLinks = () => {
 	return (
 		<section className='border-b w-full flex items-center justify-between px-4 md:px-8 lg:px-32 bg-white'>
 			<div className='flex md:block flex-wrap w-full justify-center items-center'>
-				<Button asChild className='' variant={'link'}>
+				<Button asChild className='w-fit' variant={'link'}>
 					<Link
 						href={`mailto:${SRCC_EMAIL}`}
 						target='_blank'
@@ -22,7 +22,7 @@ const QuickLinks = () => {
 						{SRCC_EMAIL}
 					</Link>
 				</Button>
-				<Button asChild className='' variant={'link'}>
+				<Button asChild className='w-fit' variant={'link'}>
 					<Link
 						href={`tel:${SRCC_MOBILE}`}
 						target='_blank'

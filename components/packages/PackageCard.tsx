@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import IconFromSVGString from '../reusable/SVGFromString';
 import { BadgeCheckIcon, IndianRupeeIcon } from 'lucide-react';
+import { urlForImage } from '@/sanity/lib/image';
 
 type PackageCardProps = React.ComponentProps<'a'> & {
 	pckg: SRCC_Package;
@@ -12,11 +13,15 @@ const PackageCard: React.FC<PackageCardProps> = ({ pckg }) => {
 	return (
 		<Link
 			href={`/packages/${pckg.slug}`}
-			className='w-full h-[36rem] rounded-lg border flex flex-col gap-6 group'
+			className='w-full rounded-lg border flex flex-col gap-6 group'
 		>
 			<div className='rounded-t-lg min-h-2/5 overflow-hidden'>
 				<Image
-					src={pckg.image?.url ?? '/assets/fallback/icon-grid.svg'}
+					src={
+						pckg.imageData
+							? urlForImage(pckg.imageData)
+							: '/assets/fallback/icon-grid.svg'
+					}
 					alt={pckg.image?.alt ?? '/assets/fallback/icon-grid.svg'}
 					width={100}
 					height={100}

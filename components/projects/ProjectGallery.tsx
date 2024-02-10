@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { ImageIcon } from 'lucide-react';
+import { urlForImage } from '@/sanity/lib/image';
 
 type ProjectGalleryProps = React.ComponentProps<'section'> & {
 	imageGallery: SRCC_Project['imageGallery'];
@@ -19,7 +20,7 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ imageGallery }) => {
 						className='block rounded-lg overflow-hidden relative'
 					>
 						<Image
-							src={image.image.url}
+							src={urlForImage(image.image)}
 							alt={image.image.alt}
 							width={100}
 							height={100}

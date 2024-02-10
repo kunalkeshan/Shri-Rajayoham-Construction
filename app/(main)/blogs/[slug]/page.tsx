@@ -67,7 +67,7 @@ const IndividualBlogPage = async ({ params }: Props) => {
 		redirect('/blogs');
 	}
 	return (
-		<main className='mt-[8.5rem] w-full'>
+		<main className='mt-44 lg:mt-36 w-full'>
 			<div className='p-4 md:px-16 lg:max-w-5xl lg:mx-auto pb-8 md:pb-16 lg:pb-32 '>
 				<section className='text-center'>
 					<div className='w-full rounded-md overflow-hidden'>

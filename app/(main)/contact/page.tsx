@@ -13,7 +13,7 @@ const ContactPage = async () => {
 		query: queries.career.getAll,
 	});
 	return (
-		<main className='w-full min-h-screen mt-[8.5rem]'>
+		<main className='w-full min-h-screen mt-44 lg:mt-36'>
 			<AllForms careers={careers} />
 			<Socials />
 			<FAQs faqs={faqs} />

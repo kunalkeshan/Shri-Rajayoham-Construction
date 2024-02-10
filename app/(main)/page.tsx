@@ -31,7 +31,7 @@ const HomePage = async () => {
 		query: queries.impact.getAll,
 	});
 	return (
-		<main className='w-full min-h-screen mt-[8.5rem]'>
+		<main className='w-full min-h-screen mt-44 lg:mt-36'>
 			<HeroCarousel />
 			<WhyUs impacts={impacts} />
 			<WhatWeDo />

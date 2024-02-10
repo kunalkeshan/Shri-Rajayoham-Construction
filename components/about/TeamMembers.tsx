@@ -1,4 +1,5 @@
 'use client';
+import { urlForImage } from '@/sanity/lib/image';
 import Image from 'next/image';
 import React from 'react';
 
@@ -7,7 +8,11 @@ const IndividualTeamMember = ({ member }: { member: SRCC_TeamMember }) => {
 		<div className='flex flex-col md:gap-4 md:flex-row md:odd:flex-row-reverse'>
 			<div className='md:w-1/2 flex justify-center'>
 				<Image
-					src={member.image?.url ?? '/assets/fallback/icon-grid.svg'}
+					src={
+						member?.image
+							? urlForImage(member.image)
+							: '/assets/fallback/icon-grid.svg'
+					}
 					unoptimized
 					className='w-[80%] md:w-[80%] lg:w-96 rounded-lg'
 					alt={member.image?.alt ?? member.name}
@@ -44,8 +49,9 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 								<div className='lg:w-1/2 flex justify-center'>
 									<Image
 										src={
-											item.image?.url ??
-											'/assets/fallback/icon-grid.svg'
+											item?.image
+												? urlForImage(item.image)
+												: '/assets/fallback/icon-grid.svg'
 										}
 										unoptimized
 										className='w-[80%] md:w-[56%] lg:w-96 rounded-lg'

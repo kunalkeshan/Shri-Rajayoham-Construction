@@ -36,6 +36,15 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 							: project.status}
 					</b>
 				</Badge>
+				{project.status === 'completed' && project.postStatus ? (
+					<Badge
+						variant='outline'
+						className='capitalize lg:text-base font-medium'
+					>
+						Availability :{' '}
+						<b className='ml-1'>{project.postStatus}</b>
+					</Badge>
+				) : null}
 				{project.duration ? (
 					<Badge
 						variant='outline'
