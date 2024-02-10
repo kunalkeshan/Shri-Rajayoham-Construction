@@ -12,12 +12,12 @@ const AboutPage = async () => {
 	const data = [
 		{
 			title: 'Mission',
-			desc: "Our mission is to continue shaping our surroundings skyline with iconic structures that blend architectural innovation, functionality, and sustainability. We aim to be the driving force behind the city's growth, creating spaces that enrich lives of beautiful families and inspire communities. At SRCC, we don't just build structures, we craft experiences that endure. Join us on this journey to transform dreams into reality, one brick at a time.",
+			desc: "Our Client's satisfaction is the essence of our success and as such we will continually strive to provide each and every Client with an extraordinary experience, while delivering every project on time, within budget and with the highest level of quality and professionalism.",
 			img: '/assets/about/mission.jpg',
 		},
 		{
 			title: 'Vision',
-			desc: "Our Client's satisfaction is the essence of our success and as such we will continually strive to provide each and every Client with an extraordinary experience, while delivering every project on time, within budget and with the highest level of quality and professionalism.",
+			desc: "Our vision is to continue shaping our surroundings skyline with iconic structures that blend architectural innovation, functionality, and sustainability. We aim to be the driving force behind the city's growth, creating spaces that enrich lives of beautiful families and inspire communities. At SRCC, we don't just build structures, we craft experiences that endure. Join us on this journey to transform dreams into reality, one brick at a time.",
 			img: '/assets/about/vision.jpg',
 		},
 		{
