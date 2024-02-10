@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '@/components/projects/Hero';
+import MapsEmbed from '@/components/projects/MapsEmbed';
 import Projects from '@/components/projects/Projects';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
@@ -28,6 +29,7 @@ const ProjectsPage = async () => {
 	return (
 		<main className='w-full min-h-screen mt-44 lg:mt-36'>
 			<Hero />
+			<MapsEmbed />
 			{(
 				Object.keys(groupedProjects) as Array<SRCC_Project['status']>
 			).map((status) => (
