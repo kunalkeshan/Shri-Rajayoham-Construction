@@ -70,7 +70,7 @@ const AboutPage = async () => {
 						About the company
 					</h1>
 					<p className='mt-4 text-justify text-slate-800'>
-						Shri Rajayogam Construction Company is a realm where
+						Shri Rajayoham Construction Company is a realm where
 						innovation intersects architecture, electrical prowess
 						energizes spaces, civil engineering forms the bedrock,
 						plumbing ensures comfort, environmental solutions weave
