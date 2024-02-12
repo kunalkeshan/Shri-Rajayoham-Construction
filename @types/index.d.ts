@@ -9,6 +9,14 @@ type SRCC_Impact = SRCC_Base_Model &
 		title: string;
 	}>;
 
+type SRCC_CSRAndEvent = SRCC_Base_Model &
+	Readonly<{
+		title: string;
+		description: string;
+		image?: any;
+		dateOccurred?: Date;
+	}>;
+
 type SRCC_BlogPost = SRCC_Base_Model &
 	Readonly<{
 		title: string;
