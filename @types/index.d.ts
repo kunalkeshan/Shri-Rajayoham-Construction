@@ -13,7 +13,7 @@ type SRCC_CSRAndEvent = SRCC_Base_Model &
 	Readonly<{
 		title: string;
 		description: string;
-		image?: { url: string; alt: string };
+		image?: any;
 		dateOccurred?: Date;
 	}>;
 

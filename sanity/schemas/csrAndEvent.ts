@@ -45,7 +45,7 @@ export default defineType({
 		defineField({
 			name: 'dateOccurred',
 			title: 'Date Occurred',
-			type: 'date',
+			type: 'datetime',
 			description: 'The date when the CSR activity or event occurred.',
 		}),
 	],

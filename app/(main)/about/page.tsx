@@ -4,10 +4,15 @@ import Image from 'next/image';
 import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
 import TeamMembers from '@/components/about/TeamMembers';
+import CSRAndEvents from '@/components/about/CSRAndEvents';
 
 const AboutPage = async () => {
 	const teamMembers = await sanityFetch<Array<SRCC_TeamMember>>({
 		query: queries.teamMember.getAll,
+	});
+
+	const csrAndEvents = await sanityFetch<Array<SRCC_CSRAndEvent>>({
+		query: queries.csrAndEvent.getAll,
 	});
 
 	const data = [
@@ -91,6 +96,7 @@ const AboutPage = async () => {
 					<TeamMembers teamMembers={teamMembers} />
 				</div>
 			</section>
+			<CSRAndEvents csrAndEvents={csrAndEvents} />
 		</main>
 	);
 };
