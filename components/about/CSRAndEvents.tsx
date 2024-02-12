@@ -9,7 +9,7 @@ type CSRAndEventsProps = React.ComponentProps<'section'> & {
 
 const CSRAndEvents: React.FC<CSRAndEventsProps> = ({ csrAndEvents }) => {
 	return (
-		<section className='w-full'>
+		<section className='w-full' id='csr-and-events'>
 			<div className='w-full p-8 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
 				<h2 className='text-3xl md:text-4xl lg:text-5xl text-center font-bold text-app'>
 					Our good deeds and events.

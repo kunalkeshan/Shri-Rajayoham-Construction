@@ -51,6 +51,16 @@ export const FOOTER_NAVIGATION: NavdataCollection = [
 		target: '_self',
 	},
 	{
+		name: 'Our Team',
+		url: '/about#team-members',
+		target: '_self',
+	},
+	{
+		name: 'CSR & Events',
+		url: '/about#csr-and-events',
+		target: '_self',
+	},
+	{
 		name: 'Careers',
 		url: '/careers',
 		target: '_self',
