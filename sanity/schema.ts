@@ -13,6 +13,7 @@ import service from './schemas/service';
 import workPackage from './schemas/package';
 import project from './schemas/project';
 import careers from './schemas/careers';
+import csrAndEvent from './schemas/csrAndEvent';
 
 /**
  * Represents the schema definition for the project.
@@ -31,6 +32,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		testimonial,
 		careers,
 		faq,
+		csrAndEvent,
 		blockContent,
 	],
 };

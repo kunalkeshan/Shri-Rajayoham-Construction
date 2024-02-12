@@ -8,6 +8,7 @@ import POST from './queries/post';
 import PACKAGE from './queries/package';
 import PROJECT from './queries/project';
 import IMPACT from './queries/impact';
+import CSR_AND_EVENT from './queries/csrAndEvent';
 
 /**
  * Object containing various queries.
@@ -22,4 +23,5 @@ export const queries = {
 	package: PACKAGE,
 	project: PROJECT,
 	impact: IMPACT,
+	csrAndEvent: CSR_AND_EVENT,
 };
