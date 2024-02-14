@@ -12,7 +12,7 @@ const CSRAndEvents: React.FC<CSRAndEventsProps> = ({ csrAndEvents }) => {
 		<section className='w-full' id='csr-and-events'>
 			<div className='w-full p-8 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
 				<h2 className='text-3xl md:text-4xl lg:text-5xl text-center font-bold text-app'>
-					Our good deeds and events.
+					Corporate Social Responsibility
 				</h2>
 				<p className='mt-4 text-slate-800 text-center'>
 					We believe in giving back to the community and making a
