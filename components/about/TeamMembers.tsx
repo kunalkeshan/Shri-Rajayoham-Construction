@@ -73,7 +73,9 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 									<p className='text-slate-500 text-lg'>
 										{item.position.name}
 									</p>
-									<p className='text-center'>{item.about}</p>
+									<p className='text-center mt-4'>
+										{item.about}
+									</p>
 								</div>
 							</div>
 						))}
