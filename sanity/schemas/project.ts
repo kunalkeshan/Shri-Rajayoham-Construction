@@ -96,7 +96,7 @@ export default defineType({
 		}),
 		defineField({
 			name: 'appreciationPrediction',
-			title: 'Appreciation Prediction',
+			title: 'Appreciation Prediction for next year. (%)',
 			type: 'number',
 			description: 'Predicted appreciation as a percentage.',
 			validation: (Rule) => Rule.integer().positive().max(100),

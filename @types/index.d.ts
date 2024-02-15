@@ -49,6 +49,7 @@ type SRCC_TeamMember = SRCC_Base_Model &
 		about?: string;
 		// bio?: TypedObject | TypedObject[];
 		email: string;
+		degree?: string;
 		socialLinks?: Array<{
 			platform:
 				| 'linkedin'

@@ -48,7 +48,7 @@ const WhyUs: React.FC<WhyUsProps> = ({ impacts }) => {
 								<p className='text-4xl font-bold'>
 									<Counter from={0} to={impact.count} />
 								</p>
-								<h2 className='text-slate-500 mt-2 text-base md:text-lg'>
+								<h2 className='text-slate-800 mt-2 text-base md:text-lg'>
 									{impact.title}
 								</h2>
 							</div>
@@ -59,10 +59,10 @@ const WhyUs: React.FC<WhyUsProps> = ({ impacts }) => {
 					{cards.map(({ title }, idx) => (
 						<div
 							key={`wh-srcc-reason-${idx}`}
-							className='flex w-full h-full max-w-xs border flex-col items-center justify-center p-4 rounded'
+							className='flex w-full h-full max-w-xs border-2 flex-col items-center justify-center p-4 rounded rainbow-border relative bg-white'
 						>
 							<div className='text-center'>
-								<p className='text-slate-500 font-medium text-sm md:text-base'>
+								<p className='text-slate-800 font-medium text-sm md:text-base'>
 									{title}
 								</p>
 							</div>

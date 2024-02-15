@@ -5,6 +5,7 @@ import { sanityFetch } from '@/sanity/lib/sanityFetch';
 import { queries } from '@/sanity/queries';
 import TeamMembers from '@/components/about/TeamMembers';
 import CSRAndEvents from '@/components/about/CSRAndEvents';
+import Company from '@/components/about/Company';
 
 const AboutPage = async () => {
 	const teamMembers = await sanityFetch<Array<SRCC_TeamMember>>({
@@ -70,27 +71,7 @@ const AboutPage = async () => {
 					</section>
 				))}
 			</section>
-			<section className='w-full bg-app-bg'>
-				<div className='w-full p-8 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
-					<h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-app'>
-						About the company
-					</h1>
-					<p className='mt-4 text-justify text-slate-800'>
-						Shri Rajayoham Construction Company is a realm where
-						innovation intersects architecture, electrical prowess
-						energizes spaces, civil engineering forms the bedrock,
-						plumbing ensures comfort, environmental solutions weave
-						sustainability, structural excellence provides strength,
-						and interior design adds the finishing touch. At Shri
-						Rajayogam Construction Company, we are your partners in
-						crafting extraordinary spaces that encapsulate your
-						dreams. Embark on a journey of construction and design
-						with Shri Rajayogam Construction Company. Let&apos;s
-						weave your dreams into reality. Reach out to us today to
-						begin your project.
-					</p>
-				</div>
-			</section>
+			<Company />
 			<section className='w-full' id='team-members'>
 				<div className='w-full p-8 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
 					<TeamMembers teamMembers={teamMembers} />
