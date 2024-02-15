@@ -1,4 +1,9 @@
-import { SRCC_EMAIL, SRCC_MOBILE } from '@/constants/srcc';
+import {
+	SRCC_ADDRESS,
+	SRCC_EMAIL,
+	SRCC_MOBILE,
+	SRCC_MOBILE_2,
+} from '@/constants/srcc';
 import Link from 'next/link';
 import React from 'react';
 
@@ -12,7 +17,7 @@ const Location = () => {
 					</h2>
 					<div className='aspect-square'>
 						<iframe
-							src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d486.2929410377726!2d80.0771071!3d12.821064!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f7ac67159d41%3A0xb28b4b6c29c39d1d!2sSri%20Mangalam%20Enterprise!5e0!3m2!1sen!2sin!4v1707830437877!5m2!1sen!2sin'
+							src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31123.127932327807!2d80.0514595!3d12.8179921!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f7001f1be2e5%3A0xfab58cc2d4f1fd2a!2sShri%20Rajayoham%20Construction%20Company!5e0!3m2!1sen!2sin!4v1707983320344!5m2!1sen!2sin'
 							className='w-full h-full rounded-lg'
 						/>
 					</div>
@@ -35,11 +40,7 @@ const Location = () => {
 					</div>
 					<div className=''>
 						<h3 className='text-xl font-semibold'>Address</h3>
-						<p className='text-justify mt-2'>
-							SF No:350/23b, Nellikuppam Road, Kayarambedu,
-							Guduvancheri, Chennai - 603202. (Land mark : Opp
-							ESSAR Petrol bunk )
-						</p>
+						<p className='text-justify mt-2'>{SRCC_ADDRESS}</p>
 					</div>
 					<div>
 						<h3 className='text-xl mb-2 font-semibold'>Mail Us</h3>
@@ -49,8 +50,9 @@ const Location = () => {
 					</div>
 					<div>
 						<h3 className='text-xl mb-2 font-semibold'>Call Us</h3>
-						<Link className='' href={`tel:${SRCC_MOBILE}`}>
-							{SRCC_MOBILE}
+						<Link href={`tel:${SRCC_MOBILE}`}>{SRCC_MOBILE}</Link>
+						<Link href={`tel:${SRCC_MOBILE_2}`}>
+							{SRCC_MOBILE_2}
 						</Link>
 					</div>
 				</div>
