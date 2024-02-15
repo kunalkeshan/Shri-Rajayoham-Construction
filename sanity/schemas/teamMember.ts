@@ -77,6 +77,13 @@ export default defineType({
 		// 		"Enter a detailed body of text as the team member's bio.",
 		// }),
 		defineField({
+			name: 'degree',
+			title: 'Degree',
+			type: 'string',
+			description: "Enter the team member's degree. (Optional)",
+			placeholder: 'B.Tech CSE',
+		}),
+		defineField({
 			name: 'email',
 			title: 'Email',
 			type: 'string',

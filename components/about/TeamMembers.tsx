@@ -31,6 +31,9 @@ const IndividualTeamMember = ({ member }: { member: SRCC_TeamMember }) => {
 					{member.name}
 				</h3>
 				<p className='text-slate-500 text-lg'>{member.position.name}</p>
+				{member.degree ? (
+					<p className='text-slate-500 text-lg'>{member.degree}</p>
+				) : null}
 				<p className='text-justify mt-4'>{member.about}</p>
 			</div>
 		</div>
@@ -73,6 +76,11 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 									<p className='text-slate-500 text-lg'>
 										{item.position.name}
 									</p>
+									{item.degree ? (
+										<p className='text-slate-500 text-lg'>
+											{item.degree}
+										</p>
+									) : null}
 									<p className='text-center mt-4'>
 										{item.about}
 									</p>
