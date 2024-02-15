@@ -44,14 +44,25 @@ const Location = () => {
 					</div>
 					<div>
 						<h3 className='text-xl mb-2 font-semibold'>Mail Us</h3>
-						<Link className='' href={`mailto:${SRCC_EMAIL}`}>
+						<Link
+							className='underline'
+							href={`mailto:${SRCC_EMAIL}`}
+						>
 							{SRCC_EMAIL}
 						</Link>
 					</div>
 					<div>
 						<h3 className='text-xl mb-2 font-semibold'>Call Us</h3>
-						<Link href={`tel:${SRCC_MOBILE}`}>{SRCC_MOBILE}</Link>
-						<Link href={`tel:${SRCC_MOBILE_2}`}>
+						<Link
+							href={`tel:${SRCC_MOBILE}`}
+							className='block w-fit underline'
+						>
+							{SRCC_MOBILE}
+						</Link>
+						<Link
+							href={`tel:${SRCC_MOBILE_2}`}
+							className='block w-fit underline'
+						>
 							{SRCC_MOBILE_2}
 						</Link>
 					</div>
