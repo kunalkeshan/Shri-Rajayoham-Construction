@@ -59,7 +59,7 @@ const WhyUs: React.FC<WhyUsProps> = ({ impacts }) => {
 					{cards.map(({ title }, idx) => (
 						<div
 							key={`wh-srcc-reason-${idx}`}
-							className='flex w-full h-full max-w-xs border flex-col items-center justify-center p-4 rounded'
+							className='flex w-full h-full max-w-xs border-2 flex-col items-center justify-center p-4 rounded rainbow-border rainbow-shadow relative bg-white'
 						>
 							<div className='text-center'>
 								<p className='text-slate-800 font-medium text-sm md:text-base'>

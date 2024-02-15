@@ -71,10 +71,43 @@
 	* {
 		@apply border-border;
 	}
+
 	html {
 		@apply !scroll-smooth scroll-pt-32;
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+}
+.rainbow-border {
+	animation: 10s rainbow-rotate linear infinite;
+}
+
+@keyframes rainbow-rotate {
+	0% {
+		border-image: conic-gradient(
+				from 0deg,
+				red,
+				blue,
+				yellow,
+				lime,
+				aqua,
+				magenta,
+				red
+			)
+			1;
+	}
+	100% {
+		border-image: conic-gradient(
+				from 360deg,
+				red,
+				blue,
+				yellow,
+				lime,
+				aqua,
+				magenta,
+				red
+			)
+			1;
 	}
 }
