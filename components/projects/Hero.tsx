@@ -37,7 +37,7 @@ const Hero = () => {
 				{sections.map((item) => (
 					<Link
 						key={`project-hero-${item.id}`}
-						href={'#upcoming'}
+						href={`#${item.id}`}
 						className='w-full group hover:bg-app-bg transition-all duration-300 rounded-lg shadow-md hover:shadow-lg'
 					>
 						<div className='w-full rounded-t-lg overflow-hidden relative'>
