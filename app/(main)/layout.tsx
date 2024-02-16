@@ -7,6 +7,7 @@ import { Toaster } from '@/components/ui/sonner';
 import QueryModalProvider from '@/context/QueryModalContext';
 import QueryDialog from '@/components/reusable/QueryDialog';
 import { generateDefaultMetadata } from '@/lib/helper';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import WhatsAppCTA from '@/components/reusable/WhatsAppCTA';
 
 export const metadata: Metadata = {
@@ -19,15 +20,18 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<QueryModalProvider>
-			<TooltipProvider>
-				<Navbar />
-				{children}
-				<Footer />
-				<Toaster />
-				<QueryDialog />
-				<WhatsAppCTA />
-			</TooltipProvider>
-		</QueryModalProvider>
+		<>
+			<QueryModalProvider>
+				<TooltipProvider>
+					<Navbar />
+					{children}
+					<Footer />
+					<Toaster />
+					<QueryDialog />
+					<WhatsAppCTA />
+				</TooltipProvider>
+			</QueryModalProvider>
+			<SpeedInsights />
+		</>
 	);
 }
