@@ -107,7 +107,7 @@ type SRCC_Project = SRCC_Base_Model &
 		slug: string;
 		duration?: number;
 		budget?: number;
-		status: 'upcoming' | 'ongoing' | 'completed' | 'sale-rent';
+		status: 'upcoming' | 'ongoing' | 'completed' | 'sale' | 'rent';
 		postStatus?: 'sold out' | 'rented out' | 'unavailable';
 		appreciationPrediction?: number;
 		contactNumber?: string;

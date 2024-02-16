@@ -32,8 +32,8 @@ const Footer = () => {
 							</span>
 						</Link>
 					</div>
-					<div className='grid gap-6 my-4 lg:gap-8 grid-cols-2 place-items-center md:grid-cols-3'>
-						<div className='md:col-span-1'>
+					<div className='grid gap-6 my-4 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+						<div className='md:col-span-1 lg:col-span-2'>
 							<p className='mb-6 text-sm text-left font-semibold text-gray-900 uppercase dark:text-white'>
 								Quick links
 							</p>

@@ -72,7 +72,7 @@ export default defineType({
 			title: 'Status',
 			type: 'string',
 			options: {
-				list: ['upcoming', 'ongoing', 'completed', 'sale-rent'],
+				list: ['upcoming', 'ongoing', 'completed', 'sale', 'rent'],
 			},
 			validation: (Rule) => Rule.required(),
 		}),

@@ -123,7 +123,7 @@ const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 	}, [inputs]);
 
 	return (
-		<Table className='rounded-lg'>
+		<Table className='rounded-lg overflow-x-scroll'>
 			<TableCaption className='pb-4'>
 				Total Construction Cost{' '}
 				<span className='font-bold text-xl'>
@@ -152,10 +152,10 @@ const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 					</TableHead>
 				</TableRow>
 			</TableHeader>
-			<TableBody>
+			<TableBody className=''>
 				<TableRow>
 					<TableCell className='font-medium text-center'>1</TableCell>
-					<TableCell className='text-center'>
+					<TableCell className='text-left'>
 						Enter The Total Required Built Up Area All Floors
 						Including Headroom{' '}
 					</TableCell>
@@ -168,13 +168,13 @@ const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 						/>
 					</TableCell>
 					<TableCell className='text-center'>Sq.Ft</TableCell>
-					<TableCell className='text-center'>
+					<TableCell>
 						<Select
 							value={String(selectedAreaRate)}
 							onValueChange={handleSelectedAreaRate}
 						>
 							<SelectTrigger
-								className='w-[100px]'
+								className='w-full'
 								aria-label='package price'
 							>
 								<SelectValue placeholder='Price' />
@@ -197,7 +197,7 @@ const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 				</TableRow>
 				<TableRow>
 					<TableCell className='font-medium text-center'>2</TableCell>
-					<TableCell className='text-center'>
+					<TableCell className='text-left'>
 						Size Of RCC Water Sump
 					</TableCell>
 					<TableCell>
@@ -218,7 +218,7 @@ const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 				</TableRow>
 				<TableRow>
 					<TableCell className='font-medium text-center'>3</TableCell>
-					<TableCell className='text-center'>
+					<TableCell className='text-left'>
 						Size Of Septic Tank
 					</TableCell>
 					<TableCell>
@@ -239,7 +239,7 @@ const QuotationCalculator: React.FC<QuotationCalculatorProps> = ({
 				</TableRow>
 				<TableRow>
 					<TableCell className='font-medium text-center'>4</TableCell>
-					<TableCell className='text-center'>
+					<TableCell className='text-left'>
 						Plain Compound Wall
 					</TableCell>
 					<TableCell className='flex gap-4'>

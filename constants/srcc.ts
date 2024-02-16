@@ -20,7 +20,7 @@ export const SRCC_MOBILE = '+919025869012' as const;
 export const SRCC_MOBILE_2 = '+919789478887' as const;
 
 export const SRCC_ADDRESS =
-	'SF No:350/23b, First Floor, Nellikuppam Road, Kayarambedu, Guduvancheri, Chennai - 603202. (Land mark : Near Nayara Petrol Bunk)' as const;
+	'S.No: 350/23, First Floor, Nellikuppam Road, Kayarambedu, Guduvancheri, Chengalpattu - 603202. (Landmark: Near Nayara Petrol Bunk)' as const;
 
 export const SRCC_WEBSITE_URL =
 	process.env.NODE_ENV === 'development'

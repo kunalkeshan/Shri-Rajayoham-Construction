@@ -37,6 +37,9 @@ const PackageHeader: React.FC<PackageHeaderProps> = ({ pckg }) => {
 									currency: 'INR',
 								}).format(pckg.price)}
 							</b>
+							<span className='text-xs normal-case'>
+								/ Per Sq. Feet
+							</span>
 						</span>
 					</Badge>
 				) : null}
