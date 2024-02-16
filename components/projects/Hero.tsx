@@ -26,7 +26,7 @@ const Hero = () => {
 			coverImage: '/assets/projects/completed.jpg',
 		},
 		{
-			id: 'sale-rent',
+			id: 'sale',
 			title: 'Sale/Rent',
 			coverImage: '/assets/projects/sale-rent.jpg',
 		},

@@ -36,9 +36,7 @@ const ProjectsPage = async () => {
 			).map((status) => (
 				<Projects
 					key={`project-${status}`}
-					title={`${
-						status === 'sale-rent' ? 'Sale/Rent' : status
-					} projects`}
+					title={`${status} projects`}
 					projects={groupedProjects[status]}
 					status={status}
 				/>

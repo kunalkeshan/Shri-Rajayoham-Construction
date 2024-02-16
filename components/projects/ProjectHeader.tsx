@@ -36,12 +36,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 					variant='outline'
 					className='capitalize lg:text-base font-medium'
 				>
-					Status :{' '}
-					<b className='ml-1'>
-						{project.status === 'sale-rent'
-							? 'Sale/Rent'
-							: project.status}
-					</b>
+					Status : <b className='ml-1'>{project.status}</b>
 				</Badge>
 				{project.status === 'completed' && project.postStatus ? (
 					<Badge
@@ -91,7 +86,7 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 						</span>
 					</Badge>
 				) : null}
-				{project.status === 'sale-rent' &&
+				{(project.status === 'sale' || project.status === 'rent') &&
 				project?.appreciationPrediction ? (
 					<Badge
 						variant='outline'
@@ -110,7 +105,8 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 						</span>
 					</Badge>
 				) : null}
-				{project.status === 'sale-rent' && project?.contactNumber ? (
+				{(project.status === 'sale' || project.status === 'rent') &&
+				project?.contactNumber ? (
 					<Badge
 						variant='outline'
 						className='capitalize lg:text-base font-medium'
@@ -130,10 +126,13 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 			<div
 				className={cn(
 					'w-full',
-					project.status === 'sale-rent' ? 'mt-4' : ''
+					project.status === 'sale' || project.status === 'rent'
+						? 'mt-4'
+						: ''
 				)}
 			>
-				{project.status === 'sale-rent' && project?.address ? (
+				{(project.status === 'sale' || project.status === 'rent') &&
+				project?.address ? (
 					<p className='flex items-center lg:text-base font-medium mt-2'>
 						<Map
 							strokeWidth={1.5}
@@ -143,7 +142,8 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
 						<span>{project.address}</span>
 					</p>
 				) : null}
-				{project.status === 'sale-rent' && project?.locationURL ? (
+				{(project.status === 'sale' || project.status === 'rent') &&
+				project?.locationURL ? (
 					<Link
 						href={project.locationURL}
 						target='_blank'
