@@ -1,6 +1,6 @@
-'use client';
+"use client";
 // Dependencies
-import * as React from 'react';
+import * as React from "react";
 import {
 	Carousel,
 	CarouselContent,
@@ -8,12 +8,12 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 	type CarouselApi,
-} from '@/components/ui/carousel';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import TestimonialCard from '../cards/TestimonialCard';
-import { urlForImage } from '@/sanity/lib/image';
+} from "@/components/ui/carousel";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import TestimonialCard from "../cards/TestimonialCard";
+import { urlForImage } from "@/sanity/lib/image";
 
-type TestimonialsProps = React.ComponentProps<'section'> & {
+type TestimonialsProps = React.ComponentProps<"section"> & {
 	testimonials: Array<SRCC_Testimonial>;
 };
 
@@ -35,7 +35,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 		setCount(api.scrollSnapList().length);
 		setCurrent(api.selectedScrollSnap() + 1);
 
-		api.on('select', () => {
+		api.on("select", () => {
 			setCurrent(api.selectedScrollSnap() + 1);
 		});
 	}, [api]);
@@ -46,19 +46,19 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 	};
 
 	return (
-		<section className='bg-app-bg w-full'>
+		<section className="bg-app-bg w-full">
 			<div className='bg-[url("/assets/testbg.svg")] overflow-hidden bg-no-repeat bg-cover bg-center'>
-				<div className='p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32'>
-					<h2 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal'>
+				<div className="p-4 md:px-16 lg:max-w-7xl lg:mx-auto py-8 md:py-16 lg:py-32">
+					<h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-normal">
 						What our
-						<span className='font-medium'> clients </span>
+						<span className="font-medium"> clients </span>
 						say?
 					</h2>
 					<Carousel
 						setApi={setApi}
-						className='w-full mx-auto max-w-xl mt-12'
+						className="w-full mx-auto max-w-xl mt-12"
 					>
-						<CarouselContent className=''>
+						<CarouselContent className="flex items-center">
 							{testimonials.map((testimonial) => (
 								<CarouselItem
 									key={`testimonial-item-${testimonial._id}`}
@@ -72,21 +72,21 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
 						<CarouselPrevious />
 						<CarouselNext />
 					</Carousel>
-					<div className='py-2 text-center min-h-20 flex justify-center items-center mt-4 text-muted-foreground'>
+					<div className="py-2 text-center min-h-20 flex justify-center items-center mt-4 text-muted-foreground">
 						{testimonials.map((testimonial, index) => (
 							<Avatar
 								key={`testimonail-image-${testimonial._id}`}
 								onClick={() => handleSlideChange(index)}
 								className={`inline-block cursor-pointer transition-all duration-300 rounded-full mx-1 ${
 									index === current - 1
-										? 'w-14 h-14'
-										: 'w-8 h-8'
+										? "w-14 h-14"
+										: "w-8 h-8"
 								}`}
 							>
 								<AvatarImage
 									src={urlForImage(testimonial.image)}
 									alt={testimonial.image.alt}
-									className='w-full h-auto aspect-square object-cover'
+									className="w-full h-auto aspect-square object-cover"
 								/>
 								<AvatarFallback>
 									{testimonial.name}
