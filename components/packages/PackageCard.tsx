@@ -40,7 +40,8 @@ const PackageCard: React.FC<PackageCardProps> = ({ pckg }) => {
 				</h3>
 				<p className='text-4xl font-bold flex items-center'>
 					<IndianRupeeIcon />
-					{pckg.price}
+					{pckg.price}{' '}
+					<sub className='text-lg font-medium'>/ Per Sq. Feet</sub>
 				</p>
 				<p className='text-justify'>{pckg.description}</p>
 				<div className='mt-auto'>
