@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { BookMarkedIcon, FilmIcon, Grid3X3Icon, UserIcon } from 'lucide-react';
 import { SRCC_SOCIALS } from '@/constants/srcc';
 
-const FOLLOWER_COUNT = 52;
+// const FOLLOWER_COUNT = 52;
 
 /**
  * Renders an Instagram card component.
@@ -32,7 +32,7 @@ const InstaCard = () => {
 						<h2 className='text-wrap break-words md:text-lg lg:text-xl font-semibold'>
 							shri_rajayoham_construction
 						</h2>
-						<p>{FOLLOWER_COUNT} followers</p>
+						{/* <p>{FOLLOWER_COUNT} followers</p> */}
 						<Button asChild className='w-fit' variant={'secondary'}>
 							<Link href={instagramLink} target='_blank'>
 								View profile
