@@ -1,9 +1,18 @@
 'use client';
 
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 import { SRCC_GA_TRACKING_ID } from '@/constants/srcc';
+import { pageview } from '@/lib/gtag';
 
 const GoogleAnalytics = () => {
+	const pathname = usePathname();
+
+	useEffect(() => {
+		pageview(pathname);
+	}, [pathname]);
+
 	return (
 		<>
 			<Script
