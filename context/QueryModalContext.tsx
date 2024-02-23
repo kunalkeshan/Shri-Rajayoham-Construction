@@ -1,6 +1,8 @@
 'use client';
 // Dependencies
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { pageview } from '@/lib/gtag';
 
 type QueryModelContextType = {
 	isModalOpen: boolean;
@@ -20,6 +22,7 @@ const QueryModalContext = createContext({} as QueryModelContextType);
 const QueryModalProvider = ({ children }: { children: React.ReactNode }) => {
 	// State for managing the visibility of the query modal
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const pathname = usePathname();
 
 	// Opens the query modal
 	const handleOpenQueryModal = () => {
@@ -50,6 +53,10 @@ const QueryModalProvider = ({ children }: { children: React.ReactNode }) => {
 			return () => clearTimeout(timeoutId);
 		}
 	}, []);
+
+	useEffect(() => {
+		pageview(pathname);
+	}, [pathname]);
 
 	return (
 		<QueryModalContext.Provider
