@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Palanquin } from 'next/font/google';
 import { generateDefaultMetadata } from '@/lib/helper';
 import './globals.css';
+import GoogleAnalytics from '@/components/reusable/GoogleAnalytics';
 
 const palanquin = Palanquin({
 	subsets: ['latin'],
@@ -20,6 +21,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
+			<GoogleAnalytics />
 			<body className={palanquin.className}>{children}</body>
 		</html>
 	);

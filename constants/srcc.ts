@@ -7,6 +7,7 @@ import {
 	LinkedinIcon,
 	LucideIcon,
 	TwitterIcon,
+	YoutubeIcon,
 } from 'lucide-react';
 
 type SocialLinks = {
@@ -26,6 +27,8 @@ export const SRCC_WEBSITE_URL =
 	process.env.NODE_ENV === 'development'
 		? ('http://localhost:3000' as const)
 		: ('https://shrirajayohamcc.com' as const);
+
+export const SRCC_GA_TRACKING_ID = 'G-EZ0LTX6W1K' as const;
 
 export const SRCC_SOCIALS: Array<SocialLinks> = [
 	{
@@ -47,5 +50,10 @@ export const SRCC_SOCIALS: Array<SocialLinks> = [
 		name: 'Twitter',
 		Icon: TwitterIcon,
 		url: 'https://twitter.com/Shrirajayohamcc',
+	},
+	{
+		name: 'YouTube',
+		Icon: YoutubeIcon,
+		url: 'https://youtube.com/@Shrirajayohamcc?si=mSGrMtQ4M8N3468c',
 	},
 ] as const;
