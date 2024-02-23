@@ -27,6 +27,8 @@ export const SRCC_WEBSITE_URL =
 		? ('http://localhost:3000' as const)
 		: ('https://shrirajayohamcc.com' as const);
 
+export const SRCC_GA_TRACKING_ID = 'G-EZ0LTX6W1K' as const;
+
 export const SRCC_SOCIALS: Array<SocialLinks> = [
 	{
 		name: 'Instagram',
