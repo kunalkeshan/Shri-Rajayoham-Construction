@@ -7,6 +7,7 @@ import {
 	LinkedinIcon,
 	LucideIcon,
 	TwitterIcon,
+	YoutubeIcon,
 } from 'lucide-react';
 
 type SocialLinks = {
@@ -49,5 +50,10 @@ export const SRCC_SOCIALS: Array<SocialLinks> = [
 		name: 'Twitter',
 		Icon: TwitterIcon,
 		url: 'https://twitter.com/Shrirajayohamcc',
+	},
+	{
+		name: 'YouTube',
+		Icon: YoutubeIcon,
+		url: 'https://youtube.com/@Shrirajayohamcc?si=mSGrMtQ4M8N3468c',
 	},
 ] as const;
