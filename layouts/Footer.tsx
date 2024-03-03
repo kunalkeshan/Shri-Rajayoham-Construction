@@ -94,11 +94,21 @@ const Footer = () => {
 					</div>
 				</div>
 				<hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-700' />
-				<div className='sm:flex sm:items-center sm:justify-between pb-2'>
-					<span className='text-sm text-center text-gray-500 dark:text-gray-400'>
+				<div className='flex items-center justify-between pb-2 text-sm text-gray-500 dark:text-gray-400'>
+					<p>
 						© 2024 - {new Date().getFullYear()} Shri Rajayoham
 						Construction Company. All Rights Reserved.
-					</span>
+					</p>
+					<p>
+						Designed & built by{' '}
+						<Link
+							href={'https://codelancedevs.com/'}
+							target='_blank'
+							className='underline text-[##00e07b] hover:text-[#00e07b] transition-all duration-300'
+						>
+							Codelance Devs
+						</Link>
+					</p>
 				</div>
 			</div>
 		</footer>
