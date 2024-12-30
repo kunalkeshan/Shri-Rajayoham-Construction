@@ -39,6 +39,7 @@ const Locations = () => {
 								width={100}
 								height={100}
 								className='w-40'
+								loading='lazy'
 							/>
 							<p className='text-xl font-semibold'>
 								{item.title}

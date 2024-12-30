@@ -44,6 +44,7 @@ const Navbar = () => {
 						height={100}
 						className='w-full h-auto object-cover'
 						alt='SRCC'
+						loading='lazy'
 					/>
 				</Link>
 				<div className='hidden lg:flex'>

@@ -33,6 +33,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 					height={100}
 					className='w-full h-auto object-cover'
 					unoptimized
+					loading='lazy'
 				/>
 				<p className='w-full absolute bottom-0 p-4 text-center text-white bg-gradient-to-b from-transparent to-black/90 font-semibold text-base md:text-lg lg:text-2xl pt-16'>
 					{project.title.slice(0, 40) +

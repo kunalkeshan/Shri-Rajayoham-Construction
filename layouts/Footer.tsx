@@ -27,6 +27,7 @@ const Footer = () => {
 								height={100}
 								className='w-16 rounded-full'
 								alt='logo'
+								loading='lazy'
 							/>
 							<span className='text-lg text-wrap font-semibold whitespace-nowrap dark:text-white'>
 								Shri Rajayoham Construction Company

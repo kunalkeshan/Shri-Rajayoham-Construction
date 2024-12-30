@@ -19,6 +19,7 @@ const EnquiryStrip = () => {
 						className='w-full h-auto '
 						src='/assets/strip.svg'
 						alt=''
+						loading='lazy'
 					/>
 				</div>
 				<div className='w-full flex flex-col justify-center gap-4 lg:gap-8 lg:w-1/2'>

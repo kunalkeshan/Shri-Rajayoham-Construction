@@ -31,6 +31,7 @@ const WhatsAppCTA = () => {
 						width={100}
 						height={100}
 						className='rounded-full w-16'
+						loading='lazy'
 					/>
 				</Link>
 			</TooltipTrigger>

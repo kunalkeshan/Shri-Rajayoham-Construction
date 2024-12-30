@@ -73,7 +73,7 @@ const IndividualPackagePage = async ({ params }: Props) => {
 							width={100}
 							height={100}
 							unoptimized
-							priority
+							loading='lazy'
 							className='w-full h-auto object-cover'
 						/>
 					</div>

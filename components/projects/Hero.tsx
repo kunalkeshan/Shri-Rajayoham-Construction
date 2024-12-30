@@ -49,6 +49,7 @@ const Hero = () => {
 								width={100}
 								height={100}
 								unoptimized
+								loading='lazy'
 							/>
 							{item?.description ? (
 								<h1 className='absolute -translate-y-1/2 -translate-x-1/2 left-1/2 top-1/2 w-full text-center h-fit text-white text-lg md:text-xl lg:text-3xl'>

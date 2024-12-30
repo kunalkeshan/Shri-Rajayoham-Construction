@@ -81,6 +81,7 @@ const IndividualBlogPage = async ({ params }: Props) => {
 							width={100}
 							height={100}
 							className='w-full h-auto aspect-video'
+							loading='lazy'
 						/>
 					</div>
 					<h1 className='text-2xl md:text-4xl font-semibold mt-4 max-w-[28ch] w-full mx-auto'>
@@ -123,7 +124,7 @@ const IndividualBlogPage = async ({ params }: Props) => {
 							href={post.canonicalLink}
 							target='_blank'
 							className='hover:underline text-blue-500'
-              prefetch={false}
+							prefetch={false}
 						>
 							{post.canonicalLink}
 						</Link>

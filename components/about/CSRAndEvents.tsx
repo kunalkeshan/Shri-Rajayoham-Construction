@@ -30,6 +30,7 @@ const CSRAndEvents: React.FC<CSRAndEventsProps> = ({ csrAndEvents }) => {
 										height={100}
 										className='w-full h-auto object-cover group-hover:scale-105 transition-all duration-300'
 										unoptimized
+										loading='lazy'
 									/>
 								</div>
 							) : null}
