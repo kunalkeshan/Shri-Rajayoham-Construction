@@ -63,9 +63,15 @@ const InvestorRelationsForm: React.FC<InvestorRelationsFormProps> = ({
 		} catch (error) {
 			if (error instanceof AxiosError) {
 				switch (error.response?.data.message) {
-					case 'contact/recent-form-submission': {
+					case 'contact/ip-blocked': {
 						toast.error(
-							'You have recently submitted a form. Please try again later.'
+							'You have exceeded the maximum number of requests. Please try again later.'
+						);
+						break;
+					}
+					case 'contact/rate-limit-exceeded': {
+						toast.error(
+							'You have exceeded the maximum number of requests. Please try again later.'
 						);
 						break;
 					}

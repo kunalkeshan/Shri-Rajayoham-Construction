@@ -17,8 +17,53 @@ const TASKS: ContactFormTaskType[] = [
 	'careers',
 ];
 
-// Create a cache instance with a default TTL of 10 minutes
-const formSubmissionCache = new NodeCache({ stdTTL: 600 });
+// Rate limiting configuration
+const RATE_LIMIT_CONFIG = {
+	maxRequests: 3, // Maximum number of requests allowed per form
+	windowMs: 3600 * 1000, // Time window in milliseconds (1 hour)
+	blockDuration: 24 * 3600 * 1000, // Block duration in milliseconds (24 hours)
+};
+
+// Create separate caches for tracking requests and blocked IPs per form type
+const requestTrackers: Record<ContactFormTaskType, NodeCache> = TASKS.reduce(
+	(acc, task) => ({
+		...acc,
+		[task]: new NodeCache({ stdTTL: RATE_LIMIT_CONFIG.windowMs / 1000 }),
+	}),
+	{} as Record<ContactFormTaskType, NodeCache>
+);
+
+const blockedIPs: Record<ContactFormTaskType, NodeCache> = TASKS.reduce(
+	(acc, task) => ({
+		...acc,
+		[task]: new NodeCache({
+			stdTTL: RATE_LIMIT_CONFIG.blockDuration / 1000,
+		}),
+	}),
+	{} as Record<ContactFormTaskType, NodeCache>
+);
+
+// Rate limiting helper functions
+const getRateLimit = (ip: string, formType: ContactFormTaskType): number => {
+	return (requestTrackers[formType].get(ip) as number) || 0;
+};
+
+const incrementRateLimit = (
+	ip: string,
+	formType: ContactFormTaskType
+): void => {
+	const current = getRateLimit(ip, formType);
+	requestTrackers[formType].set(ip, current + 1);
+
+	// If limit exceeded, add to blocked IPs for this form type
+	if (current + 1 > RATE_LIMIT_CONFIG.maxRequests) {
+		blockedIPs[formType].set(ip, true);
+	}
+};
+
+const isIPBlocked = (ip: string, formType: ContactFormTaskType): boolean => {
+	return blockedIPs[formType].has(ip);
+};
 
 const commonSchema = z.object({
 	name: z
@@ -69,12 +114,6 @@ const isValidSchema = (
 	return parsed.data;
 };
 
-/**
- * Handles the POST request for the contact form.
- * @param request - The request object.
- * @param params - The parameters object containing the task.
- * @returns A response object indicating the status of the request.
- */
 export async function POST(
 	request: Request,
 	{ params }: { params: { task: ContactFormTaskType } }
@@ -85,23 +124,42 @@ export async function POST(
 				statusCode: 400,
 				message: 'contact/invalid-task',
 			});
-		const body = await request.json();
 
 		// Get the user's IP address
 		const userIp =
-			request.headers.get('x-forwarded-for') ||
+			request.headers.get('x-forwarded-for')?.split(',')[0] ||
 			request.headers.get('cf-connecting-ip') ||
-			request.headers.get('x-real-ip');
+			request.headers.get('x-real-ip') ||
+			'unknown';
 
-		// Check if a recent form submission exists in the cache for the user's IP address
-		const cacheKey = `${params.task}-${userIp}`;
-		if (formSubmissionCache.has(cacheKey)) {
+		// Check if IP is blocked for this specific form
+		if (isIPBlocked(userIp, params.task)) {
 			throw new ApiError({
 				statusCode: 429,
-				message: 'contact/recent-form-submission',
+				message: 'contact/ip-blocked',
+				data: {
+					formType: params.task,
+					remainingTime: blockedIPs[params.task].getTtl(userIp),
+					blockDuration: RATE_LIMIT_CONFIG.blockDuration,
+				},
 			});
 		}
 
+		// Check rate limit for this specific form
+		const currentRequests = getRateLimit(userIp, params.task);
+		if (currentRequests >= RATE_LIMIT_CONFIG.maxRequests) {
+			throw new ApiError({
+				statusCode: 429,
+				message: 'contact/rate-limit-exceeded',
+				data: {
+					formType: params.task,
+					maxRequests: RATE_LIMIT_CONFIG.maxRequests,
+					windowMs: RATE_LIMIT_CONFIG.windowMs,
+				},
+			});
+		}
+
+		const body = await request.json();
 		let emailText: string = '';
 
 		switch (params.task) {
@@ -146,8 +204,8 @@ export async function POST(
 			}
 		}
 
-		// Add the current form submission to the cache
-		formSubmissionCache.set(cacheKey, true);
+		// Increment rate limit counter for this specific form after successful validation
+		incrementRateLimit(userIp, params.task);
 
 		const data = isValidSchema(params.task, body);
 
