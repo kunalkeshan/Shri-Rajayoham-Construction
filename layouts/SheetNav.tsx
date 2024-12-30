@@ -31,7 +31,7 @@ const SheetNav = () => {
 
 	return (
 		<Sheet open={open} onOpenChange={handleToggle}>
-			<SheetTrigger>
+			<SheetTrigger aria-label='Open Navigation'>
 				<MenuIcon />
 				<span className='sr-only'>Open Navigation</span>
 			</SheetTrigger>
