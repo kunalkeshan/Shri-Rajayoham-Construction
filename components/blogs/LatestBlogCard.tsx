@@ -38,6 +38,7 @@ const LatestBlogCard: React.FC<LatestBlogCardProps> = ({ post }) => {
 				<Link
 					href={`/blogs/${post.slug}`}
 					className='text-blue-500 hover:text-blue-600 font-medium hover:underline'
+					prefetch={false}
 				>
 					Continue reading...
 				</Link>

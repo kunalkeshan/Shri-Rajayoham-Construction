@@ -17,6 +17,7 @@ const Footer = () => {
 				<div className='flex flex-col lg:flex-row gap-8 justify-between'>
 					<div className='my-4'>
 						<Link
+							prefetch={false}
 							href='/'
 							className='flex lg:flex-col lg:items-start items-center gap-2'
 						>
@@ -41,6 +42,7 @@ const Footer = () => {
 								{FOOTER_NAVIGATION.map((item, idx) => (
 									<li key={idx}>
 										<Link
+											prefetch={false}
 											href={item.url}
 											className='hover:underline'
 										>
@@ -75,6 +77,7 @@ const Footer = () => {
 							<ul className='text-gray-500 grid grid-cols-1 text-left gap-4 dark:text-gray-400 font-medium'>
 								<li className=''>
 									<Link
+										prefetch={false}
 										href='/privacy'
 										className='hover:underline'
 									>
@@ -83,6 +86,7 @@ const Footer = () => {
 								</li>
 								<li>
 									<Link
+										prefetch={false}
 										href='/terms'
 										className='hover:underline'
 									>

@@ -92,6 +92,7 @@ const CareersForm: React.FC<CareersFormProps> = ({
 								<Link
 									href={`/careers/${career.slug}`}
 									className='w-full flex items-center justify-between font-medium pb-1 group'
+									prefetch={false}
 								>
 									<p className='group-hover:underline'>
 										{career.role.name} -{' '}
