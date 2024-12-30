@@ -33,6 +33,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pckg }) => {
 					width={100}
 					height={100}
 					className='w-full h-full object-cover group-hover:scale-105 transition-all duration-300'
+					loading='lazy'
 				/>
 			</div>
 			<div className='flex h-3/5 flex-col items-center justify-between gap-4 text-center p-4'>

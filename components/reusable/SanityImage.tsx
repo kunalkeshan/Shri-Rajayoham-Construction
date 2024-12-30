@@ -20,6 +20,7 @@ const SanityImage = ({ asset }: any) => {
 			alt={asset?.alt}
 			layout='responsive'
 			sizes='(max-width: 800px) 100vw, 800px'
+			loading='lazy'
 		/>
 	);
 };

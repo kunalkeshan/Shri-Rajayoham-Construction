@@ -64,6 +64,7 @@ const AboutPage = async () => {
 									height={100}
 									className='w-full h-auto'
 									unoptimized
+									loading='lazy'
 								/>
 							</div>
 							<p className='text-justify text-base md:text-lg text-slate-500'>
@@ -87,6 +88,7 @@ const AboutPage = async () => {
 								height={100}
 								className='w-full h-auto'
 								unoptimized
+								loading='lazy'
 							/>
 						</div>
 						<div className='flex flex-col gap-4 lg:w-1/2'>

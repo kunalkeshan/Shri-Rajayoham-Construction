@@ -47,6 +47,7 @@ const HomePage = async () => {
 							height={100}
 							unoptimized
 							className='w-full h-auto object-cover'
+							loading='lazy'
 						/>
 					</div>
 				</div>

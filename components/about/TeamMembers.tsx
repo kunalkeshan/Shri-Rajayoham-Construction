@@ -24,6 +24,7 @@ const IndividualTeamMember = ({ member }: { member: SRCC_TeamMember }) => {
 					alt={member.image?.alt ?? member.name}
 					width={100}
 					height={100}
+					loading='lazy'
 				/>
 			</div>
 			<div className='mt-4 md:w-1/2 flex flex-col justify-center'>
@@ -67,6 +68,7 @@ const TeamMembers = ({ teamMembers }: { teamMembers: SRCC_TeamMember[] }) => {
 										alt={item.image?.alt ?? item.name}
 										width={100}
 										height={100}
+										loading='lazy'
 									/>
 								</div>
 								<div className='mt-4 lg:w-1/2 text-center'>

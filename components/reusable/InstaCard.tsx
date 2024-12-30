@@ -27,6 +27,7 @@ const InstaCard = () => {
 						height={100}
 						className='rounded-full lg:w-32'
 						unoptimized
+						loading='lazy'
 					/>
 					<div className='flex flex-col gap-2 justify-center'>
 						<h2 className='text-wrap break-words md:text-lg lg:text-xl font-semibold'>
@@ -48,6 +49,7 @@ const InstaCard = () => {
 						height={100}
 						className='w-44'
 						unoptimized
+						loading='lazy'
 					/>
 				</div>
 				<div className='w-52 lg:w-fit'>
@@ -58,6 +60,7 @@ const InstaCard = () => {
 						height={100}
 						className='w-full h-auto object-contain'
 						unoptimized
+						loading='lazy'
 					/>
 				</div>
 			</section>
