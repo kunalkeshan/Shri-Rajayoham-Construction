@@ -33,6 +33,7 @@ const SheetNav = () => {
 		<Sheet open={open} onOpenChange={handleToggle}>
 			<SheetTrigger>
 				<MenuIcon />
+				<span className='sr-only'>Open Navigation</span>
 			</SheetTrigger>
 			<SheetContent side={'top'}>
 				<SheetHeader className='flex flex-col items-center'>
