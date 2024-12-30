@@ -15,7 +15,7 @@ const CareersPage = async () => {
 				</h1>
 				<p className='text-sm text-center md:text-left mt-2 text-blue-500 decoration-blue-500 font-medium'>
 					/
-					<Link href={'/careers'} className='hover:underline'>
+					<Link href={'/careers'} className='hover:underline' prefetch={false}>
 						careers
 					</Link>
 				</p>
@@ -27,6 +27,7 @@ const CareersPage = async () => {
 								className='w-full border-b py-6 last:border-none'
 							>
 								<Link
+                  prefetch={false}
 									href={`/careers/${career.slug}`}
 									className='w-full flex items-center justify-between font-medium text-lg group'
 								>
