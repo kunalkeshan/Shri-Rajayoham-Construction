@@ -26,6 +26,7 @@ const Navbar = () => {
 								className='bg-left-bottom font-semibold bg-gradient-to-r p-2 from-app to-app bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out'
 								href={item.url}
 								target={item.target}
+								prefetch={false}
 							>
 								{item.name}
 							</Link>
@@ -33,6 +34,7 @@ const Navbar = () => {
 					))}
 				</div>
 				<Link
+					prefetch={false}
 					href='/'
 					className='w-16 rounded-full overflow-hidden mx-4 block'
 				>
@@ -55,6 +57,7 @@ const Navbar = () => {
 								className='bg-left-bottom font-semibold bg-gradient-to-r p-2 from-app to-app bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out'
 								href={item.url}
 								target={item.target}
+								prefetch={false}
 							>
 								{item.name}
 							</Link>

@@ -18,6 +18,7 @@ type PackageCardProps = React.ComponentProps<'a'> & {
 const PackageCard: React.FC<PackageCardProps> = ({ pckg }) => {
 	return (
 		<Link
+			prefetch={false}
 			href={`/packages/${pckg.slug}`}
 			className='w-full rounded-lg border flex flex-col gap-6 group'
 		>

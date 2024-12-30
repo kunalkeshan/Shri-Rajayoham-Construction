@@ -37,7 +37,7 @@ const SheetNav = () => {
 			<SheetContent side={'top'}>
 				<SheetHeader className='flex flex-col items-center'>
 					<SheetTitle>
-						<Link href={'/'}>
+						<Link href={'/'} prefetch={false}>
 							<Image
 								src='/assets/logo.jpg'
 								width={100}
@@ -55,7 +55,11 @@ const SheetNav = () => {
 							key={`sheet-nav-${item.url}`}
 							onClick={handleClose}
 						>
-							<Link href={item.url} target={item.target}>
+							<Link
+								href={item.url}
+								target={item.target}
+								prefetch={false}
+							>
 								{item.name}
 							</Link>
 						</Button>

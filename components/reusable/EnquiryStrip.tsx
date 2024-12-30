@@ -39,7 +39,7 @@ const EnquiryStrip = () => {
 							className='p-8 bg-app hover:bg-app/90 hover: hover:-translate-y-1 transition-all duration-300'
 							asChild
 						>
-							<Link href={'/packages#quotation'}>
+							<Link href={'/packages#quotation'} prefetch={false}>
 								Get Free Quotation
 							</Link>
 						</Button>

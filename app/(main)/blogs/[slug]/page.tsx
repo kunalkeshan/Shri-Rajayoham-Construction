@@ -123,6 +123,7 @@ const IndividualBlogPage = async ({ params }: Props) => {
 							href={post.canonicalLink}
 							target='_blank'
 							className='hover:underline text-blue-500'
+              prefetch={false}
 						>
 							{post.canonicalLink}
 						</Link>

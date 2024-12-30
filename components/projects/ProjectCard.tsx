@@ -17,7 +17,11 @@ type ProjectCardProps = React.ComponentProps<'li'> & {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 	return (
 		<li className='block rounded-lg overflow-hidden'>
-			<Link href={`/projects/${project.slug}`} className='block relative'>
+			<Link
+				href={`/projects/${project.slug}`}
+				className='block relative'
+				prefetch={false}
+			>
 				<Image
 					src={
 						project?.coverImage

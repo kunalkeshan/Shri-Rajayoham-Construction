@@ -36,6 +36,7 @@ const Hero = () => {
 			<div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-16'>
 				{sections.map((item) => (
 					<Link
+						prefetch={false}
 						key={`project-hero-${item.id}`}
 						href={`#${item.id}`}
 						className='w-full group hover:bg-app-bg transition-all duration-300 rounded-lg shadow-md hover:shadow-lg'

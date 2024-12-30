@@ -69,13 +69,18 @@ const IndividualCareerPage = async ({ params }: Props) => {
 					</h1>
 					<p className='text-sm mt-2 text-center md:text-left text-blue-500 decoration-blue-500 font-medium'>
 						/
-						<Link href={'/careers'} className='hover:underline'>
+						<Link
+							href={'/careers'}
+							className='hover:underline'
+							prefetch={false}
+						>
 							careers
 						</Link>
 						/
 						<Link
 							href={`/careers/${career.slug}`}
 							className='hover:underline'
+							prefetch={false}
 						>
 							{career.slug}
 						</Link>
@@ -91,7 +96,11 @@ const IndividualCareerPage = async ({ params }: Props) => {
 						className='col-span-3 w-full lg:w-fit ml-auto py-6 px-8 bg-app hover:bg-app/90 transition-all duration-300 mt-8'
 						asChild
 					>
-						<Link href={career.applicationFormLink} target='_blank'>
+						<Link
+							href={career.applicationFormLink}
+							target='_blank'
+							prefetch={false}
+						>
 							Apply now
 						</Link>
 					</Button>
