@@ -130,7 +130,7 @@ const HeroCarouselItemWithImage: React.FC<HeroCarouselItemWithImageProps> = ({
 				<div
 					style={{
 						backgroundImage: `url(${
-							loaded || '/fallback/icon-grid.svg'
+							loaded || '/assets/fallback/icon-grid.svg'
 						})`,
 					}}
 					className={`flex w-full h-[calc(100vh-8.5rem)] bg-cover aspect-video bg-center bg-no-repeat items-center justify-center`}
