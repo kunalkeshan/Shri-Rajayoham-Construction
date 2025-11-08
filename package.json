@@ -2,6 +2,29 @@
 	"name": "shri-rajayoham-construction",
 	"version": "0.1.0",
 	"private": true,
+	"description": "Modern, full-stack construction company website built with Next.js 14 and Sanity CMS",
+	"author": "Kunal Keshan <kunalkeshan12@gmail.com> (https://kunalkeshan.dev)",
+	"license": "MPL-2.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kunalkeshan/Shri-Rajayoham-Construction"
+	},
+	"bugs": {
+		"url": "https://github.com/kunalkeshan/Shri-Rajayoham-Construction/issues"
+	},
+	"homepage": "https://shrirajayohamcc.com",
+	"keywords": [
+		"nextjs",
+		"construction",
+		"sanity-cms",
+		"typescript",
+		"tailwindcss",
+		"react",
+		"construction-company",
+		"cms",
+		"headless-cms",
+		"website"
+	],
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
