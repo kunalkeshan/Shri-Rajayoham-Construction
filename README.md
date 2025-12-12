@@ -8,7 +8,7 @@
   A high-performance Next.js website featuring comprehensive project showcases, service packages, blog, career opportunities, and dynamic content management through Sanity CMS.
 
   [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
-  [![Next.js](https://img.shields.io/badge/Next.js-14.0.4-black)](https://nextjs.org/)
+  [![Next.js](https://img.shields.io/badge/Next.js-14.2.35-black)](https://nextjs.org/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.3.3-blue)](https://www.typescriptlang.org/)
   [![Sanity CMS](https://img.shields.io/badge/Sanity-3.23.4-red)](https://www.sanity.io/)
 
@@ -54,7 +54,7 @@ The **Shri Rajayoham Construction Company** website is a comprehensive digital p
 This project leverages cutting-edge technologies to deliver a robust and scalable solution:
 
 #### Core Framework
-- **[Next.js 14.0.4](https://nextjs.org/)** - React framework with App Router
+- **[Next.js 14.2.35](https://nextjs.org/)** - React framework with App Router
 - **[React 18.2.0](https://react.dev/)** - UI library
 - **[TypeScript 5.3.3](https://www.typescriptlang.org/)** - Type-safe JavaScript
 
