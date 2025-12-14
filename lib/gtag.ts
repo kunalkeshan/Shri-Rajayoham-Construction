@@ -27,9 +27,18 @@ export const event = ({
 	label: string;
 	value: number;
 }) => {
-	(window as any).gtag('event', action, {
-		event_category: category,
-		event_label: label,
-		value: value,
-	});
+	if (GA_TRACKING_ID) {
+		(window as any).gtag('event', action, {
+			event_category: category,
+			event_label: label,
+			value: value,
+		});
+	}
+	if (GA_TRACKING_ID_2) {
+		(window as any).gtag('event', action, {
+			event_category: category,
+			event_label: label,
+			value: value,
+		});
+	}
 };
