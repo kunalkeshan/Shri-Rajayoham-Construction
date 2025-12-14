@@ -99,6 +99,19 @@ const Footer = () => {
 					</div>
 				</div>
 				<hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-700' />
+				<div className='mb-4 text-sm text-center text-gray-500 dark:text-gray-400'>
+					<p>
+						We improve our products and advertising by using Microsoft Clarity to see how you use our website. By using our site, you agree that we and Microsoft can collect and use this data. Our{' '}
+						<Link
+							prefetch={false}
+							href='/privacy'
+							className='underline hover:text-gray-700 dark:hover:text-gray-300'
+						>
+							privacy statement
+						</Link>{' '}
+						has more details.
+					</p>
+				</div>
 				<div className='flex items-center justify-between pb-2 text-sm text-gray-500 dark:text-gray-400'>
 					<p>
 						© 2024 - {new Date().getFullYear()} Shri Rajayoham
