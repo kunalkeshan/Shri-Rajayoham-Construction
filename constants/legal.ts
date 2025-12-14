@@ -70,6 +70,13 @@ export const SRCC_PRIVACY_POLICY: PrivacyPolicyData = [
 		],
 	},
 	{
+		title: 'Analytics and Tracking',
+		descriptions: [
+			'We partner with Microsoft Clarity and Microsoft Advertising to capture how you use and interact with our website through behavioral metrics, heatmaps, and session replay to improve and market our products/services. Website usage data is captured using first and third-party cookies and other tracking technologies to determine the popularity of products/services and online activity. Additionally, we use this information for site optimization, fraud/security purposes, and advertising. For more information about how Microsoft collects and uses your data, visit the Microsoft Privacy Statement at https://www.microsoft.com/privacy/privacystatement.',
+			'We also use Google Analytics to analyze the use of our website. Google Analytics gathers information about website use by means of cookies. The information gathered relating to our website is used to create reports about the use of our website. Google\'s privacy policy is available at https://www.google.com/policies/privacy/.',
+		],
+	},
+	{
 		title: 'How We Protect Your Information',
 		descriptions: [
 			'We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information, username, password, transaction information, and data stored on our site.',
