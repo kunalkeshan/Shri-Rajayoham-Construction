@@ -1,9 +1,13 @@
-import { SRCC_GA_TRACKING_ID } from '@/constants/srcc';
+import { SRCC_GA_TRACKING_ID, SRCC_GA_TRACKING_ID_2 } from '@/constants/srcc';
 
 export const GA_TRACKING_ID: string | undefined = SRCC_GA_TRACKING_ID;
+export const GA_TRACKING_ID_2: string | undefined = SRCC_GA_TRACKING_ID_2;
 
 export const pageview = (url: string) => {
 	(window as any).gtag('config', GA_TRACKING_ID, {
+		page_path: url,
+	});
+	(window as any).gtag('config', GA_TRACKING_ID_2, {
 		page_path: url,
 	});
 };
