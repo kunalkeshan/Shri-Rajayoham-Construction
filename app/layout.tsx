@@ -4,6 +4,7 @@ import { Palanquin } from 'next/font/google';
 import { generateDefaultMetadata } from '@/lib/helper';
 import './globals.css';
 import GoogleAnalytics from '@/components/reusable/GoogleAnalytics';
+import MicrosoftClarity from '@/components/analytics/clarity';
 
 const palanquin = Palanquin({
 	subsets: ['latin'],
@@ -22,6 +23,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<GoogleAnalytics />
+			<MicrosoftClarity />
 			<body className={palanquin.className}>{children}</body>
 		</html>
 	);
