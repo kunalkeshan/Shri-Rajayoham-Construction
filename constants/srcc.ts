@@ -29,7 +29,7 @@ export const SRCC_WEBSITE_URL =
 		: ('https://shrirajayohamcc.com' as const);
 
 export const SRCC_GA_TRACKING_ID = 'G-EZ0LTX6W1K' as const;
-export const SRCC_GA_TRACKING_ID_2 = 'G-5BJJ1SDBQ' as const;
+export const SRCC_GA_TRACKING_ID_2 = 'G-5BJJ1SDBQ7' as const;
 
 export const SRCC_SOCIALS: Array<SocialLinks> = [
 	{
