@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
-import { SRCC_GA_TRACKING_ID } from '@/constants/srcc';
+import { SRCC_GA_TRACKING_ID, SRCC_GA_TRACKING_ID_2 } from '@/constants/srcc';
 import { pageview } from '@/lib/gtag';
 
 const GoogleAnalytics = () => {
@@ -28,6 +28,9 @@ const GoogleAnalytics = () => {
                       function gtag(){dataLayer.push(arguments);}
                       gtag('js', new Date());
                       gtag('config', '${SRCC_GA_TRACKING_ID}', {
+                      page_path: window.location.pathname,
+                      });
+                      gtag('config', '${SRCC_GA_TRACKING_ID_2}', {
                       page_path: window.location.pathname,
                       });
                     `,
