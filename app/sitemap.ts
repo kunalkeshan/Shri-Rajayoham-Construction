@@ -4,7 +4,11 @@ import { queries } from '@/sanity/queries';
 import { MetadataRoute } from 'next';
 import { SRCC_WEBSITE_URL } from '@/constants/srcc';
 
-type Params = { params: { slug: string } };
+type Params = { 
+	params: { slug: string }; 
+	_createdAt?: string; 
+	_updatedAt?: string; 
+};
 
 /**
  * Default sitemaps for the website.
@@ -78,7 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		const careersSitemap = careers.map((event) => {
 			return {
 				url: `${SRCC_WEBSITE_URL}/careers/${event.params.slug}`,
-				lastModified: new Date(),
+				lastModified: event._updatedAt ? new Date(event._updatedAt) : new Date(),
 				changeFrequency: 'monthly',
 				priority: 0.7,
 			};
@@ -89,7 +93,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		const packagesSitemap = packages.map((recruitment) => {
 			return {
 				url: `${SRCC_WEBSITE_URL}/packages/${recruitment.params.slug}`,
-				lastModified: new Date(),
+				lastModified: recruitment._updatedAt ? new Date(recruitment._updatedAt) : new Date(),
 				changeFrequency: 'monthly',
 				priority: 0.8,
 			};
@@ -98,7 +102,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		const postsSitemap = posts.map((post) => {
 			return {
 				url: `${SRCC_WEBSITE_URL}/blogs/${post.params.slug}`,
-				lastModified: new Date(),
+				lastModified: post._updatedAt ? new Date(post._updatedAt) : new Date(),
 				changeFrequency: 'monthly',
 				priority: 0.8,
 			};
@@ -109,7 +113,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		const projectsSitemap = projects.map((member) => {
 			return {
 				url: `${SRCC_WEBSITE_URL}/projects/${member.params.slug}`,
-				lastModified: new Date(),
+				lastModified: member._updatedAt ? new Date(member._updatedAt) : new Date(),
 				changeFrequency: 'monthly',
 				priority: 0.7,
 			};
