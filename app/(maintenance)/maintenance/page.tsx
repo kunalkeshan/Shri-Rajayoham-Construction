@@ -18,7 +18,7 @@ export default function MaintenancePage() {
 	return (
 		<section className="min-h-screen flex flex-col lg:flex-row lg:gap-8">
 			{/* Left Side - Maintenance Image (Desktop/Tablet only, 40%) */}
-			<div className="hidden lg:flex lg:w-2/5 items-center justify-center bg-muted/30 py-12 px-8 lg:pr-4">
+			<div className="hidden lg:flex lg:w-2/5 items-center justify-center bg-muted py-12 px-8 lg:pr-4">
 				<div className="w-full h-full flex items-center justify-center">
 					<Image
 						src="/assets/maintenance.png"
