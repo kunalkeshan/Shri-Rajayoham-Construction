@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server';
 /**
  * Middleware to handle maintenance mode redirects.
  * When NEXT_PUBLIC_MAINTENANCE_MODE is set to 'true', all routes except
- * /maintenance, /sitemap.xml, /robots.txt, and /studio/* will redirect to /maintenance.
+ * /maintenance, /sitemap.xml, /robots.txt, /studio/*, and /assets/* will redirect to /maintenance.
  */
 export function middleware(request: NextRequest) {
 	const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
@@ -27,9 +27,10 @@ export function middleware(request: NextRequest) {
 	// Check if the path is allowed
 	const isAllowedPath = allowedPaths.some(path => pathname === path);
 	const isStudioPath = pathname.startsWith('/studio');
+	const isAssetsPath = pathname.startsWith('/assets');
 
 	// If already on maintenance page or an allowed path, don't redirect
-	if (isAllowedPath || isStudioPath) {
+	if (isAllowedPath || isStudioPath || isAssetsPath) {
 		return NextResponse.next();
 	}
 
@@ -47,11 +48,12 @@ export const config = {
 		/*
 		 * Match all request paths except for the ones starting with:
 		 * - api (API routes)
+		 * - assets (static assets)
 		 * - _next/static (static files)
 		 * - _next/image (image optimization files)
 		 * - favicon.ico, icon.jpg, apple-icon.jpg (favicon files)
 		 * - opengraph-image.jpg, twitter-image.jpg (social media images)
 		 */
-		'/((?!api|_next/static|_next/image|favicon.ico|icon.jpg|apple-icon.jpg|opengraph-image.jpg|twitter-image.jpg).*)',
+		'/((?!api|assets|_next/static|_next/image|favicon.ico|icon.jpg|apple-icon.jpg|opengraph-image.jpg|twitter-image.jpg).*)',
 	],
 };
