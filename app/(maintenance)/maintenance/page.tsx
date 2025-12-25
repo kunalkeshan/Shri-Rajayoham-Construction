@@ -1,7 +1,6 @@
 // Dependencies
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { SRCC_EMAIL, SRCC_MOBILE } from '@/constants/srcc';
 
 export const metadata: Metadata = {
@@ -36,7 +35,7 @@ export default function MaintenancePage() {
 				<div className="w-full max-w-2xl">
 					{/* Logo */}
 					<div className="flex justify-center lg:justify-start mb-8">
-						<Link href="/" className="w-24 h-24 rounded-full overflow-hidden">
+						<div className="w-24 h-24 rounded-full overflow-hidden">
 							<Image
 								src="/assets/logo.jpg"
 								alt="Shri Rajayoham Construction Company"
@@ -45,7 +44,7 @@ export default function MaintenancePage() {
 								className="w-full h-full object-cover"
 								priority
 							/>
-						</Link>
+						</div>
 					</div>
 
 					{/* Heading */}
