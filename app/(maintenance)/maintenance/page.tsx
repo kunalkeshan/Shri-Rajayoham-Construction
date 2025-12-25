@@ -16,10 +16,26 @@ export const metadata: Metadata = {
 
 export default function MaintenancePage() {
 	return (
-		<section className="py-24 relative">
-			<div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-				<div className="w-full flex-col justify-start items-center lg:gap-12 gap-8 inline-flex">
-					<div className="w-full flex-col justify-start items-center lg:gap-12 gap-10 flex">
+		<section className="min-h-screen flex flex-col lg:flex-row">
+			{/* Left Side - Maintenance Image (Desktop/Tablet only, 40%) */}
+			<div className="hidden lg:flex lg:w-2/5 items-center justify-center bg-muted/30 p-8">
+				<div className="w-full max-w-lg">
+					<Image
+						src="/assets/maintenance.png"
+						alt="Under Maintenance"
+						width={800}
+						height={600}
+						className="w-full h-auto object-contain"
+						priority
+					/>
+				</div>
+			</div>
+
+			{/* Right Side - Content (60%) */}
+			<div className="flex-1 lg:w-3/5 flex items-center justify-center p-6 md:p-12 lg:p-16">
+				<div className="w-full max-w-2xl">
+					{/* Logo */}
+					<div className="flex justify-center lg:justify-start mb-8">
 						<Link href="/" className="w-24 h-24 rounded-full overflow-hidden">
 							<Image
 								src="/assets/logo.jpg"
@@ -30,45 +46,52 @@ export default function MaintenancePage() {
 								priority
 							/>
 						</Link>
-						<div className="w-full flex-col justify-start items-center gap-4 flex">
-							<h2 className="text-center text-foreground text-3xl font-bold font-manrope leading-normal">
-								Site Maintenance in Progress
-							</h2>
-							<p className="max-w-3xl text-center text-muted-foreground text-base font-normal leading-relaxed">
-								Our website is currently undergoing scheduled maintenance to
-								serve you better. Just like we build quality structures,
-								we&apos;re improving our digital presence. We apologize for any
-								inconvenience and will be back online shortly.
-							</p>
-						</div>
 					</div>
-					<div className="w-full max-w-2xl mx-auto">
+
+					{/* Heading */}
+					<h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center lg:text-left">
+						Site Maintenance in Progress
+					</h1>
+
+					{/* Description */}
+					<p className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed text-center lg:text-left">
+						Our website is currently undergoing scheduled maintenance to serve
+						you better. Just like we build quality structures, we&apos;re
+						improving our digital presence. We apologize for any inconvenience
+						and will be back online shortly.
+					</p>
+
+					{/* Mobile Image */}
+					<div className="lg:hidden w-full max-w-md mx-auto mb-8">
 						<Image
 							src="/assets/maintenance.png"
 							alt="Under Maintenance"
 							width={800}
 							height={600}
-							className="w-full h-auto object-cover"
+							className="w-full h-auto object-contain"
 							priority
 						/>
 					</div>
-					<div className="max-w-2xl text-center">
-						<p className="text-muted-foreground text-base font-normal leading-relaxed mb-4">
+
+					{/* Contact Information */}
+					<div className="border-t border-border pt-8">
+						<p className="text-muted-foreground text-base mb-4 text-center lg:text-left">
 							For urgent construction inquiries or to discuss your upcoming
 							projects, please don&apos;t hesitate to contact us directly using
 							the details below.
 						</p>
-						<div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
+
+						<div className="flex flex-col sm:flex-row gap-3 sm:gap-6 items-center lg:items-start lg:justify-start justify-center">
 							<a
 								href={`mailto:${SRCC_EMAIL}`}
-								className="text-primary hover:underline font-medium"
+								className="text-primary hover:underline font-medium text-sm md:text-base"
 							>
 								Email: {SRCC_EMAIL}
 							</a>
 							<span className="hidden sm:inline text-muted-foreground">|</span>
 							<a
 								href={`tel:${SRCC_MOBILE}`}
-								className="text-primary hover:underline font-medium"
+								className="text-primary hover:underline font-medium text-sm md:text-base"
 							>
 								Phone: {SRCC_MOBILE}
 							</a>
