@@ -16,23 +16,23 @@ export const metadata: Metadata = {
 
 export default function MaintenancePage() {
 	return (
-		<section className="min-h-screen flex flex-col lg:flex-row">
+		<section className="min-h-screen flex flex-col lg:flex-row lg:gap-8">
 			{/* Left Side - Maintenance Image (Desktop/Tablet only, 40%) */}
-			<div className="hidden lg:flex lg:w-2/5 items-center justify-center bg-muted/30 p-8">
-				<div className="w-full max-w-lg">
+			<div className="hidden lg:flex lg:w-2/5 items-center justify-center bg-muted/30 py-12 px-8 lg:pr-4">
+				<div className="w-full h-full flex items-center justify-center">
 					<Image
 						src="/assets/maintenance.png"
 						alt="Under Maintenance"
 						width={800}
 						height={600}
-						className="w-full h-auto object-contain"
+						className="w-full h-auto max-h-[600px] object-contain"
 						priority
 					/>
 				</div>
 			</div>
 
 			{/* Right Side - Content (60%) */}
-			<div className="flex-1 lg:w-3/5 flex items-center justify-center p-6 md:p-12 lg:p-16">
+			<div className="flex-1 lg:w-3/5 flex items-center justify-center p-6 md:p-12 lg:py-12 lg:pl-4 lg:pr-16">
 				<div className="w-full max-w-2xl">
 					{/* Logo */}
 					<div className="flex justify-center lg:justify-start mb-8">
