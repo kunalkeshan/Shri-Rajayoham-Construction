@@ -6,9 +6,13 @@ import type { NextRequest } from 'next/server';
  * Middleware to handle maintenance mode redirects.
  * When NEXT_PUBLIC_MAINTENANCE_MODE is set to 'true', all routes except
  * /maintenance, /sitemap.xml, /robots.txt, and /studio/* will redirect to /maintenance.
- * Note: /assets/* paths are excluded via the matcher config below.
+ * Note: /assets/* is excluded via the matcher configuration below, not through middleware logic.
  */
 export function middleware(request: NextRequest) {
+	// NOTE: In Next.js middleware (Edge Runtime), NEXT_PUBLIC_* env vars are inlined at build time.
+	// Changing NEXT_PUBLIC_MAINTENANCE_MODE in the runtime environment will NOT take effect
+	// until the application is rebuilt and redeployed. For runtime-togglable maintenance mode,
+	// consider using a dynamic source (e.g., database flag or API) instead of a NEXT_PUBLIC_* env var.
 	const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
 
 	// If not in maintenance mode, proceed normally
