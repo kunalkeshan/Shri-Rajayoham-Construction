@@ -5,7 +5,8 @@ import type { NextRequest } from 'next/server';
 /**
  * Middleware to handle maintenance mode redirects.
  * When NEXT_PUBLIC_MAINTENANCE_MODE is set to 'true', all routes except
- * /maintenance, /sitemap.xml, /robots.txt, /studio/*, and /assets/* will redirect to /maintenance.
+ * /maintenance, /sitemap.xml, /robots.txt, and /studio/* will redirect to /maintenance.
+ * Note: /assets/* paths are excluded via the matcher config below.
  */
 export function middleware(request: NextRequest) {
 	const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
@@ -27,10 +28,9 @@ export function middleware(request: NextRequest) {
 	// Check if the path is allowed
 	const isAllowedPath = allowedPaths.some(path => pathname === path);
 	const isStudioPath = pathname.startsWith('/studio');
-	const isAssetsPath = pathname.startsWith('/assets');
 
 	// If already on maintenance page or an allowed path, don't redirect
-	if (isAllowedPath || isStudioPath || isAssetsPath) {
+	if (isAllowedPath || isStudioPath) {
 		return NextResponse.next();
 	}
 
