@@ -5,15 +5,12 @@
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [Environment Variables](#environment-variables)
-- [Deployment Platforms](#deployment-platforms)
-  - [Vercel (Recommended)](#vercel-recommended)
-  - [Netlify](#netlify)
-  - [Self-Hosted](#self-hosted)
+- [Deployment Options](#deployment-options)
+  - [Vercel (Recommended - Cloud)](#vercel-recommended---cloud)
+  - [Docker Compose (Self-Hosted)](#docker-compose-self-hosted)
+  - [VM Deployment (Self-Hosted)](#vm-deployment-self-hosted)
 - [Post-Deployment Configuration](#post-deployment-configuration)
 - [Monitoring & Analytics](#monitoring--analytics)
-- [Troubleshooting](#troubleshooting)
-- [Performance Optimization](#performance-optimization)
-- [Continuous Deployment](#continuous-deployment)
 
 ---
 
@@ -75,9 +72,9 @@ NODE_ENV=production
 
 ---
 
-## Deployment Platforms
+## Deployment Options
 
-### Vercel (Recommended)
+### Vercel (Recommended - Cloud)
 
 Vercel is the creator of Next.js and provides the best deployment experience.
 
@@ -170,212 +167,288 @@ vercel env add NEXT_PUBLIC_SANITY_PROJECT_ID
 
 ---
 
-### Netlify
+### Docker Compose (Self-Hosted)
 
-Alternative to Vercel with similar features.
-
-#### Step 1: Create Netlify Account
-
-1. Go to [netlify.com](https://www.netlify.com/)
-2. Sign up with GitHub
-
-#### Step 2: Import Repository
-
-1. Click **"Add new site"** → **"Import an existing project"**
-2. Select GitHub and authorize
-3. Choose **Shri-Rajayoham-Construction** repository
-
-#### Step 3: Build Settings
-
-```
-Build command: pnpm build
-Publish directory: .next
-```
-
-#### Step 4: Environment Variables
-
-Add in **Site settings** → **Build & deploy** → **Environment**:
-
-```
-NEXT_PUBLIC_SANITY_PROJECT_ID
-NEXT_PUBLIC_SANITY_DATASET
-NODEMAILER_EMAIL
-NODEMAILER_PASSWORD
-```
-
-#### Step 5: Deploy
-
-1. Click **"Deploy site"**
-2. Access at: `https://random-name.netlify.app`
-
-**Note:** Netlify requires additional configuration for Next.js middleware and API routes. Vercel is recommended.
-
----
-
-### Self-Hosted
-
-For deployment on your own server.
+Deploy using Docker and Docker Compose for containerized deployment.
 
 #### Prerequisites
 
-- **Node.js 18+** installed
-- **pnpm** package manager
-- **Nginx** or **Apache** web server
-- **PM2** for process management
-- **SSL certificate** (Let's Encrypt)
+- **Docker** installed ([install](https://docs.docker.com/get-docker/))
+- **Docker Compose** installed ([install](https://docs.docker.com/compose/install/))
+- Source code cloned locally or on your server
 
-#### Step 1: Server Setup
+#### Step 1: Clone Repository
 
 ```bash
-# Update system
-sudo apt update && sudo apt upgrade -y
-
-# Install Node.js 18
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt install -y nodejs
-
-# Install pnpm
-npm install -g pnpm
-
-# Install PM2
-npm install -g pm2
-```
-
-#### Step 2: Clone Repository
-
-```bash
-cd /var/www
 git clone https://github.com/kunalkeshan/Shri-Rajayoham-Construction.git
 cd Shri-Rajayoham-Construction
 ```
 
-#### Step 3: Environment Setup
+#### Step 2: Create Environment File
 
 ```bash
-# Create .env.local
+# Copy and edit environment variables
+cp .env.sample .env.local
 nano .env.local
+```
 
-# Add environment variables
-NEXT_PUBLIC_SANITY_PROJECT_ID=your_id
+Add your environment variables:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
 NODEMAILER_EMAIL=your_email@gmail.com
-NODEMAILER_PASSWORD=your_password
+NODEMAILER_PASSWORD=your_app_specific_password
 ```
 
-#### Step 4: Build & Start
+#### Step 3: Build Docker Image
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Build production
-pnpm build
-
-# Start with PM2
-pm2 start npm --name "srcc-website" -- start
-
-# Save PM2 configuration
-pm2 save
-
-# Setup PM2 startup script
-pm2 startup
+# Build the Docker image (this runs the multi-stage build)
+docker-compose build
 ```
 
-#### Step 5: Nginx Configuration
+This will:
+1. Install dependencies (pnpm-lock.yaml)
+2. Build the Next.js application
+3. Create an optimized production image
 
-```nginx
-# /etc/nginx/sites-available/shrirajayohamcc.com
-
-server {
-    listen 80;
-    server_name shrirajayohamcc.com www.shrirajayohamcc.com;
-
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
+#### Step 4: Run the Application
 
 ```bash
-# Enable site
-sudo ln -s /etc/nginx/sites-available/shrirajayohamcc.com /etc/nginx/sites-enabled/
-
-# Test configuration
-sudo nginx -t
-
-# Restart Nginx
-sudo systemctl restart nginx
+# Start the container
+docker-compose up -d
 ```
 
-#### Step 6: SSL with Let's Encrypt
+The application will be available at `http://localhost:3000`
+
+#### Step 5: Verify Deployment
 
 ```bash
-# Install Certbot
-sudo apt install certbot python3-certbot-nginx
+# Check container status
+docker-compose ps
 
-# Get certificate
-sudo certbot --nginx -d shrirajayohamcc.com -d www.shrirajayohamcc.com
+# View logs
+docker-compose logs -f app
 
-# Auto-renewal is configured automatically
+# Test the application
+curl http://localhost:3000
+```
+
+#### Managing the Container
+
+```bash
+# Stop the application
+docker-compose down
+
+# Restart the application
+docker-compose restart
+
+# View logs
+docker-compose logs -f
+
+# Rebuild and restart after code changes
+docker-compose up -d --build
+```
+
+#### Environment Variables in Docker Compose
+
+The `docker-compose.yml` file automatically loads variables from `.env.local`:
+
+```yaml
+environment:
+  - NEXT_PUBLIC_SANITY_PROJECT_ID=${NEXT_PUBLIC_SANITY_PROJECT_ID}
+  - NEXT_PUBLIC_SANITY_DATASET=${NEXT_PUBLIC_SANITY_DATASET}
+  - NODEMAILER_EMAIL=${NODEMAILER_EMAIL}
+  - NODEMAILER_PASSWORD=${NODEMAILER_PASSWORD}
+```
+
+Make sure all required variables are set in `.env.local` before running `docker-compose up`.
+
+---
+
+### VM Deployment (Self-Hosted)
+
+Deploy on a Virtual Machine (AWS EC2, Google Cloud Compute Engine, or any Linux VM).
+
+#### Prerequisites
+
+- **Linux VM** with SSH access (Ubuntu 20.04 LTS or newer recommended)
+- **Docker** and **Docker Compose** installed on the VM
+- **Git** for cloning the repository
+
+#### Step 1: Connect to Your VM
+
+```bash
+# SSH into your VM (example for EC2)
+ssh -i your-key.pem ubuntu@your-vm-ip
+
+# Update system packages
+sudo apt update && sudo apt upgrade -y
+```
+
+#### Step 2: Install Docker and Docker Compose
+
+```bash
+# Install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# Add user to docker group (optional, for running without sudo)
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Install Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Verify installation
+docker --version
+docker-compose --version
+```
+
+#### Step 3: Clone and Setup Project
+
+```bash
+# Create application directory
+sudo mkdir -p /opt/srcc
+cd /opt/srcc
+
+# Clone the repository
+sudo git clone https://github.com/kunalkeshan/Shri-Rajayoham-Construction.git .
+
+# Create environment file
+sudo nano .env.local
+```
+
+Add your environment variables:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+NODEMAILER_EMAIL=your_email@gmail.com
+NODEMAILER_PASSWORD=your_app_specific_password
+```
+
+#### Step 4: Build and Deploy
+
+```bash
+# Navigate to project directory
+cd /opt/srcc
+
+# Build the Docker image
+sudo docker-compose build
+
+# Start the application
+sudo docker-compose up -d
+
+# Verify the application is running
+sudo docker-compose ps
+```
+
+#### Step 5: Verify Deployment
+
+```bash
+# Check if application is responding
+curl http://localhost:3000
+
+# View logs
+sudo docker-compose logs -f app
+
+# Check container health
+sudo docker-compose ps
 ```
 
 #### Updating the Deployment
 
 ```bash
-cd /var/www/Shri-Rajayoham-Construction
-git pull origin main
-pnpm install
-pnpm build
-pm2 restart srcc-website
+# Pull latest code
+cd /opt/srcc
+sudo git pull origin main
+
+# Rebuild and restart
+sudo docker-compose up -d --build
+
+# View logs to verify
+sudo docker-compose logs -f app
+```
+
+#### Auto-Restart on VM Reboot
+
+To ensure the application restarts automatically when the VM reboots:
+
+```bash
+# Enable Docker to start on boot
+sudo systemctl enable docker
+
+# Add a restart policy in docker-compose.yml (already configured)
+# The compose file includes: restart: unless-stopped
+```
+
+#### Managing the Application
+
+```bash
+# Stop the application
+sudo docker-compose down
+
+# Restart the application
+sudo docker-compose restart app
+
+# View real-time logs
+sudo docker-compose logs -f app
+
+# Check resource usage
+docker stats
 ```
 
 ---
 
 ## Post-Deployment Configuration
 
-### 1. Verify Environment Variables
+### 1. Update Sanity CORS Settings
 
-Test that all environment variables are set correctly:
-
-```bash
-# Check build logs for any warnings
-# Verify Sanity CMS connection
-# Test contact forms
-# Check email delivery
-```
-
-### 2. Update Sanity CORS Settings
+After deploying to your production domain:
 
 1. Go to [Sanity Manage](https://www.sanity.io/manage)
 2. Select your project
 3. Go to **Settings** → **API**
-4. Add your production URL:
+4. Add your production URLs to CORS Origins:
    ```
-   https://shrirajayohamcc.com
-   https://www.shrirajayohamcc.com
+   https://yourdomain.com
+   https://www.yourdomain.com
+   http://localhost:3000 (for development)
    ```
 
-### 3. Configure Domain
+### 2. Test the Deployment
 
-If using a custom domain:
+```bash
+# Test homepage loads
+curl https://yourdomain.com
 
-1. **DNS Configuration:** Point to deployment platform
-2. **SSL Certificate:** Auto-configured on Vercel/Netlify
-3. **Redirects:** Set up www → non-www or vice versa
+# Verify Sanity content loads
+curl https://yourdomain.com/projects
+
+# Test contact form
+# Visit https://yourdomain.com/contact and submit a test form
+```
+
+### 3. Verify Environment Variables (Docker)
+
+For Docker deployments, verify variables are properly loaded:
+
+```bash
+# Check container environment (from host)
+docker-compose exec app env | grep NEXT_PUBLIC
+
+# View container logs
+docker-compose logs app
+```
 
 ### 4. Set Up Monitoring
 
-- **Vercel Analytics:** Enabled by default
-- **Google Analytics:** Already configured in code
-- **Uptime Monitoring:** Consider UptimeRobot or StatusCake
+- **Google Analytics:** Already configured in code - verify tracking in real-time
+- **Docker Logs:** Monitor container logs: `docker-compose logs -f app`
+- **Health Checks:** Docker Compose includes health checks - verify with `docker-compose ps`
 
 ---
 
@@ -383,201 +456,37 @@ If using a custom domain:
 
 ### Google Analytics
 
-The site already includes GA4 tracking:
+The site includes GA4 tracking configured in the code. To verify:
 
-```typescript
-// components/reusable/GoogleAnalytics.tsx
-export const GA_TRACKING_ID = 'G-EZ0LTX6W1K';
-```
-
-**Verify Setup:**
 1. Go to [Google Analytics](https://analytics.google.com/)
-2. Check Real-Time reports
-3. Visit your deployed site
-4. Confirm page views are tracked
+2. Check **Real-Time** reports after deployment
+3. Visit your deployed site and verify page views appear
 
-### Vercel Speed Insights
+### Docker Container Monitoring
 
-Already integrated:
-
-```typescript
-// app/layout.tsx
-import { SpeedInsights } from '@vercel/speed-insights/next';
-
-export default function RootLayout({ children }) {
-  return (
-    <>
-      {children}
-      <SpeedInsights />
-    </>
-  );
-}
-```
-
-**Access Insights:**
-1. Vercel Dashboard → Your Project
-2. Click **"Analytics"** tab
-3. View Core Web Vitals
-
-### Error Tracking
-
-Consider integrating **Sentry** for error monitoring:
+Monitor your Docker deployment:
 
 ```bash
-npm install @sentry/nextjs
+# View real-time logs
+docker-compose logs -f app
+
+# Check container health status
+docker-compose ps
+
+# Monitor resource usage (CPU, memory)
+docker stats
+
+# Check for errors or warnings in logs
+docker-compose logs app | grep -i error
 ```
 
----
+### Vercel Deployment Monitoring
 
-## Troubleshooting
+If using Vercel, monitoring is included:
 
-### Build Failures
-
-**Problem:** Build fails with TypeScript errors
-
-**Solution:**
-```bash
-# Run type check locally
-pnpm tsc --noEmit
-
-# Fix any type errors before deploying
-```
-
----
-
-**Problem:** Build fails with missing environment variables
-
-**Solution:**
-- Verify all required env vars are set in deployment platform
-- Check for typos in variable names
-- Ensure `NEXT_PUBLIC_*` prefix for client-side variables
-
----
-
-### Runtime Errors
-
-**Problem:** 500 error on contact form submission
-
-**Solution:**
-- Check `NODEMAILER_EMAIL` and `NODEMAILER_PASSWORD` are set correctly
-- Verify Gmail app password is valid
-- Check server logs for specific error
-
----
-
-**Problem:** Sanity content not loading
-
-**Solution:**
-- Verify `NEXT_PUBLIC_SANITY_PROJECT_ID` is correct
-- Check Sanity project is not paused
-- Verify CORS settings in Sanity dashboard
-
----
-
-### Performance Issues
-
-**Problem:** Slow page loads
-
-**Solution:**
-- Enable ISR revalidation (already set to 60s)
-- Check image optimization is working
-- Verify CDN is caching assets
-- Review Vercel Analytics for bottlenecks
-
----
-
-## Performance Optimization
-
-### Caching Headers
-
-Vercel automatically sets optimal caching headers:
-
-```
-Cache-Control: public, max-age=0, must-revalidate (HTML)
-Cache-Control: public, max-age=31536000, immutable (Static assets)
-```
-
-### Image Optimization
-
-Next.js Image component automatically optimizes:
-
-- WebP format conversion
-- Responsive sizing
-- Lazy loading
-- Blur placeholder
-
-### CDN Configuration
-
-**Vercel Edge Network:**
-- Automatic global CDN
-- 70+ edge locations worldwide
-- Automatic cache invalidation on deploy
-
----
-
-## Continuous Deployment
-
-### Automatic Deployments
-
-**Production (main branch):**
-```
-git push origin main
-→ Triggers production deployment
-```
-
-**Preview (feature branches):**
-```
-git push origin feature/new-feature
-→ Creates preview deployment
-```
-
-### Deployment Protection
-
-**Enable Branch Protection:**
-
-1. GitHub → Settings → Branches
-2. Add rule for `main`
-3. Enable:
-   - Require pull request reviews
-   - Require status checks to pass
-   - Require branches to be up to date
-
-### Deployment Workflow
-
-```
-1. Create feature branch
-2. Make changes
-3. Push to GitHub
-4. Vercel creates preview deployment
-5. Review preview URL
-6. Merge to main
-7. Auto-deploy to production
-```
-
----
-
-## Rollback Strategy
-
-### Vercel Rollback
-
-1. Vercel Dashboard → Deployments
-2. Find previous successful deployment
-3. Click **"..."** → **"Promote to Production"**
-4. Confirm rollback
-
-### Self-Hosted Rollback
-
-```bash
-# Tag releases
-git tag -a v1.0.0 -m "Release v1.0.0"
-git push origin v1.0.0
-
-# Rollback to tag
-git checkout v1.0.0
-pnpm install
-pnpm build
-pm2 restart srcc-website
-```
+1. Go to your Vercel project dashboard
+2. Check **Analytics** tab for performance metrics
+3. Review build logs for any warnings
 
 ---
 
@@ -585,31 +494,14 @@ pm2 restart srcc-website
 
 Before going live:
 
-- [ ] All environment variables are secure
-- [ ] HTTPS is enabled
+- [ ] All environment variables are secure in `.env.local`
+- [ ] Docker image uses non-root user (nextjs:nodejs)
 - [ ] Sanity CORS is configured for production domain
-- [ ] Gmail app password is unique
-- [ ] No secrets in git history
-- [ ] Rate limiting is working
-- [ ] Input validation is enabled
-- [ ] Security headers are set (Vercel does this automatically)
+- [ ] Gmail app password is unique and secure
+- [ ] No secrets committed to git
+- [ ] Rate limiting is working on contact forms
+- [ ] Environment variables not exposed in Docker logs
 
 ---
 
-## Support
-
-For deployment issues:
-
-- **Vercel Support:** [vercel.com/support](https://vercel.com/support)
-- **GitHub Issues:** [Report deployment issues](https://github.com/kunalkeshan/Shri-Rajayoham-Construction/issues)
-- **Documentation:** See [TROUBLESHOOTING.md](../TROUBLESHOOTING.md)
-
----
-
-**Last Updated:** November 2024
-
-**Next Steps:**
-- Set up custom domain
-- Configure monitoring
-- Test all features in production
-- Monitor performance metrics
+**Last Updated:** December 2024
