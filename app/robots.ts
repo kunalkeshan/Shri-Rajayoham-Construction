@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
 		rules: {
 			userAgent: '*',
 			allow: '/',
-			disallow: ['/api/', '/studio/'],
+			disallow: ['/api/', '/studio/', '/maintenance'],
 		},
 		sitemap: `${SRCC_WEBSITE_URL}/sitemap.xml`,
 	};
