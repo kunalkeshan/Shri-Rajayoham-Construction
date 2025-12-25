@@ -8,6 +8,10 @@ import type { NextRequest } from 'next/server';
  * /maintenance, /sitemap.xml, /robots.txt, /studio/*, and /assets/* will redirect to /maintenance.
  */
 export function middleware(request: NextRequest) {
+	// NOTE: In Next.js middleware (Edge Runtime), NEXT_PUBLIC_* env vars are inlined at build time.
+	// Changing NEXT_PUBLIC_MAINTENANCE_MODE in the runtime environment will NOT take effect
+	// until the application is rebuilt and redeployed. For runtime-togglable maintenance mode,
+	// consider using a dynamic source (e.g., database flag or API) instead of a NEXT_PUBLIC_* env var.
 	const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
 
 	// If not in maintenance mode, proceed normally
