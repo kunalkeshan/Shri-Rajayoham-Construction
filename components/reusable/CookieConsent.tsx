@@ -40,6 +40,10 @@ const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
   ) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [hide, setHide] = React.useState(false);
+    const acceptButtonClasses =
+      "flex-1 bg-app hover:bg-app/90 transition-all duration-300";
+    const declineButtonClasses =
+      "flex-1 bg-app-bg text-slate-800 hover:bg-app-bg/80 transition-all duration-300";
 
     const handleAccept = React.useCallback(() => {
       setIsOpen(false);
@@ -119,11 +123,11 @@ const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
               <Button
                 onClick={handleDecline}
                 variant="secondary"
-                className="flex-1"
+                className={declineButtonClasses}
               >
                 Decline
               </Button>
-              <Button onClick={handleAccept} className="flex-1">
+              <Button onClick={handleAccept} className={acceptButtonClasses}>
                 Accept
               </Button>
             </CardFooter>
@@ -150,14 +154,14 @@ const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
                 onClick={handleDecline}
                 variant="secondary"
                 size="sm"
-                className="flex-1 rounded-full"
+                className={`${declineButtonClasses} rounded-full`}
               >
                 Decline
               </Button>
               <Button
                 onClick={handleAccept}
                 size="sm"
-                className="flex-1 rounded-full"
+                className={`${acceptButtonClasses} rounded-full`}
               >
                 Accept
               </Button>
@@ -180,7 +184,7 @@ const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
                   onClick={handleDecline}
                   size="sm"
                   variant="secondary"
-                  className="text-xs h-7"
+                  className={`${declineButtonClasses} text-xs h-7`}
                 >
                   Decline
                   <span className="sr-only sm:hidden">Decline</span>
@@ -188,7 +192,7 @@ const CookieConsent = React.forwardRef<HTMLDivElement, CookieConsentProps>(
                 <Button
                   onClick={handleAccept}
                   size="sm"
-                  className="text-xs h-7"
+                  className={`${acceptButtonClasses} text-xs h-7`}
                 >
                   Accept
                   <span className="sr-only sm:hidden">Accept</span>
