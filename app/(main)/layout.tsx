@@ -9,6 +9,7 @@ import QueryDialog from '@/components/reusable/QueryDialog';
 import { generateDefaultMetadata } from '@/lib/helper';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import WhatsAppCTA from '@/components/reusable/WhatsAppCTA';
+import CookieConsent from '@/components/reusable/CookieConsent';
 
 export const metadata: Metadata = {
 	...generateDefaultMetadata(),
@@ -29,6 +30,7 @@ export default function RootLayout({
 					<Toaster />
 					<QueryDialog />
 					<WhatsAppCTA />
+					<CookieConsent />
 				</TooltipProvider>
 			</QueryModalProvider>
 			<SpeedInsights />
